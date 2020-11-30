@@ -31,8 +31,8 @@ class RedBlackTreeTest(unittest.TestCase):
     def testInsertionOfTheSameElement(self):
         self.rb.insert(1)
         self.rb.insert(1)
-        # self.assertTrue(self.rb.searchTree(1))
-        # self.assertEqual(1, len(self.rb))
+        self.assertTrue(self.rb.searchTree(1))
+        self.assertEqual(2, self.rb.nodes_in_tree())
 
     # Test remove(elem)
 
