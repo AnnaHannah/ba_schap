@@ -1,8 +1,5 @@
-# Implementing Red-Black Tree in Python
-
-
 import sys
-
+# Implementing Red-Black Tree in Python
 
 # Node creation
 class Node():
@@ -24,20 +21,19 @@ class RedBlackTree():
         self.counter = 0
 
 
-    """ zur laufzeit countersuche - race condition - thred safety ist nötig
-    def number_of_nodes(self, node, counter):
-        # or (node.right == self.TNULL or node.left == self.TNULL):
-        if node == self.TNULL:
-            return self.counter
-        else:
-            # while node != self.TNULL:
-                self.counter = self.counter+1
-                # if node.left != self.TNULL:
-                self.number_of_nodes(node.left, self.counter)
-                # if node.right != self.TNULL:
-                self.number_of_nodes(node.right, self.counter)
-                # break
-    """
+#     zur laufzeit countersuche - race condition - thred safety ist nï¿½tig
+#     def number_of_nodes(self, node, counter):
+#         # or (node.right == self.TNULL or node.left == self.TNULL):
+#         if node == self.TNULL:
+#             return self.counter
+#         else:
+#             # while node != self.TNULL:
+#                 self.counter = self.counter+1
+#                 # if node.left != self.TNULL:
+#                 self.number_of_nodes(node.left, self.counter)
+#                 # if node.right != self.TNULL:
+#                 self.number_of_nodes(node.right, self.counter)
+#                 # break 
     # Preorder
     def pre_order_helper(self, node):
         if node != self.TNULL:
@@ -131,11 +127,11 @@ class RedBlackTree():
 
     # Node deletion
     def delete_node_helper(self, node, key):
-        
-        self.counter = self.counter - 1
-        if node == self.root:
+        self.counter= (self.counter) - 1
+        if self.counter < 0:
             self.counter = 0
-        z = self.TNULL
+        if node == self.root:
+            z = self.TNULL
         
         while node != self.TNULL:
             if node.data == key:
@@ -219,11 +215,11 @@ class RedBlackTree():
         if node != self.TNULL:
             sys.stdout.write(indent)
             if last:
-                sys.stdout.write("R----")
-                indent += "     "
-            else:
                 sys.stdout.write("L----")
                 indent += "|    "
+            else:
+                sys.stdout.write("R----")
+                indent += "    "
 
             s_color = "RED" if node.color == 1 else "BLACK"
             print(str(node.data) + "(" + s_color + ")")
@@ -312,7 +308,7 @@ class RedBlackTree():
         node.left = self.TNULL
         node.right = self.TNULL
         node.color = 1
-        self.counter = self.counter + 1
+        self.counter= (self.counter) +1 
 
         y = None
         x = self.root
@@ -355,35 +351,48 @@ class RedBlackTree():
         return self.counter
 
 if __name__ == "__main__":
+    print ("bst = RedBlackTree() bst.delete_node(1) bst.insert(1)")
     bst = RedBlackTree()
     bst.delete_node(1)
     bst.insert(1)
-
+    print ("bst.nodes_in_tree() bst.print_tree()")
     bst.nodes_in_tree()
     bst.print_tree()
 
     bst.insert(2)
+    bst.print_tree()
+    
     bst.nodes_in_tree()
+    bst.print_tree()
+    
     bst.insert(3)
     bst.nodes_in_tree()
+    bst.print_tree()
+        
     bst.insert(4)
     bst.nodes_in_tree()
     bst.insert(5)
     bst.nodes_in_tree()
-    bst.insert(57)
+    bst.insert(6)
     bst.nodes_in_tree()
     print ("faengt es hier an?")
-    bst.delete_node(1)
+    bst.delete_node(6)
     bst.nodes_in_tree()
+    
+    bst.print_tree()
     bst.delete_node(2)
     bst.nodes_in_tree()
+        
+    bst.print_tree()
     bst.delete_node(3)
     bst.nodes_in_tree()
     bst.delete_node(4)
     bst.nodes_in_tree()
     bst.delete_node(5)
-   
+    #bst.delete_node(1)
     print("will print the tree here, if there is one:")
     bst.nodes_in_tree()
     bst.print_tree()
+    bst.delete_node(1)
     bst.nodes_in_tree()
+    bst.print_tree()
