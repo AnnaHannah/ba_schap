@@ -1,4 +1,5 @@
 import sys
+from _overlapped import NULL
 # Implementing Red-Black Tree in Python
 
 # Node creation
@@ -19,21 +20,7 @@ class RedBlackTree():
         self.TNULL.right = None
         self.root = self.TNULL
         self.counter = 0
-
-
-#     zur laufzeit countersuche - race condition - thred safety ist n�tig
-#     def number_of_nodes(self, node, counter):
-#         # or (node.right == self.TNULL or node.left == self.TNULL):
-#         if node == self.TNULL:
-#             return self.counter
-#         else:
-#             # while node != self.TNULL:
-#                 self.counter = self.counter+1
-#                 # if node.left != self.TNULL:
-#                 self.number_of_nodes(node.left, self.counter)
-#                 # if node.right != self.TNULL:
-#                 self.number_of_nodes(node.right, self.counter)
-#                 # break 
+ 
     # Preorder
     def pre_order_helper(self, node):
         if node != self.TNULL:
@@ -60,7 +47,7 @@ class RedBlackTree():
         if key == node.data:
             return node
         if node == self.TNULL:
-            return
+            return None
         if key < node.data:
             return self.search_tree_helper(node.left, key)
         return self.search_tree_helper(node.right, key)
@@ -132,6 +119,8 @@ class RedBlackTree():
             self.counter = 0
         if node == self.root:
             z = self.TNULL
+            # node = self.TNULL
+            return 
         
         while node != self.TNULL:
             if node.data == key:
@@ -142,7 +131,7 @@ class RedBlackTree():
                 node = node.left
         if z == self.TNULL:
             print("Cannot find " + str(key)+" in the tree")
-            return
+            return None
         y = z
         y_original_color = y.color
         if z.left == self.TNULL:
@@ -169,9 +158,8 @@ class RedBlackTree():
         if y_original_color == 0:
             self.delete_fix(x)
 
-        if node == self.root:
-            node = self.TNULL
-            return None
+       
+            
 
     # Balance the tree after insertion
 
@@ -347,52 +335,48 @@ class RedBlackTree():
         self.__print_helper(self.root, "", True)
 
     def nodes_in_tree(self):
-        print("Number of Nodes in here is: ", self.counter)
+        #print("Number of Nodes in here is: ", self.counter)
         return self.counter
+    
+    def delete_full_tree (self):
+        # all Nodes in tree
+        self.TNULL = Node(0)
+        self.TNULL.color = 0
+        self.TNULL.left = None
+        self.TNULL.right = None
+        self.root = self.TNULL
+        self.counter = 0
+          # whole tree
+        self.data = None
+        self.parent = None
+        self.left = None
+        self.right = None
+        self.color = 1
 
 if __name__ == "__main__":
-    print ("bst = RedBlackTree() bst.delete_node(1) bst.insert(1)")
+#     print ("bst = RedBlackTree() bst.delete_node(1) bst.insert(1)")
     bst = RedBlackTree()
-    bst.delete_node(1)
-    bst.insert(1)
-    print ("bst.nodes_in_tree() bst.print_tree()")
-    bst.nodes_in_tree()
-    bst.print_tree()
-
+#     bst.delete_node(1)
+#     bst.insert(1)
+#     print ("bst.nodes_in_tree() bst.print_tree()")
+#     bst.nodes_in_tree()
+#     bst.print_tree()
+# 
+#     bst.nodes_in_tree()
+#     bst.print_tree()
+#     bst.delete_node(1)
     bst.insert(2)
-    bst.print_tree()
-    
-    bst.nodes_in_tree()
-    bst.print_tree()
-    
     bst.insert(3)
+    bst.insert(1)
+    print("Number of Nodes now is: ", bst.counter)
     bst.nodes_in_tree()
-    bst.print_tree()
-        
-    bst.insert(4)
-    bst.nodes_in_tree()
-    bst.insert(5)
-    bst.nodes_in_tree()
-    bst.insert(6)
-    bst.nodes_in_tree()
-    print ("faengt es hier an?")
-    bst.delete_node(6)
-    bst.nodes_in_tree()
-    
     bst.print_tree()
     bst.delete_node(2)
-    bst.nodes_in_tree()
-        
-    bst.print_tree()
     bst.delete_node(3)
-    bst.nodes_in_tree()
-    bst.delete_node(4)
-    bst.nodes_in_tree()
-    bst.delete_node(5)
-    #bst.delete_node(1)
-    print("will print the tree here, if there is one:")
-    bst.nodes_in_tree()
-    bst.print_tree()
     bst.delete_node(1)
+    print ("bst.delete_full_tree()")
+    print("Number of Nodes now is: ", bst.counter)
+    bst.delete_full_tree()
+    bst.insert(2)
     bst.nodes_in_tree()
     bst.print_tree()
