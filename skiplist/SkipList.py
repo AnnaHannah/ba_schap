@@ -93,7 +93,7 @@ class SkipList():
                 print (x.next[i].elem)
                 x = x.next[i]
             print (" ")
-        # ohne das return gerscheint ein None
+        # ohne das return erscheint ein None
         return ''
             
 if __name__ == "__main__":

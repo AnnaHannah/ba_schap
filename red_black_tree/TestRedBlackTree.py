@@ -14,7 +14,7 @@ class RedBlackTreeTest(unittest.TestCase):
  
     def testInsertionInEmptyTree(self):
          # clean test tree needed
-        self.rb.delete_full_tree()
+        self.rb.deleteFullTree()
         # start test
         self.rb.insert(1)
         self.assertTrue(self.rb.searchTree(1))
@@ -22,7 +22,7 @@ class RedBlackTreeTest(unittest.TestCase):
  
     def testInsersionAtTheBeginningOfTheTree(self):
         # clean test tree needed
-        self.rb.delete_full_tree()
+        self.rb.deleteFullTree()
         # start test
         self.rb.insert(2)
         self.rb.insert(1)
@@ -31,7 +31,7 @@ class RedBlackTreeTest(unittest.TestCase):
          
     def testInsersionAtTheEndOfTheTree(self):
         # clean test tree needed
-        self.rb.delete_full_tree()
+        self.rb.deleteFullTree()
         # start test
         self.rb.insert(1)
         self.rb.insert(2)
@@ -40,7 +40,7 @@ class RedBlackTreeTest(unittest.TestCase):
  
     def testInsertionOfTheSameElement(self):
         # clean test tree needed
-        self.rb.delete_full_tree()
+        self.rb.deleteFullTree()
         # start test
         self.rb.insert(1)
         self.rb.insert(1)
@@ -52,30 +52,30 @@ class RedBlackTreeTest(unittest.TestCase):
 
     def testRemovalFromASingleElementTree(self):
         # clean test tree needed
-        self.rb.delete_full_tree()
+        self.rb.deleteFullTree()
         
         # start test
         self.rb.insert(1)
-        self.assertEqual(self.rb.delete_node(1), None)
-        self.rb.delete_node(1)
-        self.assertFalse(self.rb.delete_node(1))
+        self.assertEqual(self.rb.deleteNode(1), None)
+        self.rb.deleteNode(1)
+        self.assertFalse(self.rb.deleteNode(1))
 
     def testRemovalFromAnElementNotInTheTree(self):
         # clean test tree needed
-        self.rb.delete_full_tree()
+        self.rb.deleteFullTree()
         
         # start test
-        self.rb.delete_node(1)
+        self.rb.deleteNode(1)
         self.rb.insert(1)
-        self.assertEqual(self.rb.delete_node(1), None)
-        self.rb.delete_node(2)
-        self.assertEqual(self.rb.delete_node(1), None)
+        self.assertEqual(self.rb.deleteNode(1), None)
+        self.rb.deleteNode(2)
+        self.assertEqual(self.rb.deleteNode(1), None)
 
 # Test find(elem) - funktioniert einwandfrei
  
     def testFindingOfASingleElementTree(self):
         # clean test tree needed
-        self.rb.delete_full_tree()
+        self.rb.deleteFullTree()
         # start test
         
         self.rb.insert(1)
@@ -84,7 +84,7 @@ class RedBlackTreeTest(unittest.TestCase):
  
     def testFindingOfTheMiddleElementTree(self):
         # clean test tree needed
-        self.rb.delete_full_tree()
+        self.rb.deleteFullTree()
         # start test
         self.rb.insert(1)
         self.rb.insert(2)
