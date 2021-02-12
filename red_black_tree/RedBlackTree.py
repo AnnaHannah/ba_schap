@@ -2,6 +2,12 @@ import sys
 from _overlapped import NULL
 from idlelib.idle_test.test_editor import insert
 # Implementing Red-Black Tree in Python
+# Importing the threading module
+import threading 
+from time import sleep
+from tkinter.tix import INTEGER
+# Declraing a lock
+lock = threading.Lock()
 
 # Node creation
 class Node():
@@ -10,7 +16,7 @@ class Node():
         self.parent = None
         self.left = None
         self.right = None
-        self.color = 1
+        self.color = None
 
 
 class RedBlackTree():
@@ -173,10 +179,7 @@ class RedBlackTree():
             y.color = z.color
         if y_original_color == 0:
             self.fixDelete(x)
-
-       
-            
-
+    
     # Balance the tree after insertion
 
     def fixInsert(self, k):
@@ -230,6 +233,59 @@ class RedBlackTree():
             self.__printHelper(node.left, indent, False)
             self.__printHelper(node.right, indent, True)
 
+    # Fix colors in Red Black tree
+    def fixColorHelper(self, node):
+        thread_counter = 0
+         
+        def makeRed(): 
+            lock.acquire()
+            # wenn ein Kind Null ist oder der Knoten selber: dann stop
+            if node.color == None:
+                 return '' 
+            if node.left == None:
+                return  '' 
+            if node.right == None: 
+                return ''                s
+            # normaler Ablauf
+            if node.color == 1:
+                node.left.color = 0
+                node.right.color = 0
+
+            print("fertig1")
+            lock.release()
+            
+        def makeBlack():  
+            lock.acquire()  
+             # wenn ein Kind Null ist oder der Knoten selber: dann stop     
+            if node.color == None:
+                return ''
+            if node.left.color == None:
+                return '' 
+            if node.left.color == None:
+                return '' 
+            # normaler ablauf:        
+            if node.color == 0:
+                node.left.color = 1
+                node.right.color = 1 
+            
+            print("fertig2")
+            lock.release()
+        
+       
+        thread1 = threading.Thread(target = makeRed(), args = ())
+        thread2 = threading.Thread(target = makeBlack(), args = ())  
+        
+        thread1.start() 
+        thread_counter = thread_counter + 1
+        thread2.start() 
+        print("fertig3")
+        thread1.join()
+        thread2.join()
+        print("fertig4")
+    
+        
+        return self.fixColorHelper(node.left) and self.fixColorHelper(node.right)
+    
     def preorder(self):
         self.preOrderHelper(self.root)
 
@@ -359,7 +415,8 @@ class RedBlackTree():
         #print("Number of Nodes in here is: ", self.counter)
         return self.counter
     
-
+    def  fixColor(self):
+        self.fixColorHelper(self.root)
 
 if __name__ == "__main__":
 #     print ("bst = RedBlackTree() bst.deleteNode(1) bst.insert(1)")
@@ -391,10 +448,18 @@ if __name__ == "__main__":
 
     bst = RedBlackTree()
     print("Number of Nodes now is: ", bst.counter)
-    bst.printTree()
-    bst.insertMultipleElem([1,2,1,2,1,2,3,4,45,5,5,5,5,5])
+    # bst.printTree()
+    bst.insertMultipleElem([1,2,3,4,5,6,7,8,9])
+    # bst.fixColor()
     print("Number of Nodes now is: ", bst.counter)
+
+    print ("color of root:", bst.root.color)
+        
+    bst.printTree()
+    bst.fixColor()
     bst.printTree()
     
+    sys.setrecursionlimit(2^(bst.counter))
+    print(sys.getrecursionlimit())
     
     
