@@ -1,17 +1,25 @@
+import sys
+from _overlapped import NULL
+from LinkedList import LinkedList
+# Implementing Skiplist in Python
 from random import randint, seed
+from tkinter.tix import INTEGER
 
-class SkipNode:
-    """A node from a skip list"""    
+
+class SkipNode():
+ 
     def __init__(self, height = 0, elem = None):
+        self.height = 0
         self.elem = elem
         self.next = [None]*height
 
-class SkipList:
+class SkipList():
 
     def __init__(self):
         self.head = SkipNode()
         self.len = 0
-        self.maxHeight = 0
+        # max hight of a specitifc Node - it is always smaller then Skiplist hight
+        self.maxHeight = 0 
 
     def __len__(self):
         return self.len
@@ -43,7 +51,7 @@ class SkipList:
             update[i] = x
         return update
         
-    def insert(self, elem):
+    def insertElem(self, elem):
 
         node = SkipNode(self.randomHeight(), elem)
 
@@ -57,8 +65,15 @@ class SkipList:
                 node.next[i] = update[i].next[i]
                 update[i].next[i] = node
             self.len += 1
+    
+    def insertMultipleElem(self, list):
+        # Listeneinträge Pop-> einzeln einfügen in Skipliste    
+        while list != []:
+            x = list.pop()
+            self.insertElem(x)
+        
 
-    def remove(self, elem):
+    def delete(self, elem):
 
         update = self.updateList(elem)
         x = self.find(elem, update)
@@ -70,9 +85,23 @@ class SkipList:
             self.len -= 1            
                 
     def printList(self):
+        # Alle schichten der Skiplist durchgehen und immer 1 abziehen        
         for i in range(len(self.head.next)-1, -1, -1):
+            print (i)
             x = self.head
             while x.next[i] != None:
-                print (x.next[i].elem),
+                print (x.next[i].elem)
                 x = x.next[i]
-            print ('')
+            print (" ")
+        # ohne das return gerscheint ein None
+        return ''
+            
+if __name__ == "__main__":
+    skl = SkipList()
+    list = [1,2,3]
+    skl.insertMultipleElem(list)
+    
+
+    
+     
+        

@@ -1,3 +1,7 @@
+import sys
+from _overlapped import NULL
+# Implementing Linked List in Python
+
 class Node:
 
     def __init__(self, elem):
