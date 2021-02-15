@@ -1,7 +1,6 @@
 # Das ist eine Zusammenfassung von Funktionen welche in dem Rot Schwarz Baum verwendet werden:  
 
-Allgemein der RotSchwarzBaum besteht aus Nodes welcher in einer Binärbaum Strucktur zusammengestellt werden.
-Kleinere Werte der Nodes werden nach rechts und größere nach Links einsortiert.
+## Allgemein der RotSchwarzBaum besteht aus Nodes welcher in einer Binärbaum Strucktur zusammengestellt werden. Kleinere Werte der Nodes werden nach rechts und größere nach Links einsortiert.
 
 Folgende Funktionen sind verfügbar:
 
@@ -29,7 +28,7 @@ Nutzt vorallem die print Funktion um in der Konsole einen Baum zuprinten.
 
 
 
---- weniger wichtige Funktionen ---
+## --- weniger wichtige Funktionen ---
 
 
 
@@ -62,7 +61,7 @@ die 1 als Integer wird in den BST reingetan
 Rot schwarz Baum wird Rotschwarz, doppelt kontrolliert
 
 
---- Beispielcode für main ---
+## --- Beispielcode für main ---
 
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
