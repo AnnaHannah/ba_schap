@@ -3,6 +3,7 @@ import unittest
 from random import seed, randint
 from timeit import Timer
 from _overlapped import NULL
+from cmath import log
 
 class RedBlackTreeTest(unittest.TestCase):
 
@@ -94,6 +95,19 @@ class RedBlackTreeTest(unittest.TestCase):
  
     def testFindingAnElementNotInTheTree(self):
         self.assertEqual(None, self.rb.searchTree(1))
+        
+        
+    def testRightColor(self):
+        # clean test tree needed
+        self.rb.deleteFullTree() 
+        #start test
+        self.rb.insertMultipleElem([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
+        self.assertEqual(self.rb.root.color, 0)
+        self.assertNotEqual(self.rb.root.color, 1)
+        # smallest element and next to it
+        self.assertEqual(self.rb.searchTree(1).color, 1)
+        self.assertNotEqual(self.rb.searchTree(2).color, 1)
+ 
  
 if __name__ == '__main__':
     unittest.main()

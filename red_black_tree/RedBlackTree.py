@@ -8,9 +8,12 @@ from time import sleep
 from tkinter.tix import INTEGER
 # Declraing a lock
 lock = threading.Lock()
+mRcounter = 0
+mBcounter = 0
 
 # Node creation
 class Node():
+
     def __init__(self, data):
         self.data = data
         self.parent = None
@@ -20,13 +23,14 @@ class Node():
 
 
 class RedBlackTree():
+
     def __init__(self):
         self.TNULL = Node(0)
         self.TNULL.color = 1
         self.TNULL.left = None
         self.TNULL.right = None
         self.root = self.TNULL
-        self.counter = 0
+        self.counterNodes = 0
     
     def deleteFullTree (self):
         # all Nodes in tree
@@ -35,7 +39,7 @@ class RedBlackTree():
         self.TNULL.left = None
         self.TNULL.right = None
         self.root = self.TNULL
-        self.counter = 0
+        self.counterNodes = 0
         # tree Parameters
         self.data = None
         self.parent = None
@@ -136,9 +140,9 @@ class RedBlackTree():
 
     # Node deletion
     def deleteNodeHelper(self, node, key):
-        self.counter= (self.counter) - 1
-        if self.counter < 0:
-            self.counter = 0
+        self.counterNodes = (self.counterNodes) - 1
+        if self.counterNodes < 0:
+            self.counterNodes = 0
         if node == self.root:
             z = self.TNULL
             # node = self.TNULL
@@ -152,7 +156,7 @@ class RedBlackTree():
             else:
                 node = node.left
         if z == self.TNULL:
-            print("Cannot find " + str(key)+" in the tree")
+            print("Cannot find " + str(key) + " in the tree")
             return None
         y = z
         y_original_color = y.color
@@ -218,7 +222,7 @@ class RedBlackTree():
         self.root.color = 0
 
     # Printing the tree
-    def __printHelper(self, node, indent, last):
+    def printHelper(self, node, indent, last):
         if node != self.TNULL:
             sys.stdout.write(indent)
             if last:
@@ -230,54 +234,52 @@ class RedBlackTree():
 
             s_color = "RED" if node.color == 1 else "BLACK"
             print(str(node.data) + "(" + s_color + ")")
-            self.__printHelper(node.left, indent, False)
-            self.__printHelper(node.right, indent, True)
+            self.printHelper(node.left, indent, False)
+            self.printHelper(node.right, indent, True)
+
 
     # Fix colors in Red Black tree
-    def fixColorHelper(self, node):
-    
-        lock.acquire() 
-        def makeRed(): 
-            # wenn ein Kind Null ist oder der Knoten selber: dann stop
-            if node.color == None:
-                 return '' 
-            if node.left == None:
-                return  '' 
-            if node.right == None: 
-                return ''                
-            # normaler Ablauf
-            if node.color == 1:
-                node.left.color = 0
-                node.right.color = 0
 
-        def makeBlack():  
-            
-             # wenn ein Kind Null ist oder der Knoten selber: dann stop     
-            if node.color == None:
-                return ''
-            if node.left == None:
-                return '' 
-            if node.left.color == None:
-                return '' 
-            # normaler ablauf:        
-            if node.color == 0:
-                node.left.color = 1
-                node.right.color = 1 
 
-        lock.release()
+    def fixColorHelper(self, node):    
         
-        # print ("1 threads erzeugen")
-        thread1 = threading.Thread(target = makeRed(), args = ())
-        thread2 = threading.Thread(target = makeBlack(), args = ())  
-        thread1.start() 
-        thread2.start() 
-        thread1.join()
-        thread2.join()
-        if node.left or node.right != None: 
-            self.fixColorHelper(node.left) and self.fixColorHelper(node.right)
-        return ''
-       
-   
+        def makeRed(node): 
+            global mRcounter 
+            mRcounter = mRcounter + 1
+            # print ("makeRed, counter:", mRcounter)
+            # Abfangen von AttributeError: 'NoneType' object has no attribute 'color'
+            # None.color exestiert nicht
+            if node == None:
+                return ''
+            if node.color == 1:
+                if node.left != None:
+                    node.left.color = 0
+                    makeBlack(node.left)
+                if node.right != None:
+                    node.right.color = 0
+                    makeBlack(node.right)    
+      
+        def makeBlack(node):
+            global mBcounter
+            mBcounter = mBcounter + 1
+            # print ("makeBlack, counter:", mBcounter)
+            # Abfangen von AttributeError: 'NoneType' object has no attribute 'color'
+            # None.color exestiert nicht
+            if node == None:
+                return ''     
+            if node.color == 0:
+                if node.left != None:
+                    node.left.color = 1
+                    makeRed(node.left)
+                if node.right != None:
+                    node.right.color = 1
+                    makeRed(node.right)
+        if node == None:
+            return ''  
+        
+        makeBlack(node) # falls Wurzel unbekannte Farbe hat
+        makeRed(node)      
+              
     def preorder(self):
         self.preOrderHelper(self.root)
 
@@ -310,7 +312,7 @@ class RedBlackTree():
             y = y.parent
         return y
 
-    def predecessor(self,  x):
+    def predecessor(self, x):
         if (x.left != self.TNULL):
             return self.maximum(x.left)
 
@@ -360,7 +362,7 @@ class RedBlackTree():
         node.left = self.TNULL
         node.right = self.TNULL
         node.color = 1
-        self.counter= (self.counter) +1 
+        self.counterNodes = (self.counterNodes) + 1 
 
         y = None
         x = self.root
@@ -389,6 +391,9 @@ class RedBlackTree():
 
         self.fixInsert(node)
         
+    def fixColor(self):
+        self.fixColorHelper(self.root)
+        
     def insertMultipleElem (self, list):
         while list != []:
             x = list.pop()
@@ -402,26 +407,20 @@ class RedBlackTree():
         self.deleteNodeHelper(self.root, data)
 
     def printTree(self):
-        self.__printHelper(self.root, "", True)
+        self.printHelper(self.root, "", True)
 
     def nodes_in_tree(self):
-        #print("Number of Nodes in here is: ", self.counter)
-        return self.counter
-    
-    def  fixColor(self):
-        self.fixColorHelper(self.root)
+        return self.counterNodes
 
 if __name__ == "__main__":
-    sys.setrecursionlimit(1000)
-    print("Recrusion-Tiefe des Programms:", sys.getrecursionlimit())
-    inputList = [1,2,3,4,5,6,7,8,9]
+    sys.setrecursionlimit(2000)
+    print("Recrusiontiefe dieses Programms:", sys.getrecursionlimit())
+    inputList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,24,25,26,27,28,29,30]
     bst = RedBlackTree()
-    print("Number of Nodes now is: ", bst.counter)
+    print("Number of Nodes now is: ", bst.counterNodes)
     print("Input in den Tree:", inputList)
     bst.insertMultipleElem(inputList)
-    print("Number of Nodes now is: ", bst.counter)        
+    print("Number of Nodes now is: ", bst.counterNodes)
+    print ("Number of black and red Color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
     bst.printTree()
-
-
-    
     
