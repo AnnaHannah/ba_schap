@@ -74,7 +74,6 @@ class SkipList():
         
 
     def delete(self, elem):
-
         update = self.updateList(elem)
         x = self.find(elem, update)
         if x != None:

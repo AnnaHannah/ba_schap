@@ -3,10 +3,11 @@ from _overlapped import NULL
 from idlelib.idle_test.test_editor import insert
 # Implementing Red-Black Tree in Python
 # Importing the threading module
+import threading 
 from time import sleep
 from tkinter.tix import INTEGER
-
-# global Variable
+# Declraing a lock
+# lock = threading.Lock()
 mRcounter = 0
 mBcounter = 0
 
@@ -50,7 +51,7 @@ class RedBlackTree():
     # Preorder
     def preOrderHelper(self, node):
         if node != self.TNULL:
-            sys.stdout.write(str(node.data) + " ")
+            sys.stdout.write(node.data + " ")
             self.preOrderHelper(node.left)
             self.preOrderHelper(node.right)
 
@@ -58,7 +59,7 @@ class RedBlackTree():
     def inOrderHelper(self, node):
         if node != self.TNULL:
             self.inOrderHelper(node.left)
-            sys.stdout.write(str(node.data) + " ")
+            sys.stdout.write(node.data + " ")
             self.inOrderHelper(node.right)
 
     # Postorder
@@ -66,13 +67,12 @@ class RedBlackTree():
         if node != self.TNULL:
             self.postOrderHelper(node.left)
             self.postOrderHelper(node.right)
-            sys.stdout.write(str(node.data) + " ")
+            sys.stdout.write(node.data + " ")
 
     # Search the tree
     def searchTreeHelper(self, node, key):
         if key == node.data:
-            #print ("Gesucht nach %r und im Tree gefunden." % node.data)
-            return node.data
+            return node
         if node == self.TNULL:
             return None
         if key < node.data:
@@ -356,8 +356,6 @@ class RedBlackTree():
         x.parent = y
 
     def insert(self, key):
-        assert type(key) is int, " \n %r is not an integer, in this Tree is only interger accepted. \n Please modify your Input. \n Insertionprozess stopped now" % key
-        
         node = Node(key)
         node.parent = None
         node.data = key
@@ -397,7 +395,6 @@ class RedBlackTree():
         self.fixColorHelper(self.root)
         
     def insertMultipleElem (self, list):
-        
         while list != []:
             x = list.pop()
             self.insert(x)
@@ -419,16 +416,13 @@ class RedBlackTree():
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    # inputList1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-    inputList = [2,4,5,6,7]
+    inputList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
     bst = RedBlackTree()
- 
     print("2. Number of Nodes now is: ", bst.counterNodes)
     print("3. Input in den Tree:", inputList)
     bst.insertMultipleElem(inputList)
     print("4. Number of Nodes now is: ", bst.counterNodes)
     print ("5. Number of black and red color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
     bst.printTree()
-    bst.searchTree(6)
-
+    bst.deleteFullTree()
     
