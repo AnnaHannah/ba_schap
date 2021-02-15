@@ -5,6 +5,7 @@ from idlelib.idle_test.test_editor import insert
 # Importing the threading module
 from time import sleep
 from tkinter.tix import INTEGER
+from idlelib.idle_test.test_configdialog import root
 
 # global Variable
 mRcounter = 0
@@ -292,37 +293,6 @@ class RedBlackTree():
     def searchTree(self, k):
         return self.searchTreeHelper(self.root, k)
 
-    def minimum(self, node):
-        while node.left != self.TNULL:
-            node = node.left
-        return node
-
-    def maximum(self, node):
-        while node.right != self.TNULL:
-            node = node.right
-        return node
-
-    def successor(self, x):
-        if x.right != self.TNULL:
-            return self.minimum(x.right)
-
-        y = x.parent
-        while y != self.TNULL and x == y.right:
-            x = y
-            y = y.parent
-        return y
-
-    def predecessor(self, x):
-        if (x.left != self.TNULL):
-            return self.maximum(x.left)
-
-        y = x.parent
-        while y != self.TNULL and x == y.left:
-            x = y
-            y = y.parent
-
-        return y
-
     def leftRotate(self, x):
         y = x.right
         x.right = y.left
@@ -412,15 +382,15 @@ class RedBlackTree():
     def printTree(self):
         self.printHelper(self.root, "", True)
 
-    def nodes_in_tree(self):
+    def nodesInTree(self):
         return self.counterNodes
 
 
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    # inputList1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-    inputList = [2,4,5,6,7]
+    inputList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+    inputList1 = [2,4,5,6,7]
     bst = RedBlackTree()
  
     print("2. Number of Nodes now is: ", bst.counterNodes)
@@ -429,6 +399,5 @@ if __name__ == "__main__":
     print("4. Number of Nodes now is: ", bst.counterNodes)
     print ("5. Number of black and red color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
     bst.printTree()
-    bst.searchTree(6)
 
     
