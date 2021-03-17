@@ -6,6 +6,7 @@ from random import randint, seed
 from time import sleep
 from tkinter.tix import INTEGER
 from operator import contains
+from numpy.core.defchararray import isdigit, isdecimal
 
 
 class SkipNode():
@@ -29,7 +30,6 @@ class SkipList():
     def findElem(self, elem):
         # update = self.updateList(elem)
         if elem == None:
-            print("\n C1) findElem and update this:", elem)
             return (print( "Error you need to put an Element in FindElem()"))
         if elem != None:
             for i in (range(0, len(self.head.next), 1)):
@@ -43,13 +43,13 @@ class SkipList():
     def findNodeByElem(self, elem, node):
         update = self.updateList(elem, node)
         if elem == None:
-            print("\n C2) findfindNodeByElemElem was given None", elem)
+            #print("\n C2) findfindNodeByElemElem was given None", elem)
             return None
         else:
             if len(update) > len(self) and elem != None:
                 candidate = update[0].next[0]
                 if candidate != None and candidate.elem == elem:
-                    print("C2) findNodeByElem found this candidate:", candidate.elem)
+                    #print("C2) findNodeByElem found this candidate:", candidate.elem)
                     return candidate
 
     def contains(self, elem):
@@ -62,7 +62,7 @@ class SkipList():
         return height
 
     def updateList(self, elem, node):
-        print("B) in function updateList() - jumpNextLine - this is number of clean lines:", [None]*self.maxHeight)
+        #print("B) in function updateList() - jumpNextLine - this is number of clean lines:", [None]*self.maxHeight)
         update = [None]*self.maxHeight
         x = self.head
         for i in reversed(range(self.maxHeight)):
@@ -71,30 +71,30 @@ class SkipList():
                 # alle elemente in der ebene durch gehen und beim richtigen Stoppen:
                 x = x.next[i]
             update[i] = x
-            print("B) in function updateList() - jumpNextLine - this was updated:", elem)
+            #print("B) in function updateList() - jumpNextLine - this was updated:", elem)
         return update
         
     def insertElem(self, elem):
-        if self.findElem(elem) != None:
-            print("A) NO insert Elem() for element in Skiplist, it seems to be there:", elem) 
+        #if self.findElem(elem) != None:
+            #print("A) NO insert Elem() for element in Skiplist, it seems to be there:", elem) 
         
         if self.findElem(elem) == None:
-            print("\nA) function insertElem() start Skipnode:", elem)
+            #print("\nA) function insertElem() start Skipnode:", elem)
             # make new Node with element
             node = SkipNode(self.randomHeight(), elem)
             self.maxHeight = max(self.maxHeight, len(node.next))
             
             while len(self.head.next) < len(node.next):
                 self.head.next.append(None)
-                print("A) insertElem is doing: append", node.elem)
+                #print("A) insertElem is doing: append", node.elem)
     
             update = self.updateList(elem, node)            
             if self.findNodeByElem(elem, update) == None:
-                print("A) in function insertElem() this will update:", elem)
+                #print("A) in function insertElem() this will update:", elem)
                 for i in range(0, len(node.next)):
                     node.next[i] = update[i].next[i]
                     update[i].next[i] = node
-                    print("A) in function insertElem() this is updated:", node.elem)
+                    #print("A) in function insertElem() this is updated:", node.elem)
                 self.len += 1
             else: return ''  
    
@@ -102,13 +102,21 @@ class SkipList():
         # Listeneinträge Pop-> einzeln einfügen in Skipliste    
         while list.__len__() > 0:
             x = list.pop()
-            self.insertElem(x)     
+            self.insertElem(x)  
+            
+    def findMultipleElem(self, list):   
+        foundList = []
+        while list.__len__() > 0:
+            x = list.pop()
+            if self.findElem(x) != None:
+                foundList.append(self.findElem(x))
+        return foundList
 
     def delete(self, elem):
         x = self.findElfindNodeByElem
         if x != None:
             for i in reversed(range(len(x.next))):
-                print("\n delete was operating on:", x.elem)
+                #print("\n delete was operating on:", x.elem)
                 update[i].next[i] = x.next[i]
                 if self.head.next[i] == None:
                     self.maxHeight -= 1
@@ -118,13 +126,11 @@ class SkipList():
         # indent = ""
         # Alle schichten der Skiplist durchgehen und immer 1 abziehen       
         for i in reversed(range(0, len(self.head.next), 1)):
-            print ("\n ------------------------------- Ebene Nummer", i)
-            #print ("\n new line ")
+            print ("\n------------------------------- Ebene Nummer", i)
             x = self.head
             while x.next[i] != None:  
                 if x.elem != None:
                     sys.stdout.write(str(x.elem) + " ")
-                    #sys.stdout.write(str(x.next[i].elem) + " ")
                 x = x.next[i]
             if x.next[i] == None:
                     sys.stdout.write(str(x.elem) + " ")
@@ -134,14 +140,13 @@ class SkipList():
             
 if __name__ == "__main__":
     skl = SkipList()
-    inputList = [1,2,3,4,4,5]
+    inputList = [1,2,3,4,5,6,7,8,8,0,9,8,1,7,6,6,6]
     skl.insertMultipleElem(inputList)
-
+    print("__len__ funktion says:", skl.__len__())
+    searchlist = [1,2,3,99,'aaa']
     skl.printList()
     print ("\n")
-    
-    el = 3
-    print ("\n Ergebnis von Suche skl.findElem(" +str(el) +") ist:", skl.findElem(el) )
+    print ("Ergebnis von Suche skl.findMultipleElem (" +str(searchlist) +") ist:", skl.findMultipleElem(searchlist) )
 
     
 

@@ -234,19 +234,20 @@ class RedBlackTree():
                 sys.stdout.write("R----")
                 indent += "    "
 
-            s_color = "RED" if node.color == 1 else "BLACK"
+            if node.color == 1:
+                s_color = "RED" 
+            else: 
+                s_color = "BLACK"
             print(str(node.data) + "(" + s_color + ")")
             self.printHelper(node.left, indent, False)
             self.printHelper(node.right, indent, True)
 
     # Fix colors in Red Black tree
-
     def fixColorHelper(self, node): 
         
         def makeRed(node): 
             global mRcounter 
             mRcounter = mRcounter + 1
-            # print ("makeRed, counter:", mRcounter)
             # Abfangen von AttributeError: 'NoneType' object has no attribute 'color'
             # None.color exestiert nicht
             if node == None:
@@ -262,7 +263,6 @@ class RedBlackTree():
         def makeBlack(node):
             global mBcounter
             mBcounter = mBcounter + 1
-            # print ("makeBlack, counter:", mBcounter)
             # Abfangen von AttributeError: 'NoneType' object has no attribute 'color'
             # None.color exestiert nicht
             if node == None:
@@ -327,7 +327,7 @@ class RedBlackTree():
 
     def insert(self, key):
         assert type(key) is int, " \n %r is not an integer, in this Tree is only interger accepted. \n Please modify your Input. \n Insertionprozess stopped now" % key
-        
+    
         node = Node(key)
         node.parent = None
         node.data = key
@@ -367,7 +367,6 @@ class RedBlackTree():
         self.fixColorHelper(self.root)
         
     def insertMultipleElem (self, list):
-        
         while list != []:
             x = list.pop()
             self.insert(x)
@@ -388,16 +387,16 @@ class RedBlackTree():
 
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
-    print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-    inputList1 = [2,4,5,6,7]
-    bst = RedBlackTree()
- 
-    print("2. Number of Nodes now is: ", bst.counterNodes)
-    print("3. Input in den Tree:", inputList)
-    bst.insertMultipleElem(inputList)
-    print("4. Number of Nodes now is: ", bst.counterNodes)
-    print ("5. Number of black and red color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
-    bst.printTree()
+    # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
+    # inputList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+    # inputList1 = [2,4,5,6,7]
+    # bst = RedBlackTree()
+    #
+    # print("2. Number of Nodes now is: ", bst.counterNodes)
+    # print("3. Input in den Tree:", inputList)
+    # bst.insertMultipleElem(inputList)
+    # print("4. Number of Nodes now is: ", bst.counterNodes)
+    # print ("5. Number of black and red color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
+    # bst.printTree()
 
     
