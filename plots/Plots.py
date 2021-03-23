@@ -24,40 +24,16 @@ from red_black_tree.RedBlackTree import *
 from skiplist.SkipList import * 
 from matplotlib.pyplot import title
 from unicodedata import numeric
+from numpy import double
     
-# dummy Array wir immer mit Zero gesteckt
-dummyArray2 = np.array([])
-dummyArray1 = np.array([])
 
-
-# converting every element to Integer
-def convertCharToInteger(lines):
-    csvValues = []
-    for line in lines:
-        for ch in line:
-            # isdigit runs only from 0-9, but i need loger numbers
-            if isnumeric(ch) == True:
-                csvValues.append(int(ch))                 
-            elif isdecimal(ch):
-                csvValues.append(float(format(Decimal(ch))))      
-    # print("charToInteger hat konvertiert aus csv:", csvValues)     
-    return csvValues 
-    
 def saveReadingInNewFile(numbers):
     with open('2.csv', 'w', newline='') as file:
         writer = csv.writer(file, lineterminator = "")
         file.write(str(numbers))
         print ("Done with generated List in 2.csv")
     file.close()
-           
-# files öffnen:
-def openFile(filename):
-    infile = open(filename,'r')
-    slines = infile.readlines() 
-    csvValues = convertCharToInteger (slines)
-    # für Später um nachzuvollziehen welche daten genau beim Convertieren geschädigt wurden:
-    saveReadingInNewFile(csvValues)
-    return csvValues 
+    
 
 # Ziel der funktion, file öffnen, alle Listen auslesen, alle stringsauslesen und in INT convertieren, 
 # Liste von Listen zurückgeben
@@ -79,124 +55,115 @@ def readMYfile(filename):
             output_list.append(simple_list)
             
             line_count +=1
-        print ("output_list after reading file (integer)", output_list)
+        print("\n -> Done reading File: ", filename)
+        # print ("output_list after reading file (integer)", output_list)
         return output_list
 
-   
-# format problems
-def fillUpwithZero(y_array, csvValues2):
-    # print ("fill up with Zero, used scvValue list:", csvValues2)
-    # make list to append Zero
-    if type(y_array) != list:
-        y_array = y_array.tolist()
-    while len(csvValues2) > len(y_array):
-        y_array.append(0)
-   
-    # print ("fill up with Zero, used other list:", y_array)
-    y_array = np.array(y_array)
-    return y_array
-
-def fillOneValue(y_array, csvValues3, x):
-    # type check
-    if type(y_array) != list:
-        y_array = y_array.tolist()
-    
-    while len(csvValues3) > len(y_array):
-        y_array.append(x)
-   
-    y_array = np.array(y_array)
-    return y_array
-
-# perfirmance messurement
-def messureTimeRedBlackTree (inputList):
+def messureTime_INSERT_RedBlackTree (inputList):
     if type(inputList) != list:
         inputList = inputList.tolist()
     #start timer
-    delta_time = 0
-    start_time = time.monotonic()
-    
+    # start_time = time.monotonic()
+    start = time.process_time_ns()
     # init für Blackred tree
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
     
-    # End Timer
-    end_time = time.monotonic() 
+    # End Timer 
+    end  = time.process_time_ns()
+    delta_time = 0
     print(bst.counterNodes, " so many Nodes were made in Tree")
-    delta_time = datetime.timedelta(seconds=60).total_seconds()/60
+    delta_time = end-start
+    #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
+    
     print(int(delta_time), " total_seconds() needed for input in RedBlackTree")
-    numberOfNodesBST = bst.counterNodes
     return (int(delta_time))
 
-def messureTimeSkipList(inputList):
+def messureTime_INSERT_SkipList(inputList):
     if type(inputList) != list:
         inputList = inputList.tolist()
     #start timer
     delta_time = 0
-    start_time = time.monotonic()
-    
+    #start_time = time.monotonic()
+    start = time.process_time_ns()
     # init für Skiplist tree
     skl = SkipList()
     skl.insertMultipleElem(inputList)
     
     # End Timer
-    end_time = time.monotonic() 
-    
+    end = time.process_time_ns()
     print(skl.counterNodes(), " so many Nodes were made in Skiplist")
-    delta_time = datetime.timedelta(seconds=60).total_seconds()/60
-    print(int(delta_time), "total_seconds() needed for input in SkipLsit")
-   
-    numberOfNodesSKL = skl.counterNodes()
+    delta_time = end-start
+    # assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
+    print(int(delta_time), "total_seconds() needed for input in SkipList")
     return (int(delta_time))
-    
-    
+
+def timePerformanceINSERTRedBlackTree(listOfLists):
+    perf_OutputList = []   
+    for list in listOfLists:
+        timeRBT = messureTime_INSERT_RedBlackTree(list)
+        perf_OutputList.append(timeRBT)
+    print ("timePerformanceINSERTRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
+    return perf_OutputList
+
+def timePerformanceINSERTSkipList(listOfLists):
+    perf_OutputList = []   
+    for list in listOfLists:
+        timeSKL = messureTime_INSERT_SkipList(list)
+        perf_OutputList.append(timeSKL)
+    print ("timePerformanceINSERTSkipList has messured time pro list iteration, and will return:", perf_OutputList)
+    return perf_OutputList
+
+def subListLengh(listOfLists):
+    lenSublist_Output = [] 
+    for list in listOfLists:
+        lenSublist_Output.append(len(list))
+    #print ("the lenght of every SubList in ListOfLists is", lenSublist_Output)
+    return lenSublist_Output 
+
 if __name__ == "__main__":
     
+    # Je nach dem wie stark die Rechenleistung ist, bitte begrenzen:
+    sys.setrecursionlimit(20000)
+    
+    #DS Time performance mit der jewels der sublist anstellen: INSERT
     listOfLists = readMYfile('test1.csv')
-    #open csv file
-    csvValues = openFile('1.csv') 
-    # Schreibschutz
-    csvValues1 = csvValues
-    csvValues1 = np.array(csvValues1)
-    csvValues2 = csvValues
-    csvValues2 = np.array(csvValues2)
-    csvValues3 = csvValues
-    csvValues3 = np.array(csvValues3)
-    csvValues4 = csvValues
-    csvValues4 = np.array(csvValues4)
+    insert_TimeRBT = timePerformanceINSERTRedBlackTree(listOfLists)
 
-    # Performace time:
-    timeRBT = messureTimeRedBlackTree(csvValues1)
-    # print("timeRBT =", timeRBT)
-    timeSKL = messureTimeSkipList(csvValues2)
-    # print("timeSKL =", timeSKL)
-
-    # preparation for plot: 
-    # zeroArray = fillUpwithZero(dummyArray, csvValues2)
-  
-    # Formating: needed right numbers of elements
-    timeRBTArray = fillOneValue(dummyArray1, csvValues3, timeRBT)   
-    timeSKLArray = fillOneValue(dummyArray2, csvValues4, timeSKL)
+    listOfLists = readMYfile('test1.csv')
+    insert_TimeSKL = timePerformanceINSERTSkipList(listOfLists)
+    
+    # listOfLists = readMYfile('test1.csv')
+    # search_TimeRBT = timePerformanceSEARCHRedBlackTree(listOfLists)
+    #
+    # listOfLists = readMYfile('test1.csv')
+    # search_TimeSKL = timePerformanceSEARCHSkipList(listOfLists)
+    
+    
+    # logischer weise hat diese Kennzahl das gleiche format wie List_performanceTime, gut für plot...
+    # Anzahl der Input werte auslesen pro Liste
+    listOfLists = readMYfile('test1.csv')
+    numberOfInputValuesRBT = subListLengh(listOfLists)
+    
+    listOfLists = readMYfile('test1.csv')
+    numberOfInputValuesSKL = subListLengh(listOfLists)
+   
+ # ------------------------------
+# Plot Idea: list lenght and time in Datastructure, Time
     
     # Actual plot
-    # fig, (plt1, plt2) = plt.subplots(2, 1)
-    # fig.suptitle('OBEN RotSchwarzBaum -- UNTEN SkipListe')
+    
     fig, (plt1) = plt.subplots(1, 1)
-    fig.suptitle('OBEN RotSchwarzBaum ROT -- UNTEN SkipListe BLAU')
+    fig.suptitle('Rot-Schwarz-Baum ROT, Skip-Liste BLAU')
     
-    plt1.plot (csvValues3, timeRBTArray, 'r+')
-    plt1.plot (csvValues4, timeSKLArray, 'bx')
-    print ("this is csvValues4, with timeRBTArray:", csvValues3, timeSKLArray)
-    print ("this is csvValues3, with timeRBTArray:", csvValues3, timeRBTArray)
-
-    # plt1.plot (csvValues4, csvValues4)
-    plt1.set_ylabel('time in Sec')
-    plt1.set_xlabel('Wertebereich der Imputwerte')
+    plt1.plot (numberOfInputValuesRBT, insert_TimeRBT, 'r+')
+    plt1.plot (numberOfInputValuesSKL, insert_TimeSKL, 'bx')
     
-    # plt2.plot (csvValues4, timeSKLArray)
-    # plt1.plot (csvValues4, csvValues4)
-    # plt2.set_ylabel('SKL time')
-    # plt2.set_xlabel('Wertebereich der Imputwerte')
-    # Beschriftungen in graph
+    #plt1.plot (numberOfInputValuesRBT, search_TimeRBT, 'bs')
+    #plt1.plot (numberOfInputValuesSKL, search_TimeSKL, 'bx')
+    
+    plt1.set_ylabel('Time in nano sec')
+    plt1.set_xlabel('Number of Values from CSV')
     
     # print für plots
     plt.show()

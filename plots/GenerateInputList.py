@@ -6,18 +6,23 @@ from _socket import close
 from _operator import concat
 
 # Beispiel test fälle mit Listen
-data_list = [[11,22,33,44,55], [5,6,7,8,9,0], [0,0,0,0,0,0,0]]
-a = list(range(0,10))
-b = list(range(0,100))
-c = list(range(0,1000))
+data_list = [[1], [2]]
+a = list(range(0,200))
+b = list(range(0,400))
+c = list(range(0,600))
+d = list(range(0,800))
+e  = list(range(0,1000))
+f  = list(range(0,1200))
+#g  = list(range(0,10000000))
 
 
 def makeBigLists(listOfList):
-    print("1) Got this Input as listOfLists: ", listOfList)
+    print("\n1. Generating with makeBigLists - method is starting")
     ouput_list=[]
+    print("2. ... ")
     for i in range(0, len(listOfList)):
         single_list=[]
-        print ("... listOfList[i] ",i, listOfList[i])
+       
         single_list.append(listOfList[i])
         for j in range(0, len(single_list)):
            
@@ -28,7 +33,10 @@ def makeBigLists(listOfList):
     ouput_list.append(a) 
     ouput_list.append(b) 
     ouput_list.append(c) 
-    print ("3) ouput_list number of sublists/Testcase Lists: ", len(ouput_list))        
+    ouput_list.append(d) 
+    ouput_list.append(e) 
+    ouput_list.append(f) 
+    print ("3. Generated number of sublists/Testcase is: ", len(ouput_list))        
     return ouput_list
 
 # erstelle test csv file mit mini data listen:
@@ -36,7 +44,7 @@ def writeMYfile(filename, data):
     with open (filename, 'w', newline='') as file:
         writer = csv.writer(file, delimiter =',')
         writer.writerows(data)      
-    print ("Done with generated List in test1.csv")
+    print ("\n-> Done with writing data in", filename)
     
 
 if __name__ == "__main__":

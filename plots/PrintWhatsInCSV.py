@@ -11,6 +11,8 @@ from _csv import QUOTE_NONNUMERIC
 from numpy.f2py.auxfuncs import ischaracter
 from ntpath import split
 from numpy.distutils.tests.test_npy_pkg_config import simple
+from time import *
+import time
 
 data_list = [[11,22,33,44,55], [5,6,7,8,9,0], [0,0,0,0,0,0,0]]
 
@@ -45,8 +47,22 @@ def readMYfile(filename):
         print ("output_list after reading file (integer)", output_list)
         return output_list
 
+
+def readWritePerformaveClock(): 
+    start = time.process_time_ns()
+    for i in range(0,100):
+        i=i*i
+        print (i)
+    sleep = 10 
+    stop = time.process_time_ns()
+    delta_time=0.0
+    delta_time = start - stop
+    print (" start- end time:", delta_time)
     
+    
+      
 if __name__ == "__main__":
-    writeMYfile("test1.csv") 
-    lines=readMYfile("test1.csv") 
+    # writeMYfile("test1.csv") 
+    #lines=readMYfile("test1.csv") 
+    readWritePerformaveClock() 
     
