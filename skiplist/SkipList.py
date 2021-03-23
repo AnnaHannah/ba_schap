@@ -1,6 +1,6 @@
 import sys
 from _overlapped import NULL
-from LinkedList import LinkedList
+from skiplist.LinkedList import LinkedList
 # Implementing Skiplist in Python
 from random import randint, seed
 from time import sleep
@@ -121,6 +121,19 @@ class SkipList():
                 if self.head.next[i] == None:
                     self.maxHeight -= 1
             self.len -= 1            
+        
+    def counterNodes(self):
+        counter = 0
+        for i in reversed(range(0, len(self.head.next), 1)):
+            # Jede Ebene hat einen Kopf, der alleine ist schon 1 Wert
+            x = self.head
+            counter = counter + 1 
+            while x.next[i] != None:  
+                # jedes Element wird gezählt
+                if x.elem != None:
+                    counter = counter + 1
+                x = x.next[i] 
+        return counter            
                 
     def printList(self):
         # indent = ""
@@ -140,16 +153,11 @@ class SkipList():
             
 if __name__ == "__main__":
     skl = SkipList()
-    inputList = [1,2,3,4,5,6,7,8,8,0,9,8,1,7,6,6,6]
+    inputList = list(range(1,1000))
     skl.insertMultipleElem(inputList)
-    print("__len__ funktion says:", skl.__len__())
-    searchlist = [1,2,3,99,'aaa']
-    skl.printList()
-    print ("\n")
-    print ("Ergebnis von Suche skl.findMultipleElem (" +str(searchlist) +") ist:", skl.findMultipleElem(searchlist) )
-
-    
-
-    
-     
-        
+    print(skl.counterNodes())
+    # print("__len__ funktion says:", skl.__len__())
+    # searchlist = [1,2,3,99,'aaa']
+    # skl.printList()
+    # print ("\n")
+    # print ("Ergebnis von Suche skl.findMultipleElem (" +str(searchlist) +") ist:", skl.findMultipleElem(searchlist) )     

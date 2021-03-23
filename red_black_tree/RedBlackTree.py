@@ -327,41 +327,41 @@ class RedBlackTree():
 
     def insert(self, key):
         assert type(key) is int, " \n %r is not an integer, in this Tree is only interger accepted. \n Please modify your Input. \n Insertionprozess stopped now" % key
+        if self.contains (key) == False:
+            node = Node(key)
+            node.parent = None
+            node.data = key
+            node.left = self.TNULL
+            node.right = self.TNULL
+            node.color = 1
+            self.counterNodes = (self.counterNodes) + 1 
     
-        node = Node(key)
-        node.parent = None
-        node.data = key
-        node.left = self.TNULL
-        node.right = self.TNULL
-        node.color = 1
-        self.counterNodes = (self.counterNodes) + 1 
-
-        y = None
-        x = self.root
-
-        while x != self.TNULL:
-            y = x
-            if node.data < x.data:
-                x = x.left
+            y = None
+            x = self.root
+    
+            while x != self.TNULL:
+                y = x
+                if node.data < x.data:
+                    x = x.left
+                else:
+                    x = x.right
+    
+            node.parent = y
+            if y == None:
+                self.root = node
+            elif node.data < y.data:
+                y.left = node
             else:
-                x = x.right
-
-        node.parent = y
-        if y == None:
-            self.root = node
-        elif node.data < y.data:
-            y.left = node
-        else:
-            y.right = node
-
-        if node.parent == None:
-            node.color = 0
+                y.right = node
+    
+            if node.parent == None:
+                node.color = 0
+                return
+            if node.parent.parent == None:
+                return
+            self.fixInsert(node)
+        else: 
             return
-
-        if node.parent.parent == None:
-            return
-
-        self.fixInsert(node)
         
     def fixColor(self):
         self.fixColorHelper(self.root)
@@ -383,20 +383,24 @@ class RedBlackTree():
 
     def nodesInTree(self):
         return self.counterNodes
-
+    
+    def contains(self, key):
+        return (self.searchTree(key) == key)
 
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
     # inputList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-    # inputList1 = [2,4,5,6,7]
-    # bst = RedBlackTree()
-    #
+    inputList1 = [1,2,3,4,5,6,7,1,2,1,1,1,1,1,1,1]
+    bst = RedBlackTree()
+    
     # print("2. Number of Nodes now is: ", bst.counterNodes)
     # print("3. Input in den Tree:", inputList)
-    # bst.insertMultipleElem(inputList)
+    bst.insertMultipleElem(inputList1)
+    # print ("das wird gesucht: bst.searchTree(5)", bst.searchTree(5))
+    # print ("das wird gesucht: bst.contains(5)", bst.contains(5))
     # print("4. Number of Nodes now is: ", bst.counterNodes)
     # print ("5. Number of black and red color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
-    # bst.printTree()
+    bst.printTree()
 
     
