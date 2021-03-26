@@ -7,6 +7,7 @@ from time import sleep
 from tkinter.tix import INTEGER
 from operator import contains
 from numpy.core.defchararray import isdigit, isdecimal
+#from red_black_tree.RedBlackTree import inputList1
 
 
 class SkipNode():
@@ -108,9 +109,10 @@ class SkipList():
         foundList = []
         while list.__len__() > 0:
             x = list.pop()
-            if self.findElem(x) != None:
-                foundList.append(self.findElem(x))
-        return foundList
+            self.findElem(x)
+            # if self.findElem(x) != None:
+                # foundList.append(self.findElem(x))
+        # return foundList
 
     def delete(self, elem):
         x = self.findElfindNodeByElem
@@ -153,11 +155,12 @@ class SkipList():
             
 if __name__ == "__main__":
     skl = SkipList()
-    inputList = list(range(1,1000))
-    skl.insertMultipleElem(inputList)
+    #inputList = list(range(1,1000))
+    inputList1=[1,2,3,4,5,6]
+    skl.insertMultipleElem(inputList1)
     print(skl.counterNodes())
     # print("__len__ funktion says:", skl.__len__())
-    # searchlist = [1,2,3,99,'aaa']
+    searchlist = [1,2,3,99,'aaa']
     # skl.printList()
     # print ("\n")
-    # print ("Ergebnis von Suche skl.findMultipleElem (" +str(searchlist) +") ist:", skl.findMultipleElem(searchlist) )     
+    print ("Ergebnis von Suche skl.findMultipleElem (" +str(searchlist) +") ist:", skl.findMultipleElem(searchlist) )     

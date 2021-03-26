@@ -72,11 +72,11 @@ def messureTime_INSERT_RedBlackTree (inputList):
     # End Timer 
     end  = time.process_time_ns()
     delta_time = 0
-    print(bst.counterNodes, " so many Nodes were made in Tree")
-    delta_time = end-start
+    #print(bst.counterNodes, " so many Nodes were made in Tree")
+    delta_time = (int(end-start))
     #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
     
-    print(int(delta_time), " total_seconds() needed for input in RedBlackTree")
+    #print(int(delta_time), " total_seconds() needed for input in RedBlackTree")
     return (int(delta_time))
 
 def messureTime_INSERT_SkipList(inputList):
@@ -92,11 +92,56 @@ def messureTime_INSERT_SkipList(inputList):
     
     # End Timer
     end = time.process_time_ns()
-    print(skl.counterNodes(), " so many Nodes were made in Skiplist")
-    delta_time = end-start
+    #print(skl.counterNodes(), " so many Nodes were made in Skiplist")
+    delta_time = int(end-start)
     # assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
-    print(int(delta_time), "total_seconds() needed for input in SkipList")
+    #print(int(delta_time), "total_seconds() needed for input in SkipList")
     return (int(delta_time))
+
+def messureTime_SEARCH_RedBlackTree(inputList):
+    if type(inputList) != list:
+        inputList = inputList.tolist()
+    
+    # init für Blackred tree
+    delta_time = 0.0
+    searchlist = inputList
+    
+    bst = RedBlackTree()
+    bst.insertMultipleElem(inputList)
+    #start timer
+    start = time.process_time_ns()
+    bst.findMultipleElem(searchlist)
+    bst.searchTree(100)
+
+    end  = time.process_time_ns()
+   
+    delta_time = (end-start)
+    #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
+    print (bst.counterNodes, " so many Nodes were made in Tree")
+    print (int(delta_time), " total_seconds() needed for searching all Nodes in RedBlackTree")
+    return int(delta_time)
+
+def messureTime_SEARCH_Skiplist(inputList):
+    if type(inputList) != list:
+        inputList = inputList.tolist()
+    
+    # init für Blackred tree
+    delta_time = 0.0
+    searchlist = inputList
+
+    skl = SkipList()
+    skl.insertMultipleElem(inputList)
+    #start timer
+    start = time.process_time_ns()
+    skl.findMultipleElem(searchlist)
+    skl.findElem(100)
+    end  = time.process_time_ns()
+   
+    delta_time = (end-start)
+    #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
+    print (skl.counterNodes(), " so many Nodes were made in Skiplist")
+    print (int(delta_time), " total_seconds() needed for searching all Nodes in Skiplist")
+    return int(delta_time)
 
 def timePerformanceINSERTRedBlackTree(listOfLists):
     perf_OutputList = []   
@@ -112,6 +157,22 @@ def timePerformanceINSERTSkipList(listOfLists):
         timeSKL = messureTime_INSERT_SkipList(list)
         perf_OutputList.append(timeSKL)
     print ("timePerformanceINSERTSkipList has messured time pro list iteration, and will return:", perf_OutputList)
+    return perf_OutputList
+
+def timePerformanceSEARCHRedBlackTree(listOfLists):
+    perf_OutputList = []   
+    for list in listOfLists:
+        timeRBT = messureTime_SEARCH_RedBlackTree(list)
+        perf_OutputList.append(timeRBT)
+    print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
+    return perf_OutputList
+
+def timePerformanceSEARCHSkipList(listOfLists):
+    perf_OutputList = []   
+    for list in listOfLists:
+        timeSKL = messureTime_SEARCH_Skiplist(list)
+        perf_OutputList.append(timeSKL)
+    print ("timePerformanceSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
     return perf_OutputList
 
 def subListLengh(listOfLists):
@@ -133,11 +194,11 @@ if __name__ == "__main__":
     listOfLists = readMYfile('test1.csv')
     insert_TimeSKL = timePerformanceINSERTSkipList(listOfLists)
     
-    # listOfLists = readMYfile('test1.csv')
-    # search_TimeRBT = timePerformanceSEARCHRedBlackTree(listOfLists)
+    listOfLists = readMYfile('test1.csv')
+    search_TimeRBT = timePerformanceSEARCHRedBlackTree(listOfLists)
     #
-    # listOfLists = readMYfile('test1.csv')
-    # search_TimeSKL = timePerformanceSEARCHSkipList(listOfLists)
+    listOfLists = readMYfile('test1.csv')
+    search_TimeSKL = timePerformanceSEARCHSkipList(listOfLists)
     
     
     # logischer weise hat diese Kennzahl das gleiche format wie List_performanceTime, gut für plot...
@@ -157,14 +218,16 @@ if __name__ == "__main__":
     fig.suptitle('Rot-Schwarz-Baum ROT, Skip-Liste BLAU')
     
     plt1.plot (numberOfInputValuesRBT, insert_TimeRBT, 'r+')
-    plt1.plot (numberOfInputValuesSKL, insert_TimeSKL, 'bx')
+    plt1.plot (numberOfInputValuesSKL, insert_TimeSKL, 'b+')
     
-    #plt1.plot (numberOfInputValuesRBT, search_TimeRBT, 'bs')
-    #plt1.plot (numberOfInputValuesSKL, search_TimeSKL, 'bx')
+    plt1.plot (numberOfInputValuesRBT, search_TimeRBT, 'rx')
+    plt1.plot (numberOfInputValuesSKL, search_TimeSKL, 'bx')
     
     plt1.set_ylabel('Time in nano sec')
     plt1.set_xlabel('Number of Values from CSV')
     
     # print für plots
+    # Add a legend to the plot
+    #legend("topleft", legend=c("Line 1", "Line 2"), col=c("red", "blue"))
     plt.show()
 

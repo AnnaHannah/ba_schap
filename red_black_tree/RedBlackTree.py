@@ -69,8 +69,9 @@ class RedBlackTree():
             self.postOrderHelper(node.right)
             sys.stdout.write(str(node.data) + " ")
 
-    # Search the tree
+    
     def searchTreeHelper(self, node, key):
+        # Search the tree
         if key == node.data:
             #print ("Gesucht nach %r und im Tree gefunden." % node.data)
             return node.data
@@ -80,8 +81,8 @@ class RedBlackTree():
             return self.searchTreeHelper(node.left, key)
         return self.searchTreeHelper(node.right, key)
 
-    # Balancing the tree after deletion
     def fixDelete(self, x):
+        # Balancing the tree after deletion
         while x != self.root and x.color == 0:
             if x == x.parent.left:
                 s = x.parent.right
@@ -139,9 +140,9 @@ class RedBlackTree():
         else:
             u.parent.right = v
         v.parent = u.parent
-
-    # Node deletion
+  
     def deleteNodeHelper(self, node, key):
+        # Node deletion
         self.counterNodes = (self.counterNodes) - 1
         if self.counterNodes < 0:
             self.counterNodes = 0
@@ -223,11 +224,12 @@ class RedBlackTree():
                 break
         self.root.color = 0
 
-    # Printing the tree
+    
     def printHelper(self, node, indent, last):
+        # Printing the tree
         if node != self.TNULL:
             sys.stdout.write(indent)
-            if last:
+            if last == True:
                 sys.stdout.write("L----")
                 indent += "|    "
             else:
@@ -372,6 +374,15 @@ class RedBlackTree():
             self.insert(x)
         self.fixColor()
 
+    def findMultipleElem (self, list):
+        foundList = []
+        while list != []:
+            x = list.pop()
+            self.searchTree(x)
+            # if self.searchTree(x) != None:
+                # foundList.append(self.searchTree(x))
+        # return foundList
+
     def getRoot(self):
         return self.root
 
@@ -390,13 +401,16 @@ class RedBlackTree():
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    # inputList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-    inputList1 = [1,2,3,4,5,6,7,1,2,1,1,1,1,1,1,1]
+    inputList1 = [1, 2, 3, 4]
+    searchList = [1,2,3,4,5,6,7,1,2,1,1,1,1,1,1,1]
     bst = RedBlackTree()
+
     
     # print("2. Number of Nodes now is: ", bst.counterNodes)
     # print("3. Input in den Tree:", inputList)
     bst.insertMultipleElem(inputList1)
+    #bst.findMultipleElem(searchList)
+    print ("Ergebnis von Suche bst.findMultipleElem ("+ str(searchList) +") ist:", bst.findMultipleElem(searchList) )   
     # print ("das wird gesucht: bst.searchTree(5)", bst.searchTree(5))
     # print ("das wird gesucht: bst.contains(5)", bst.contains(5))
     # print("4. Number of Nodes now is: ", bst.counterNodes)
