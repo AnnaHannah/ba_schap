@@ -5,11 +5,11 @@ from red_black_tree.RedBlackTree import *
 from skiplist.SkipList import * 
 import csv
 
-    # def getFinger(self):
+def getLazyFinger(self):
     # read finger from outside, so last use get stored global
-    #    return key
+    return key
     
-def setFinger(filename, key):
+def setlazyFinger(filename, key):
     # write last used Node in csv file
     with open (filename, 'w', newline='') as file:
         writer = csv.writer(file, delimiter =',')
@@ -19,4 +19,4 @@ if __name__ == '__main__':
     
     sys.setrecursionlimit(2000)
     # init
-    layzyfinger = setFinger('lazyFinger.csv', 0)
+    layzyfinger = setlazyFinger('lazyFinger.csv', 0)

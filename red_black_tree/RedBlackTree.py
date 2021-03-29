@@ -397,11 +397,40 @@ class RedBlackTree():
     
     def contains(self, key):
         return (self.searchTree(key) == key)
+        
+    def findMaximum(self, key): 
+        currentMaxi = key
+        if (currentMaxi.left != None) and (currentMaxi.left.data >= currentMaxi.data):
+            currentMaxi = currentMaxi.left
+            self.findMaximum(currentMaxi)
+        if (currentMaxi.right != None) and (currentMaxi.right.data >= currentMaxi.data):
+            currentMaxi = currentMaxi.right
+            self.findMaximum(currentMaxi)
+        return (currentMaxi.data)
+    
+    def findMinimum(self, key): 
+        currentMini = key
+        while ((currentMini.left != None) and (currentMini.left.data < currentMini.data)):
+            currentMini = currentMini.left
+        #eigentlich unnötig 
+        while ((currentMini.right != None) and (currentMini.right.data < currentMini.data)):
+            currentMini = currentMini.right
+        return (currentMini.data)
+        
+    def maximumInTree(self): 
+        maximum = self.findMaximum(self.root)
+        print("maximumInTree",maximum)
+        return maximum 
+    
+    def minimumInTree(self):
+        minimum = self.findMinimum(self.root)
+        print("minimumInTree",minimum)
+        return minimum 
 
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList1 = [1, 2, 3, 4]
+    inputList1 = [4,5,6,7,8,9,1,1,2,3,0,1000000000]
     searchList = [1,2,3,4,5,6,7,1,2,1,1,1,1,1,1,1]
     bst = RedBlackTree()
 
@@ -410,11 +439,13 @@ if __name__ == "__main__":
     # print("3. Input in den Tree:", inputList)
     bst.insertMultipleElem(inputList1)
     #bst.findMultipleElem(searchList)
-    print ("Ergebnis von Suche bst.findMultipleElem ("+ str(searchList) +") ist:", bst.findMultipleElem(searchList) )   
+    #print ("Ergebnis von Suche bst.findMultipleElem ("+ str(searchList) +") ist:", bst.findMultipleElem(searchList) )   
     # print ("das wird gesucht: bst.searchTree(5)", bst.searchTree(5))
     # print ("das wird gesucht: bst.contains(5)", bst.contains(5))
     # print("4. Number of Nodes now is: ", bst.counterNodes)
     # print ("5. Number of black and red color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
     bst.printTree()
+    bst.maximumInTree()
+    bst.minimumInTree()
 
     
