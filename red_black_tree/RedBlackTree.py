@@ -26,7 +26,7 @@ class Node():
 class RedBlackTree():
 
     def __init__(self):
-        self.TNULL = Node(0)
+        self.TNULL = Node(None)
         self.TNULL.color = 1
         self.TNULL.left = None
         self.TNULL.right = None
@@ -70,16 +70,54 @@ class RedBlackTree():
             sys.stdout.write(str(node.data) + " ")
 
     
-    def searchTreeHelper(self, node, key):
+    def downSearchTree(self, node, key):
         # Search the tree
+        #print (" Node in downSearchTree is now: ", node.data)
         if key == node.data:
             #print ("Gesucht nach %r und im Tree gefunden." % node.data)
             return node.data
         if node == self.TNULL:
             return None
         if key < node.data:
-            return self.searchTreeHelper(node.left, key)
-        return self.searchTreeHelper(node.right, key)
+            return self.downSearchTree(node.left, key)
+        return self.downSearchTree(node.right, key)
+    
+    def twoDirectSearch(self, node, key):
+        # Search the tree
+        
+        if node == self.TNULL:
+            return None
+        if node.data != None:    
+            # print (" Node in twoDirectSearch is now: ", node.data)
+            if key == node.data:
+                return node.data
+                  
+            if key < node.data and node.parent == None:
+                return self.downSearchTree(node.left, key) 
+            
+            if key > node.data and node.parent == None:
+                return self.downSearchTree(node.right, key)
+            
+            if key < node.data and node.parent != None:
+                if self.downSearchTree(node.left, key) != None:
+                    # print ("downSearchTree started because, node.data is  bigger then key:", key, node.data)
+                    return self.downSearchTree(node.left, key) 
+                else:
+                    # print ("twoDirectSearch  started because, node.data is bigger then key:",key, node.data)
+                    return self.twoDirectSearch(node.parent, key)
+                
+               
+            if key > node.data and node.parent != None:
+                
+                if self.downSearchTree(node.right, key) != None:
+                    # print ("downSearchTree  started because, node.data is smaller then key:", key, node.data)
+                    return self.downSearchTree(node.right, key)
+                else:
+                    # print ("twoDirectSearch started because, node.data is smaller then key:", key, node.data)
+                    return self.twoDirectSearch(node.parent, key) 
+        else:
+            return None
+
 
     def fixDelete(self, x):
         # Balancing the tree after deletion
@@ -232,7 +270,7 @@ class RedBlackTree():
             if last == True:
                 sys.stdout.write("L----")
                 indent += "|    "
-            else:
+            if last == False:
                 sys.stdout.write("R----")
                 indent += "    "
 
@@ -292,8 +330,8 @@ class RedBlackTree():
     def postorder(self):
         self.postOrderHelper(self.root)
 
-    def searchTree(self, k):
-        return self.searchTreeHelper(self.root, k)
+    def RootSearchTree(self, k):
+        return self.downSearchTree(self.root, k)
 
     def leftRotate(self, x):
         y = x.right
@@ -329,7 +367,8 @@ class RedBlackTree():
 
     def insert(self, key):
         assert type(key) is int, " \n %r is not an integer, in this Tree is only interger accepted. \n Please modify your Input. \n Insertionprozess stopped now" % key
-        if self.contains (key) == False:
+        if self.contains(key) == False:
+            # create new node:
             node = Node(key)
             node.parent = None
             node.data = key
@@ -337,7 +376,7 @@ class RedBlackTree():
             node.right = self.TNULL
             node.color = 1
             self.counterNodes = (self.counterNodes) + 1 
-    
+            # manage new Node:
             y = None
             x = self.root
     
@@ -378,9 +417,9 @@ class RedBlackTree():
         foundList = []
         while list != []:
             x = list.pop()
-            self.searchTree(x)
-            # if self.searchTree(x) != None:
-                # foundList.append(self.searchTree(x))
+            self.RootSearchTree(x)
+            # if self.RootSearchTree(x) != None:
+                # foundList.append(self.RootSearchTree(x))
         # return foundList
 
     def getRoot(self):
@@ -396,56 +435,62 @@ class RedBlackTree():
         return self.counterNodes
     
     def contains(self, key):
-        return (self.searchTree(key) == key)
+        return (self.RootSearchTree(key) == key)
         
     def findMaximum(self, key): 
-        currentMaxi = key
-        if (currentMaxi.left != None) and (currentMaxi.left.data >= currentMaxi.data):
-            currentMaxi = currentMaxi.left
-            self.findMaximum(currentMaxi)
-        if (currentMaxi.right != None) and (currentMaxi.right.data >= currentMaxi.data):
-            currentMaxi = currentMaxi.right
-            self.findMaximum(currentMaxi)
-        return (currentMaxi.data)
-    
+        currentMax = key
+        if currentMax.data != None: 
+            while ((currentMax.left.data != None) and (currentMax.left.data > currentMax.data)):
+                currentMax = currentMax.left
+            #eigentlich unnötig 
+            while ((currentMax.right.data != None) and (currentMax.right.data > currentMax.data)):
+                currentMax = currentMax.right
+        return (currentMax)
+           
     def findMinimum(self, key): 
         currentMini = key
-        while ((currentMini.left != None) and (currentMini.left.data < currentMini.data)):
-            currentMini = currentMini.left
-        #eigentlich unnötig 
-        while ((currentMini.right != None) and (currentMini.right.data < currentMini.data)):
-            currentMini = currentMini.right
-        return (currentMini.data)
+        if currentMini.data != None: 
+            while ((currentMini.left.data != None) and (currentMini.left.data < currentMini.data)):
+                currentMini = currentMini.left
+            #eigentlich unnötig 
+            while ((currentMini.right.data != None) and (currentMini.right.data < currentMini.data)):
+                currentMini = currentMini.right
+        return (currentMini)
         
     def maximumInTree(self): 
         maximum = self.findMaximum(self.root)
-        print("maximumInTree",maximum)
+        #print("maximumInTree",maximum)
         return maximum 
     
     def minimumInTree(self):
         minimum = self.findMinimum(self.root)
-        print("minimumInTree",minimum)
+        #print("minimumInTree",minimum)
         return minimum 
 
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList1 = [4,5,6,7,8,9,1,1,2,3,0,1000000000]
+    inputList1 = [4,5,6,7,8,9,1,1,2,3,1000000000]
     searchList = [1,2,3,4,5,6,7,1,2,1,1,1,1,1,1,1]
     bst = RedBlackTree()
 
     
     # print("2. Number of Nodes now is: ", bst.counterNodes)
-    # print("3. Input in den Tree:", inputList)
+    print("Input in den Tree:", inputList1)
     bst.insertMultipleElem(inputList1)
+    startNode = bst.root.left
+    print(" start Node for search in twoDirectSearch: ", startNode.data)
+    print("\n gefunden mit twoDirectSearch: " , bst.twoDirectSearch(startNode, 2))
+    print("\n gefunden mit RootSearchTree: " , bst.RootSearchTree(3))
     #bst.findMultipleElem(searchList)
     #print ("Ergebnis von Suche bst.findMultipleElem ("+ str(searchList) +") ist:", bst.findMultipleElem(searchList) )   
-    # print ("das wird gesucht: bst.searchTree(5)", bst.searchTree(5))
-    # print ("das wird gesucht: bst.contains(5)", bst.contains(5))
+    # print ("das wird gesucht: bst.RootSearchTree(5)", bst.RootSearchTree(5))
+    # print ("das wird gesucht: bst.contains(0)", bst.contains(0))
     # print("4. Number of Nodes now is: ", bst.counterNodes)
     # print ("5. Number of black and red color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
+    print("\n")
     bst.printTree()
-    bst.maximumInTree()
-    bst.minimumInTree()
+    # bst.maximumInTree()
+    # bst.minimumInTree()
 
     
