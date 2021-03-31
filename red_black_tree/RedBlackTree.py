@@ -83,7 +83,7 @@ class RedBlackTree():
         return self.downSearchTree(node.right, key)
     
     def twoDirectSearch(self, node, key):
-        # Search the tree
+        # Search the tree upwards an downwords
         
         if node == self.TNULL:
             return None
@@ -330,7 +330,7 @@ class RedBlackTree():
     def postorder(self):
         self.postOrderHelper(self.root)
 
-    def RootSearchTree(self, k):
+    def rootSearchTree(self, k):
         return self.downSearchTree(self.root, k)
 
     def leftRotate(self, x):
@@ -435,7 +435,7 @@ class RedBlackTree():
         return self.counterNodes
     
     def contains(self, key):
-        return (self.RootSearchTree(key) == key)
+        return (self.rootSearchTree(key) == key)
         
     def findMaximum(self, key): 
         currentMax = key
@@ -473,7 +473,6 @@ if __name__ == "__main__":
     inputList1 = [4,5,6,7,8,9,1,1,2,3,1000000000]
     searchList = [1,2,3,4,5,6,7,1,2,1,1,1,1,1,1,1]
     bst = RedBlackTree()
-
     
     # print("2. Number of Nodes now is: ", bst.counterNodes)
     print("Input in den Tree:", inputList1)
@@ -481,7 +480,7 @@ if __name__ == "__main__":
     startNode = bst.root.left
     print(" start Node for search in twoDirectSearch: ", startNode.data)
     print("\n gefunden mit twoDirectSearch: " , bst.twoDirectSearch(startNode, 2))
-    print("\n gefunden mit RootSearchTree: " , bst.RootSearchTree(3))
+    print("\n gefunden mit RootSearchTree: " , bst.rootSearchTree(3))
     #bst.findMultipleElem(searchList)
     #print ("Ergebnis von Suche bst.findMultipleElem ("+ str(searchList) +") ist:", bst.findMultipleElem(searchList) )   
     # print ("das wird gesucht: bst.RootSearchTree(5)", bst.RootSearchTree(5))

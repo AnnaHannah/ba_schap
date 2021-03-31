@@ -1,7 +1,6 @@
 from red_black_tree.RedBlackTree import * 
 from skiplist.SkipList import * 
 
-
 class Finger():
     def __init__(self, data):
         self.data = data
@@ -12,21 +11,19 @@ class Finger():
         
 class MinMaxFinger():
     def __init__ (self):
-        self.maxiFinger = Finger(0)
-        self.miniFinger = Finger(0)
+        self.maxiFinger = Finger(None)
+        self.miniFinger = Finger(None)
     
-    def getMaximumOf(self, tree):      
-        newMaxFinger = Node(0)
+    def setMaxiFingerFrom(self, tree):      
         newMaxFinger = tree.maximumInTree()
         self.maxiFinger = newMaxFinger
-        print("MaxiFinger in MinMaxFinger was set", newMaxFinger.data)
+        print("MaxiFinger was set: ", newMaxFinger.data)
         return newMaxFinger
     
-    def getMinimumOf(self, tree):      
-        newMinFinger = Node(0)
+    def setMiniFingerFrom(self, tree):      
         newMinFinger = tree.minimumInTree()
         self.miniFinger = newMinFinger
-        print("MiniFinger in MinMaxFinger was set: ", newMinFinger.data)
+        print("MiniFinger was set: ", newMinFinger.data)
         return newMinFinger
     
     def fingerSearch(self, tree, keyInInt):
@@ -49,10 +46,10 @@ if __name__ == "__main__":
     bst.insertMultipleElem(inputList1)
     
     mmf=MinMaxFinger()
-    mmf.maxiFinger = mmf.getMaximumOf(bst)
-    mmf.miniFinger = mmf.getMinimumOf(bst)
+    mmf.maxiFinger = mmf.setMaxiFingerFrom(bst)
+    mmf.miniFinger = mmf.setMiniFingerFrom(bst)
        
-    mmf.fingerSearch(bst, 1)
+    mmf.fingerSearch(bst, 2)
     bst.printTree()
     
     
