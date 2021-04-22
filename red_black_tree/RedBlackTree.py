@@ -22,7 +22,6 @@ class Node():
         self.right = None
         self.color = None
 
-
 class RedBlackTree():
 
     def __init__(self):
@@ -83,8 +82,7 @@ class RedBlackTree():
         return self.downSearchTree(node.right, key)
     
     def twoDirectSearch(self, node, key):
-        # Search the tree upwards an downwords
-        
+        # Search the tree upwards an downwords     
         if node == self.TNULL:
             return None
         if node.data != None:    
