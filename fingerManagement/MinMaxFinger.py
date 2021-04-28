@@ -44,10 +44,10 @@ class MinMaxFinger():
         if type(tree)== RedBlackTree:    
             if self.maxiFinger.data - keyInInt < keyInInt - self.miniFinger.data:
                 searchResult = (tree.twoDirectSearch(self.maxiFinger, keyInInt)) 
-                # print ("- fingerSearch used maxiFinger for:", searchResult)      
+                print ("fingerSearch used maxiFinger for:", searchResult)      
             if self.maxiFinger.data - keyInInt > keyInInt - self.miniFinger.data:
                 searchResult = (tree.twoDirectSearch(self.miniFinger, keyInInt))
-                # print ("- fingerSearch used miniFinger for:", searchResult)
+                print ("fingerSearch used miniFinger for:", searchResult)
                 #print ("\nfingerSearch has found:", searchResult)
             return searchResult
         
@@ -65,18 +65,19 @@ class MinMaxFinger():
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     bst = RedBlackTree()
-    skl = SkipList()
-    inputList1 = [1,2,3,4,2,2,2,5,6,7,999]
+    #skl = SkipList()
+    inputList1 = [1,2,3,4,2,2,2,5,6,7,0]
     bst.insertMultipleElem(inputList1)
+    #skl.insertMultipleElem(inputList1)
     
-    mmf=MinMaxFinger()
+    mmf = MinMaxFinger()
     mmf.maxiFinger = mmf.setMaxiFingerFrom(bst)
     mmf.miniFinger = mmf.setMiniFingerFrom(bst)
-    mmf.maxiFinger = mmf.setMaxiFingerFrom(skl)
-    mmf.miniFinger = mmf.setMiniFingerFrom(skl)
+    #mmf.maxiFinger = mmf.setMaxiFingerFrom(skl)
+    #mmf.miniFinger = mmf.setMiniFingerFrom(skl)
        
-    mmf.fingerSearch(skl, 2)
-    # bst.printTree()
-    skl.printSkipList()
+    print("\nErgebniss von Fingersearch ist, fingersearch entscheidet selbst ob es von minimum oder Maximum sucht:", mmf.fingerSearch(bst, 3))
+    bst.printTree()
+    #skl.printSkipList()
     
     

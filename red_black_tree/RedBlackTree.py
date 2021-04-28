@@ -32,6 +32,7 @@ class RedBlackTree():
         self.root = self.TNULL
         self.counterNodes = 0
     
+    
     def deleteFullTree (self):
         # all Nodes in tree
         self.TNULL = Node(0)
@@ -266,10 +267,10 @@ class RedBlackTree():
         if node != self.TNULL:
             sys.stdout.write(indent)
             if last == True:
-                sys.stdout.write("L----")
+                sys.stdout.write("R----")
                 indent += "|    "
             if last == False:
-                sys.stdout.write("R----")
+                sys.stdout.write("L----")
                 indent += "    "
 
             if node.color == 1:
@@ -475,9 +476,9 @@ if __name__ == "__main__":
     # print("2. Number of Nodes now is: ", bst.counterNodes)
     print("Input in den Tree:", inputList1)
     bst.insertMultipleElem(inputList1)
-    startNode = bst.root.left
+    startNode = bst.root.right
     print(" start Node for search in twoDirectSearch: ", startNode.data)
-    print("\n gefunden mit twoDirectSearch: " , bst.twoDirectSearch(startNode, 2))
+    print("gefunden mit twoDirectSearch: " , bst.twoDirectSearch(startNode, 3))
     print("\n gefunden mit RootSearchTree: " , bst.rootSearchTree(3))
     #bst.findMultipleElem(searchList)
     #print ("Ergebnis von Suche bst.findMultipleElem ("+ str(searchList) +") ist:", bst.findMultipleElem(searchList) )   
@@ -487,7 +488,7 @@ if __name__ == "__main__":
     # print ("5. Number of black and red color fixes: " + str(mBcounter) + " and " + str(mRcounter))        
     print("\n")
     bst.printTree()
-    # bst.maximumInTree()
+    print("\n maximum is:", bst.maximumInTree().data)
     # bst.minimumInTree()
 
     
