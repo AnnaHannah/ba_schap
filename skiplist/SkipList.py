@@ -46,13 +46,13 @@ class SkipList():
         # this function searches if a node with this data exists
         update = self.updateList(data, node)
         if data == None:
-            print("\n C2) findfindNodeByElemElem was given None", elem)
+            print("\n C2) findfindNodeByElemElem was given None", data)
             return None
         else:
             if len(update) > len(self) and data != None:
                 candidate = update[0].next[0]
                 if candidate != None and candidate.data == data:
-                    print("C2) findNodeByElem found this candidate:", candidate.elem)
+                    print("C2) findNodeByElem found this candidate:", candidate.data)
                     return candidate
 
     def contains(self, data):

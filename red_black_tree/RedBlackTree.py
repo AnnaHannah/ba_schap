@@ -416,9 +416,9 @@ class RedBlackTree():
         foundList = []
         while list != []:
             x = list.pop()
-            self.RootSearchTree(x)
-            # if self.RootSearchTree(x) != None:
-                # foundList.append(self.RootSearchTree(x))
+            self.rootSearchTree(x)
+            # if self.rootSearchTree(x) != None:
+                # foundList.append(self.rootSearchTree(x))
         # return foundList
 
     def getRoot(self):

@@ -14,6 +14,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from _socket import close
 from _operator import concat
+from matplotlib.pyplot import title
+from unicodedata import numeric
+from numpy import double
 
 # my files BAUSTELLE
 import GenerateInputList
@@ -22,9 +25,9 @@ import sys
 # try to find Modules RedBlackTree and Skiplist 
 from red_black_tree.RedBlackTree import * 
 from skiplist.SkipList import * 
-from matplotlib.pyplot import title
-from unicodedata import numeric
-from numpy import double
+from fingerManagement.MinMaxFinger import *
+
+
     
 
 # Ziel der funktion, file öffnen, alle Listen auslesen, alle stringsauslesen und in INT convertieren, 
@@ -47,8 +50,7 @@ def readMYfile(filename):
             output_list.append(simple_list)
             
             line_count +=1
-        print("\n -> Done reading File: ", filename)
-        # print ("output_list after reading file (integer)", output_list)
+        #print("\n -> Done reading File: ", filename)
         return output_list
 
 def messureTime_INSERT_RedBlackTree (inputList):
@@ -65,8 +67,8 @@ def messureTime_INSERT_RedBlackTree (inputList):
     # End Timer 
     end  = time.perf_counter_ns()
     delta_time = 0
-    #print(bst.counterNodes, " so many Nodes were made in Tree")
-    delta_time = (int(end-start)//(100000))
+    # print(bst.counterNodes, " so many Nodes were made in Tree")
+    delta_time = (int(end-start)/(100000))
     #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
     
     #print(int(delta_time), " total_seconds() needed for input in RedBlackTree")
@@ -102,11 +104,39 @@ def messureTime_SEARCH_RedBlackTree(inputList):
     
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
+    
     #start timer
     start = time.perf_counter_ns()
     
     bst.findMultipleElem(searchlist)
 
+    end = time.perf_counter_ns()
+    delta_time = (end-start)
+    #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
+    #print (bst.counterNodes, " so many new Nodes were made in Tree")
+    #print (int(delta_time), " total_seconds() needed for searching all Nodes in RedBlackTree")
+    return int(delta_time)
+
+def messureTime_MinMaxFingerSEARCH_RedBlackTree(inputList):
+    if type(inputList) != list:
+        inputList = inputList.tolist()
+    
+    # init für Blackred tree
+    delta_time = 0.0
+    searchlist = inputList
+    
+    bst = RedBlackTree()
+    bst.insertMultipleElem(inputList)
+    # set up Finger with given tree
+    mmf = MinMaxFinger()
+    mmf.maxiFinger = mmf.setMaxiFingerFrom(bst)
+    mmf.miniFinger = mmf.setMiniFingerFrom(bst)
+    
+    #start timer
+    start = time.perf_counter_ns()
+
+    mmf.findMultipleElem_with_MinMaxFinger(bst, searchlist)
+    
     end = time.perf_counter_ns()
     delta_time = (end-start)
     #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
@@ -169,6 +199,16 @@ def timePerformanceSEARCHSkipList(listOfLists):
     print ("timePerformanceSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
     return perf_OutputList
 
+
+def timePerformanceMinMaxFingerSEARCHRedBlackTree (listOfLists):
+    perf_OutputList = []   
+    for list in listOfLists:
+        timeSKL = messureTime_MinMaxFingerSEARCH_RedBlackTree(list)
+        perf_OutputList.append(timeSKL)
+    print ("timePerformanceMinMaxFingerSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
+    return perf_OutputList
+
+
 def subListLengh(listOfLists):
     lenSublist_Output = [] 
     for list in listOfLists:
@@ -195,6 +235,8 @@ if __name__ == "__main__":
     listOfLists = readMYfile('test1.csv')
     search_TimeSKL = timePerformanceSEARCHSkipList(listOfLists)
     
+    listOfLists = readMYfile('test1.csv')
+    search_MinMaxFinger_TimeRBT = timePerformanceMinMaxFingerSEARCHRedBlackTree(listOfLists)
     
     # logischer weise hat diese Kennzahl das gleiche format wie List_performanceTime, gut für plot...
     # Anzahl der Input werte auslesen pro Liste
@@ -206,27 +248,39 @@ if __name__ == "__main__":
 
     
 
- # ------------------------------
+# ------------------------------
 # Plot Idea: list lenght and time in Datastructure, global Time
     
     # Actual plot
+    # https://www.grund-wissen.de/informatik/python/scipy/matplotlib.html
+   
     
-    fig, (plt1) = plt.subplots(1, 1)
-    fig.suptitle('Rot-Schwarz-Baum ROT, Skip-Liste BLAU')
+    fig, ((plt1, plt2), (plt3, plt4)) = plt.subplots(2, 2)
+    fig.suptitle('Laufzeiten Rotschwarz Baum und Skiplist')
     
-    plt1.plot (numberOfInputValuesRBT, insert_TimeRBT, 'r+')
-    plt1.plot (numberOfInputValuesSKL, insert_TimeSKL, 'b+')
+    plt1.plot (numberOfInputValuesRBT, insert_TimeRBT, 'ro', linestyle='--', label=r'insert time in RedBlackTree')
+    plt1.plot (numberOfInputValuesSKL, insert_TimeSKL, 'mo', linestyle='--', label=r'insert time in SkipList')
     
-    # Vermutung python cache alle input werte, sodass die suche 0 sec dauert...
-    plt1.plot (numberOfInputValuesRBT, search_TimeRBT, 'rx')
-    plt1.plot (numberOfInputValuesSKL, search_TimeSKL, 'bx')
-    
-    plt1.set_ylabel('Time in nano sec')
+    plt1.set_ylabel('Time in nano sec 10^(-6)')
     plt1.set_xlabel('Number of Values from CSV')
     
-    # print für plots
-    # Add a legend to the plot
-    # legend("topleft", legend=c("Line 1", "Line 2"), col=c("red", "blue"))
+    # Vermutung python cache alle input werte, sodass die suche 0 sec dauert...
+    plt2.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label=r'Rootsearch time in RedBlackTree ') 
+    plt2.plot (numberOfInputValuesSKL, search_MinMaxFinger_TimeRBT, 'go', linestyle='--', label=r'MinMax-Finger-Search time in RedBlackTree') 
+    
+    plt3.plot (numberOfInputValuesSKL, search_TimeSKL, 'ko', linestyle='--', label=r'Rootsearch time in SkipList ') 
+    
+    plt4.plot (numberOfInputValuesSKL, search_TimeSKL, 'ko', linestyle='--', label=r'Rootsearch time in SkipList ') 
+    
+    plt2.set_ylabel('Time in nano sec')
+    plt2.set_xlabel('Number of Values from CSV')
+    
+    # Legende einblenden:
+    plt1.legend(loc='upper left', frameon=True)
+    plt2.legend(loc='upper right', frameon=True)
+    plt3.legend(loc='upper right', frameon=True)
    
+    print ("Plot is on Display")
     plt.show()
+    
 

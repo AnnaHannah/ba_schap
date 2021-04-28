@@ -6,14 +6,15 @@ from _socket import close
 from _operator import concat
 
 # Beispiel test fälle mit Listen
-data_list = [[1], [2]]
-a = list(range(0,200))
-b = list(range(0,400))
-c = list(range(0,600))
-d = list(range(0,800))
-e  = list(range(0,1000))
-f  = list(range(0,1200))
-#g  = list(range(0,10000000))
+data_list = []
+a = list(range(0,1200))
+b = list(range(0,1400))
+c = list(range(0,1600))
+d = list(range(0,1800))
+e  = list(range(0,2000))
+f  = list(range(0,2200))
+g  = list(range(0,2400))
+h  = list(range(0,2600))
 
 
 def makeBigLists(listOfList):
@@ -33,9 +34,11 @@ def makeBigLists(listOfList):
     ouput_list.append(a) 
     ouput_list.append(b) 
     ouput_list.append(c) 
-    ouput_list.append(d) 
+    ouput_list.append(d)   
     ouput_list.append(e) 
     ouput_list.append(f) 
+    ouput_list.append(g)
+    ouput_list.append(h)
     print ("3. Generated number of sublists/Testcase is: ", len(ouput_list))        
     return ouput_list
 
