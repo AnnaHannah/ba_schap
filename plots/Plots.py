@@ -26,9 +26,7 @@ import sys
 from red_black_tree.RedBlackTree import * 
 from skiplist.SkipList import * 
 from fingerManagement.MinMaxFinger import *
-
-
-    
+from fingerManagement.LazyFinger import *
 
 # Ziel der funktion, file öffnen, alle Listen auslesen, alle stringsauslesen und in INT convertieren, 
 # Liste von Listen zurückgeben
@@ -67,12 +65,8 @@ def messureTime_INSERT_RedBlackTree (inputList):
     # End Timer 
     end  = time.perf_counter_ns()
     delta_time = 0
-    # print(bst.counterNodes, " so many Nodes were made in Tree")
     delta_time = (int(end-start)/(100000))
-    #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
-    
-    #print(int(delta_time), " total_seconds() needed for input in RedBlackTree")
-    return (int(delta_time))
+    return int(delta_time)
 
 def messureTime_INSERT_SkipList(inputList):
     if type(inputList) != list:
@@ -88,10 +82,7 @@ def messureTime_INSERT_SkipList(inputList):
     
     # End Timer
     end = time.perf_counter_ns()
-    #print(skl.counterNodes(), " so many Nodes were made in Skiplist")
     delta_time = (int(end-start)//(100000))
-    # assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
-    #print(int(delta_time), "total_seconds() needed for input in SkipList")
     return (int(delta_time))
 
 def messureTime_SEARCH_RedBlackTree(inputList):
@@ -112,9 +103,6 @@ def messureTime_SEARCH_RedBlackTree(inputList):
 
     end = time.perf_counter_ns()
     delta_time = (end-start)
-    #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
-    #print (bst.counterNodes, " so many new Nodes were made in Tree")
-    #print (int(delta_time), " total_seconds() needed for searching all Nodes in RedBlackTree")
     return int(delta_time)
 
 def messureTime_MinMaxFingerSEARCH_RedBlackTree(inputList):
@@ -139,16 +127,36 @@ def messureTime_MinMaxFingerSEARCH_RedBlackTree(inputList):
     
     end = time.perf_counter_ns()
     delta_time = (end-start)
-    #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
-    #print (bst.counterNodes, " so many new Nodes were made in Tree")
-    #print (int(delta_time), " total_seconds() needed for searching all Nodes in RedBlackTree")
+    return int(delta_time)
+
+def messureTime_LAZYFingerSEARCH_RedBlackTree(inputList):
+    if type(inputList) != list:
+        inputList = inputList.tolist()
+    
+    # init für Blackred tree
+    delta_time = 0.0
+    searchlist = inputList
+    # set up tree
+    bst = RedBlackTree()
+    bst.insertMultipleElem(inputList)
+    # set up Finger with given tree
+    lf = LazyFinger()
+    lf.LazyFinger = lf.setfirst_LazyFinger(bst)
+    
+    #start timer
+    start = time.perf_counter_ns()
+
+    lf.findMultipleElem_with_LazyFinger(bst, searchlist)
+    
+    end = time.perf_counter_ns()
+    delta_time = (end-start)
     return int(delta_time)
 
 def messureTime_SEARCH_Skiplist(inputList):
     if type(inputList) != list:
         inputList = inputList.tolist()
     
-    # init für Blackred tree
+    # init für Skiplist
     delta_time = 0.0
     searchlist = inputList
 
@@ -160,11 +168,7 @@ def messureTime_SEARCH_Skiplist(inputList):
     skl.findMultipleElem(searchlist)
     
     end = time.perf_counter_ns()
-    #print ("start and end time:", start, end)
     delta_time = (end-start)
-    #assert delta_time is delta_time > 0," \n delta_time: %r has probably an time overflow " % delta_time
-    #print (skl.counterNodes(), " so many new Nodes were made in Skiplist")
-    #print (int(delta_time), " total_seconds() needed for searching all Nodes in Skiplist")
     return int(delta_time)
 
 def timePerformanceINSERTRedBlackTree(listOfLists):
@@ -198,14 +202,20 @@ def timePerformanceSEARCHSkipList(listOfLists):
         perf_OutputList.append(timeSKL)
     print ("timePerformanceSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
     return perf_OutputList
-
-
 def timePerformanceMinMaxFingerSEARCHRedBlackTree (listOfLists):
     perf_OutputList = []   
     for list in listOfLists:
         timeSKL = messureTime_MinMaxFingerSEARCH_RedBlackTree(list)
         perf_OutputList.append(timeSKL)
     print ("timePerformanceMinMaxFingerSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
+    return perf_OutputList
+
+def timePerformanceLAZYFingerSEARCHRedBlackTree(listOfLists):
+    perf_OutputList = []   
+    for list in listOfLists:
+        timeSKL = messureTime_LAZYFingerSEARCH_RedBlackTree(list)
+        perf_OutputList.append(timeSKL)
+    print ("timePerformanceLAZYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
     return perf_OutputList
 
 
@@ -221,22 +231,26 @@ if __name__ == "__main__":
     # Je nach dem wie stark die Rechenleistung ist, bitte begrenzen:
     sys.setrecursionlimit(20000)
     
-    #DS Time performance mit der jewels der sublist anstellen: INSERT
+    #Performance INSERT
     listOfLists = readMYfile('test1.csv')
     insert_TimeRBT = timePerformanceINSERTRedBlackTree(listOfLists)
 
     listOfLists = readMYfile('test1.csv')
     insert_TimeSKL = timePerformanceINSERTSkipList(listOfLists)
  
-    
+    #Performance ROOTSEARCH
     listOfLists = readMYfile('test1.csv')
     search_TimeRBT = timePerformanceSEARCHRedBlackTree(listOfLists)
     
     listOfLists = readMYfile('test1.csv')
     search_TimeSKL = timePerformanceSEARCHSkipList(listOfLists)
     
+    #Performance FINGER SEARCH
     listOfLists = readMYfile('test1.csv')
     search_MinMaxFinger_TimeRBT = timePerformanceMinMaxFingerSEARCHRedBlackTree(listOfLists)
+    
+    listOfLists = readMYfile('test1.csv')
+    search_LazyFinger_TimeRBT = timePerformanceLAZYFingerSEARCHRedBlackTree(listOfLists)
     
     # logischer weise hat diese Kennzahl das gleiche format wie List_performanceTime, gut für plot...
     # Anzahl der Input werte auslesen pro Liste
@@ -247,7 +261,6 @@ if __name__ == "__main__":
     numberOfInputValuesSKL = subListLengh(listOfLists)
 
     
-
 # ------------------------------
 # Plot Idea: list lenght and time in Datastructure, global Time
     
@@ -262,11 +275,12 @@ if __name__ == "__main__":
     plt1.plot (numberOfInputValuesSKL, insert_TimeSKL, 'mo', linestyle='--', label=r'insert time in SkipList')
     
     plt1.set_ylabel('Time in nano sec 10^(-6)')
-    plt1.set_xlabel('Number of Values from CSV')
+    plt1.set_xlabel('Number of values per list from CSV')
     
     # Vermutung python cache alle input werte, sodass die suche 0 sec dauert...
     plt2.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label=r'Rootsearch time in RedBlackTree ') 
     plt2.plot (numberOfInputValuesSKL, search_MinMaxFinger_TimeRBT, 'go', linestyle='--', label=r'MinMax-Finger-Search time in RedBlackTree') 
+    plt2.plot (numberOfInputValuesSKL, search_LazyFinger_TimeRBT, 'ko', linestyle='--', label=r'Lazy-Finger-Search time in RedBlackTree') 
     
     plt3.plot (numberOfInputValuesSKL, search_TimeSKL, 'ko', linestyle='--', label=r'Rootsearch time in SkipList ') 
     
@@ -279,6 +293,7 @@ if __name__ == "__main__":
     plt1.legend(loc='upper left', frameon=True)
     plt2.legend(loc='upper right', frameon=True)
     plt3.legend(loc='upper right', frameon=True)
+    plt4.legend(loc='upper right', frameon=True)
    
     print ("Plot is on Display")
     plt.show()

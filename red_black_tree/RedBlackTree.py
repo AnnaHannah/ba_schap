@@ -72,6 +72,7 @@ class RedBlackTree():
     
     def downSearchTree(self, node, key):
         # Search the tree
+        # retruns Keys not Nodes
         #print (" Node in downSearchTree is now: ", node.data)
         if key == node.data:
             #print ("Gesucht nach %r und im Tree gefunden." % node.data)
@@ -82,8 +83,21 @@ class RedBlackTree():
             return self.downSearchTree(node.left, key)
         return self.downSearchTree(node.right, key)
     
+    def downSearchTree_Node(self, node, key):
+        # Search downwards the tree
+        # returns Nodes not keys
+        
+        if key == node.data:
+            return node
+        if node == self.TNULL:
+            return None
+        if key < node.data:
+            return self.downSearchTree_Node(node.left, key)
+        return self.downSearchTree_Node(node.right, key)
+    
     def twoDirectSearch(self, node, key):
-        # Search the tree upwards an downwords     
+        # Search the tree upwards an downwords   
+        # retruns Keys not Nodes  
         if node == self.TNULL:
             return None
         if node.data != None:    
@@ -117,6 +131,33 @@ class RedBlackTree():
         else:
             return None
 
+    def twoDirectSearch_Node(self, node, key):
+        # Search the tree upwards an downwords  
+        # returns Nodes not keys   
+        if type(node) == Node(None):
+            return None
+        if node.data != None:    
+            if key == node.data:
+                return node
+                  
+            if key < node.data and node.parent == None:
+                return self.downSearchTree_Node(node.left, key) 
+            
+            if key > node.data and node.parent == None:
+                return self.downSearchTree_Node(node.right, key)
+            
+            if key < node.data and node.parent != None:
+                if self.downSearchTree_Node(node.left, key) != None:
+                    return self.downSearchTree_Node(node.left, key) 
+                else:
+                    return self.twoDirectSearch_Node(node.parent, key)   
+            if key > node.data and node.parent != None:
+                if self.downSearchTree_Node(node.right, key) != None:
+                    return self.downSearchTree_Node(node.right, key)
+                else:
+                    return self.twoDirectSearch_Node(node.parent, key) 
+        else:
+            return None    
 
     def fixDelete(self, x):
         # Balancing the tree after deletion

@@ -2,6 +2,8 @@
 # this version of finger trees accepts input datastructure, then sets ist minimal and maximal pointers(Fingers) and then starts 
 # a search from the given Pointer, 
 
+# Finktioniert nur für rot schwarz bäume
+
 from red_black_tree.RedBlackTree import * 
 from skiplist.SkipList import * 
 
