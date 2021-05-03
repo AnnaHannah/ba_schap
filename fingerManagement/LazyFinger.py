@@ -23,7 +23,7 @@ class LazyFinger():
         if type(tree)== RedBlackTree:    
             newLazyFinger = tree.getRoot()
             self.lazyFinger = newLazyFinger
-            print("setfirst_LazyFinger - lazy Finger was set to:", self.lazyFinger.data)
+            #print("setfirst_LazyFinger - lazy Finger was set to:", self.lazyFinger.data)
             return self.lazyFinger
     
     # update the finger after search
@@ -31,9 +31,9 @@ class LazyFinger():
         searchResult = None
         if type(tree)== RedBlackTree:    
             searchResult = (tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)) 
-            print("search result:", (tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)).data)
+            #print("search result:", (tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)).data)
             self.lazyFinger = searchResult
-            print("LazyFinger_search - lazyfinger was set to", self.lazyFinger.data)
+            #print("LazyFinger_search - lazyfinger was set to", self.lazyFinger.data)
         return searchResult
     
     def findMultipleElem_with_LazyFinger (self, tree, list):

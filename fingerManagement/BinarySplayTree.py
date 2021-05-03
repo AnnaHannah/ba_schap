@@ -4,8 +4,9 @@
 
 # Finger Management system, für optimierte suchen
 
-import sys
-from pickle import FALSE
+from red_black_tree.RedBlackTree import *
+from skiplist.SkipList import * 
+import csv
 
 class Node:
     def  __init__(self, data):
@@ -13,6 +14,7 @@ class Node:
         self.parent = None
         self.left = None
         self.right = None
+        self.numberOfUsage = 0
         
 
 class BinarySplayTree:
@@ -37,12 +39,25 @@ class BinarySplayTree:
             self.recrusive_print(currPtr.right, indent, True)
     
     def binary_search(self, startNode, key):
-        if startNode == None or key == startNode.data:
+        
+        if key == startNode.data:
+            # print ("SplayTree Binary search result:", startNode.data)
             return startNode
-
+        
         if key < startNode.data:
-            return self.binary_search(startNode.left, key)
-        return self.binary_search(startNode.right, key)
+            if startNode.left != None:
+                return self.binary_search(startNode.left, key)
+            else: 
+                # print ("SplayTree Binary searchresult nearby:", startNode.data)
+                return startNode
+        if key >= startNode.data:
+            if startNode.right != None:
+                return self.binary_search(startNode.right, key)
+            else: 
+                # print ("SplayTree Binarysearch result nearby:", startNode.data)
+                return startNode
+        else:
+            return self.root
 
     def deleteElem(self, startNode, key):
         x = None
@@ -155,6 +170,36 @@ class BinarySplayTree:
         t.parent = x
         return x
 
+    # find the successor of a given node
+    def successor(self, x):
+        # if the right subtree is not null,
+        # the successor is the leftmost node in the
+        # right subtree
+        if x.right != None:
+            return self.minimum(x.right)
+
+        # else it is the lowest ancestor of x whose
+        # left child is also an ancestor of x.
+        y = x.parent
+        while y != None and x == y.right:
+            x = y
+            y = y.parent
+        return y
+
+    # find the predecessor of a given node
+    def predecessor(self, x):
+        # if the left subtree is not null,
+        # the predecessor is the rightmost node in the 
+        # left subtree
+        if x.left != None:
+            return self.maximum(x.left)
+
+        y = x.parent
+        while y != None and x == y.left:
+            x = y
+            y = y.parent
+        return y
+
     def __pre_order_helper(self, node):
         if node != None:
             sys.stdout.write(node.data + " ")
@@ -188,21 +233,15 @@ class BinarySplayTree:
     def postorder(self):
         self.__post_order_helper(self.root)
 
+
     # search the tree for the key k
     # and return the corresponding node
-    def searchTree(self, k):
+    def searchSplayTree(self, k):
         x = self.binary_search(self.root, k)
         if x != None:
             self.moveToTop(x)
-    
-    def findMultipleElem(self, list):       
-        foundList = []
-        while list != []:
-            x = list.pop()
-            self.searchTree(x)
-            # if self.searchTree(x) != None:
-                # foundList.append(self.searchTree(x))
-        # return foundList 
+        return x
+
             
     def minimumNode(self, node):
         while node.left != None:
@@ -214,35 +253,6 @@ class BinarySplayTree:
             node = node.right
         return node
 
-    # find the successor of a given node
-    def successor(self, x):
-        # if the right subtree is not null,
-        # the successor is the leftmost node in the
-        # right subtree
-        if x.right != None:
-            return self.minimum(x.right)
-
-        # else it is the lowest ancestor of x whose
-        # left child is also an ancestor of x.
-        y = x.parent
-        while y != None and x == y.right:
-            x = y
-            y = y.parent
-        return y
-
-    # find the predecessor of a given node
-    def predecessor(self, x):
-        # if the left subtree is not null,
-        # the predecessor is the rightmost node in the 
-        # left subtree
-        if x.left != None:
-            return self.maximum(x.left)
-
-        y = x.parent
-        while y != None and x == y.left:
-            x = y
-            y = y.parent
-        return y
 
     # insert the key to the tree in its appropriate position
     def insert(self, key):
@@ -274,7 +284,6 @@ class BinarySplayTree:
             x = list.pop()
             self.insert(x)
             
-
     def deleteNode(self, data):
         # delete the node from the tree
         self.deleteElem(self.root, data)
@@ -282,21 +291,45 @@ class BinarySplayTree:
     def printSplaytree(self):
         self.recrusive_print(self.root, "", True)
 
+    def findMultipleElem_with_SplayTree (self, tree, list):
+        searchlist  = list
+        while searchlist != []:
+            key = searchlist.pop()
+            splay_result = self.searchSplayTree(key)
+            
+            print ("\nStart twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
+            x = tree.twoDirectSearch_Node(splay_result, key)
+            print ("twoDirectSearch_Node in BST is searching for key:", key)
+            if x != None:
+                print("result twoDirectSearch_Node in BST:", (x.data))
+            else:
+                print("result twoDirectSearch_Node in BST: ", (x))
+
 if __name__ == '__main__':
     
     sys.setrecursionlimit(2000)
+    list1 = [9,8,7,6,5,4,3,2,1,0]
+    list2 = [9,8,7,6,5,4,3,2,1]
+    searchlist =[0,0,2,7,7,1]
+    
+    bst = RedBlackTree()            
+    sptree = BinarySplayTree()
+    
+    bst.insertMultipleElem(list1)
+    sptree.insertMultipleElem(list2)
     
     
-    list = [9,8,7,6,5,4,3,2,1]
-    tree = BinarySplayTree()
-    tree.insertMultipleElem(list)
-    print("tree.counterNodes = ", tree.counterNodes)
-    tree.printSplaytree()
-    tree.findMultipleElem([9,7,9,7])
-    tree.printSplaytree()
-    print ("\n  tree.deleteNode(9) und 7 \n")
-    tree.deleteNode(9)
-    tree.deleteNode(7)
-    tree.printSplaytree()
+    print("-----------------------------")
+    bst.printTree()
+    print("-----------------------------")
+    sptree.printSplaytree()
+    print("-----------------------------")
+    print("number of nodes in bst is:", bst.counterNodes)
+    print("number of nodes in spl is:", sptree.counterNodes)
+    
+    sptree.findMultipleElem_with_SplayTree(bst, searchlist)
+    
+    #print("Splay tree after usage : -----------------------------")
+    #sptree.printSplaytree()
     
     

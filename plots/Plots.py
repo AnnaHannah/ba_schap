@@ -152,6 +152,30 @@ def messureTime_LAZYFingerSEARCH_RedBlackTree(inputList):
     delta_time = (end-start)
     return int(delta_time)
 
+def messureTime_SPLAYFingerSEARCH_RedBlackTree(inputList):
+    if type(inputList) != list:
+        inputList = inputList.tolist()
+    
+    # init für Blackred tree
+    delta_time = 0.0
+    searchlist = inputList
+    inputSplay = inputList
+    # set up tree
+    bst = RedBlackTree()
+    bst.insertMultipleElem(inputList)
+    # set up Finger with given tree
+    splay = BinarySplayTree()
+    splay.insertMultipleElem(inputSplay) 
+    
+    #start timer
+    start = time.perf_counter_ns()
+
+    splay.findMultipleElem_with_SplayTree(bst, searchlist)
+    
+    end = time.perf_counter_ns()
+    delta_time = (end-start)
+    return int(delta_time)
+
 def messureTime_SEARCH_Skiplist(inputList):
     if type(inputList) != list:
         inputList = inputList.tolist()
@@ -219,6 +243,14 @@ def timePerformanceLAZYFingerSEARCHRedBlackTree(listOfLists):
     return perf_OutputList
 
 
+def timePerformanceSPLAYFingerSEARCHRedBlackTree(listOfLists):
+    perf_OutputList = []   
+    for list in listOfLists:
+        timeSKL = messureTime_SPLAYFingerSEARCH_RedBlackTree(list)
+        perf_OutputList.append(timeSKL)
+    print ("timePerformanceSPLAYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
+    return perf_OutputList
+
 def subListLengh(listOfLists):
     lenSublist_Output = [] 
     for list in listOfLists:
@@ -234,10 +266,10 @@ if __name__ == "__main__":
     #Performance INSERT
     listOfLists = readMYfile('test1.csv')
     insert_TimeRBT = timePerformanceINSERTRedBlackTree(listOfLists)
-
+    
     listOfLists = readMYfile('test1.csv')
     insert_TimeSKL = timePerformanceINSERTSkipList(listOfLists)
- 
+    
     #Performance ROOTSEARCH
     listOfLists = readMYfile('test1.csv')
     search_TimeRBT = timePerformanceSEARCHRedBlackTree(listOfLists)
@@ -251,6 +283,10 @@ if __name__ == "__main__":
     
     listOfLists = readMYfile('test1.csv')
     search_LazyFinger_TimeRBT = timePerformanceLAZYFingerSEARCHRedBlackTree(listOfLists)
+    
+    listOfLists = readMYfile('test1.csv')
+    search_SplayFinger_TimeRBT = timePerformanceSPLAYFingerSEARCHRedBlackTree(listOfLists)
+    
     
     # logischer weise hat diese Kennzahl das gleiche format wie List_performanceTime, gut für plot...
     # Anzahl der Input werte auslesen pro Liste
@@ -271,28 +307,40 @@ if __name__ == "__main__":
     fig, ((plt1, plt2), (plt3, plt4)) = plt.subplots(2, 2)
     fig.suptitle('Laufzeiten Rotschwarz Baum und Skiplist')
     
+    # Plot 1
     plt1.plot (numberOfInputValuesRBT, insert_TimeRBT, 'ro', linestyle='--', label=r'insert time in RedBlackTree')
     plt1.plot (numberOfInputValuesSKL, insert_TimeSKL, 'mo', linestyle='--', label=r'insert time in SkipList')
     
     plt1.set_ylabel('Time in nano sec 10^(-6)')
     plt1.set_xlabel('Number of values per list from CSV')
     
-    # Vermutung python cache alle input werte, sodass die suche 0 sec dauert...
+    # Plot 2
     plt2.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label=r'Rootsearch time in RedBlackTree ') 
     plt2.plot (numberOfInputValuesSKL, search_MinMaxFinger_TimeRBT, 'go', linestyle='--', label=r'MinMax-Finger-Search time in RedBlackTree') 
-    plt2.plot (numberOfInputValuesSKL, search_LazyFinger_TimeRBT, 'ko', linestyle='--', label=r'Lazy-Finger-Search time in RedBlackTree') 
-    
-    plt3.plot (numberOfInputValuesSKL, search_TimeSKL, 'ko', linestyle='--', label=r'Rootsearch time in SkipList ') 
-    
-    plt4.plot (numberOfInputValuesSKL, search_TimeSKL, 'ko', linestyle='--', label=r'Rootsearch time in SkipList ') 
+    plt2.plot (numberOfInputValuesRBT, search_LazyFinger_TimeRBT, 'ko', linestyle='--', label=r'Lazy-Finger-Search time in RedBlackTree') 
+    plt2.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search time in RedBlackTree')
     
     plt2.set_ylabel('Time in nano sec')
     plt2.set_xlabel('Number of Values from CSV')
     
+    # Plot 3
+    plt3.plot (numberOfInputValuesSKL, search_TimeSKL, 'ko', linestyle='--', label=r'Rootsearch time in SkipList ') 
+    
+    plt3.set_ylabel('Time in nano sec')
+    plt3.set_xlabel('Number of Values from CSV')
+    
+    # Plot 4
+    plt4.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label=r'Rootsearch time in RedBlackTree ') 
+    plt4.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search time in RedBlackTree') 
+    
+    plt4.set_ylabel('Time in nano sec')
+    plt4.set_xlabel('Number of Values from CSV')
+   
+    
     # Legende einblenden:
     plt1.legend(loc='upper left', frameon=True)
     plt2.legend(loc='upper right', frameon=True)
-    plt3.legend(loc='upper right', frameon=True)
+    plt3.legend(loc='upper left', frameon=True)
     plt4.legend(loc='upper right', frameon=True)
    
     print ("Plot is on Display")
