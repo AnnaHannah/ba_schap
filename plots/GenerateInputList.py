@@ -7,14 +7,14 @@ from _operator import concat
 
 # Beispiel test fälle mit Listen
 data_list = []
-a = list(range(0,1200))
-b = list(range(0,1400))
-c = list(range(0,1600))
-d = list(range(0,1800))
-e  = list(range(0,2000))
-f  = list(range(0,2200))
-g  = list(range(0,2400))
-h  = list(range(0,2600))
+a = list(range(0,12000))
+b = list(range(0,14000))
+c = list(range(0,16000))
+d = list(range(0,18000))
+e  = list(range(0,20000))
+f  = list(range(0,22000))
+g  = list(range(0,24000))
+h  = list(range(0,26000))
 
 
 def makeBigLists(listOfList):
