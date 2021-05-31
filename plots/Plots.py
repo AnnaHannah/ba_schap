@@ -20,6 +20,7 @@ from numpy import double
 
 # my files BAUSTELLE
 import GenerateInputList
+import GenerateSearchList
 import sys 
 
 # try to find Modules RedBlackTree and Skiplist 
@@ -50,6 +51,17 @@ def readMYfile(filename):
             line_count +=1
         #print("\n -> Done reading File: ", filename)
         return output_list
+
+
+def map_lists(in_listOfLists, se_listOfLists, func):
+    result = []
+    while len(in_listOfLists) > 0 and len(se_listOfLists) > 0:
+        x = in_listOfLists.pop()
+        y = se_listOfLists.pop()
+        
+        z = func(x, y)
+        result.append(z)
+    return result
 
 def messureTime_INSERT_RedBlackTree (inputList):
     if type(inputList) != list:
@@ -85,13 +97,15 @@ def messureTime_INSERT_SkipList(inputList):
     delta_time = (int(end-start)//(100000))
     return (int(delta_time))
 
-def messureTime_SEARCH_RedBlackTree(inputList):
+def messureTime_SEARCH_RedBlackTree(inputList, searchlist):
+    # formale sache
     if type(inputList) != list:
         inputList = inputList.tolist()
+    if type(searchlist) != list:
+        searchlist = searchlist.tolist()    
     
     # init für Blackred tree
     delta_time = 0.0
-    searchlist = inputList
     
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
@@ -102,16 +116,18 @@ def messureTime_SEARCH_RedBlackTree(inputList):
     bst.findMultipleElem(searchlist)
 
     end = time.perf_counter_ns()
-    delta_time = (end-start)
+    delta_time = (int(end-start)//(100000))
     return int(delta_time)
 
-def messureTime_MinMaxFingerSEARCH_RedBlackTree(inputList):
+def messureTime_MinMaxFingerSEARCH_RedBlackTree(inputList, searchlist):
+    # formale sache
     if type(inputList) != list:
         inputList = inputList.tolist()
+    if type(searchlist) != list:
+        searchlist = searchlist.tolist()  
     
     # init für Blackred tree
     delta_time = 0.0
-    searchlist = inputList
     
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
@@ -126,16 +142,19 @@ def messureTime_MinMaxFingerSEARCH_RedBlackTree(inputList):
     mmf.findMultipleElem_with_MinMaxFinger(bst, searchlist)
     
     end = time.perf_counter_ns()
-    delta_time = (end-start)
+    delta_time = (int(end-start)//(100000))
     return int(delta_time)
 
-def messureTime_LAZYFingerSEARCH_RedBlackTree(inputList):
+def messureTime_LAZYFingerSEARCH_RedBlackTree(inputList, searchlist):
+    # formale sache
     if type(inputList) != list:
         inputList = inputList.tolist()
+    if type(searchlist) != list:
+        searchlist = searchlist.tolist()  
     
     # init für Blackred tree
     delta_time = 0.0
-    searchlist = inputList
+    
     # set up tree
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
@@ -149,16 +168,19 @@ def messureTime_LAZYFingerSEARCH_RedBlackTree(inputList):
     lf.findMultipleElem_with_LazyFinger(bst, searchlist)
     
     end = time.perf_counter_ns()
-    delta_time = (end-start)
+    delta_time = (int(end-start)//(100000))
     return int(delta_time)
 
-def messureTime_SPLAYFingerSEARCH_RedBlackTree(inputList):
+def messureTime_SPLAYFingerSEARCH_RedBlackTree(inputList, searchlist):
+        # formale sache
     if type(inputList) != list:
         inputList = inputList.tolist()
+    if type(searchlist) != list:
+        searchlist = searchlist.tolist() 
     
     # init für Blackred tree
     delta_time = 0.0
-    searchlist = inputList
+    
     inputSplay = inputList
     # set up tree
     bst = RedBlackTree()
@@ -173,16 +195,18 @@ def messureTime_SPLAYFingerSEARCH_RedBlackTree(inputList):
     splay.findMultipleElem_with_SplayTree(bst, searchlist)
     
     end = time.perf_counter_ns()
-    delta_time = (end-start)
+    delta_time = (int(end-start)//(100000))
     return int(delta_time)
 
-def messureTime_SEARCH_Skiplist(inputList):
+def messureTime_SEARCH_Skiplist(inputList, searchlist):
+        # formale sache
     if type(inputList) != list:
         inputList = inputList.tolist()
+    if type(searchlist) != list:
+        searchlist = searchlist.tolist() 
     
     # init für Skiplist
     delta_time = 0.0
-    searchlist = inputList
 
     skl = SkipList()
     skl.insertMultipleElem(inputList)
@@ -192,7 +216,7 @@ def messureTime_SEARCH_Skiplist(inputList):
     skl.findMultipleElem(searchlist)
     
     end = time.perf_counter_ns()
-    delta_time = (end-start)
+    delta_time = (int(end-start)//(100000))
     return int(delta_time)
 
 def timePerformanceINSERTRedBlackTree(listOfLists):
@@ -211,45 +235,79 @@ def timePerformanceINSERTSkipList(listOfLists):
     print ("timePerformanceINSERTSkipList has messured time pro list iteration, and will return:", perf_OutputList)
     return perf_OutputList
 
-def timePerformanceSEARCHRedBlackTree(listOfLists):
-    perf_OutputList = []   
-    for list in listOfLists:
-        timeRBT = messureTime_SEARCH_RedBlackTree(list)
-        perf_OutputList.append(timeRBT)
-    print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
-    return perf_OutputList
+def timePerformanceSEARCHRedBlackTree(input_listOfLists, search_listOfLists): 
+    res = map_lists(input_listOfLists, search_listOfLists, messureTime_SEARCH_RedBlackTree)
+    print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+    return res
 
-def timePerformanceSEARCHSkipList(listOfLists):
-    perf_OutputList = []   
-    for list in listOfLists:
-        timeSKL = messureTime_SEARCH_Skiplist(list)
-        perf_OutputList.append(timeSKL)
-    print ("timePerformanceSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
-    return perf_OutputList
-def timePerformanceMinMaxFingerSEARCHRedBlackTree (listOfLists):
-    perf_OutputList = []   
-    for list in listOfLists:
-        timeSKL = messureTime_MinMaxFingerSEARCH_RedBlackTree(list)
-        perf_OutputList.append(timeSKL)
-    print ("timePerformanceMinMaxFingerSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
-    return perf_OutputList
-
-def timePerformanceLAZYFingerSEARCHRedBlackTree(listOfLists):
-    perf_OutputList = []   
-    for list in listOfLists:
-        timeSKL = messureTime_LAZYFingerSEARCH_RedBlackTree(list)
-        perf_OutputList.append(timeSKL)
-    print ("timePerformanceLAZYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
-    return perf_OutputList
+# OLD VERSION
+# def timePerformanceSEARCHRedBlackTree(listOfLists):
+    # perf_OutputList = []   
+    # for list in listOfLists:
+        # timeRBT = messureTime_SEARCH_RedBlackTree(list)
+        # perf_OutputList.append(timeRBT)
+    # print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
+    # return perf_OutputList
 
 
-def timePerformanceSPLAYFingerSEARCHRedBlackTree(listOfLists):
-    perf_OutputList = []   
-    for list in listOfLists:
-        timeSKL = messureTime_SPLAYFingerSEARCH_RedBlackTree(list)
-        perf_OutputList.append(timeSKL)
-    print ("timePerformanceSPLAYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
-    return perf_OutputList
+def timePerformanceSEARCHSkipList(input_listOfLists, search_listOfLists):
+    res = map_lists(input_listOfLists, search_listOfLists, messureTime_SEARCH_Skiplist)
+    print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+    return res    
+
+# # OLD VERSION
+# def timePerformanceSEARCHSkipList(listOfLists):
+    # perf_OutputList = []   
+    # for list in listOfLists:
+        # timeSKL = messureTime_SEARCH_Skiplist(list)
+        # perf_OutputList.append(timeSKL)
+    # print ("timePerformanceSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
+    # return perf_OutputList
+
+
+def timePerformanceMinMaxFingerSEARCHRedBlackTree (input_listOfLists, search_listOfLists):
+    res = map_lists(input_listOfLists, search_listOfLists, messureTime_MinMaxFingerSEARCH_RedBlackTree)
+    print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+    return res  
+
+# OLD VERSION
+# def timePerformanceMinMaxFingerSEARCHRedBlackTree (listOfLists):
+    # perf_OutputList = []   
+    # for list in listOfLists:
+        # timeSKL = messureTime_MinMaxFingerSEARCH_RedBlackTree(list)
+        # perf_OutputList.append(timeSKL)
+    # print ("timePerformanceMinMaxFingerSEARCHSkipList has messured time pro list iteration, and will return:", perf_OutputList)
+    # return perf_OutputList
+
+def timePerformanceLAZYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
+    res = map_lists(input_listOfLists, search_listOfLists, messureTime_LAZYFingerSEARCH_RedBlackTree)
+    print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+    return res   
+
+# OLD VERSION
+# def timePerformanceLAZYFingerSEARCHRedBlackTree(listOfLists):
+    # perf_OutputList = []   
+    # for list in listOfLists:
+        # timeSKL = messureTime_LAZYFingerSEARCH_RedBlackTree(list)
+        # perf_OutputList.append(timeSKL)
+    # print ("timePerformanceLAZYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
+    # return perf_OutputList
+
+
+def timePerformanceSPLAYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
+    res = map_lists(input_listOfLists, search_listOfLists, messureTime_SPLAYFingerSEARCH_RedBlackTree)
+    print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+    return res  
+
+
+# OLD VERSION
+# def timePerformanceSPLAYFingerSEARCHRedBlackTree(listOfLists):
+    # perf_OutputList = []   
+    # for list in listOfLists:
+        # timeSKL = messureTime_SPLAYFingerSEARCH_RedBlackTree(list)
+        # perf_OutputList.append(timeSKL)
+    # print ("timePerformanceSPLAYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
+    # return perf_OutputList
 
 def subListLengh(listOfLists):
     lenSublist_Output = [] 
@@ -264,36 +322,41 @@ if __name__ == "__main__":
     sys.setrecursionlimit(20000)
     
     #Performance INSERT
-    listOfLists = readMYfile('test1.csv')
-    insert_TimeRBT = timePerformanceINSERTRedBlackTree(listOfLists)
+    in_listOfLists = readMYfile('inputLists.csv')
+    insert_TimeRBT = timePerformanceINSERTRedBlackTree(in_listOfLists)
     
-    listOfLists = readMYfile('test1.csv')
-    insert_TimeSKL = timePerformanceINSERTSkipList(listOfLists)
+    in_listOfLists = readMYfile('inputLists.csv')
+    insert_TimeSKL = timePerformanceINSERTSkipList(in_listOfLists)
     
     #Performance ROOTSEARCH
-    listOfLists = readMYfile('test1.csv')
-    search_TimeRBT = timePerformanceSEARCHRedBlackTree(listOfLists)
+    input_listOfLists = readMYfile('inputLists.csv')
+    search_listOfLists = readMYfile('searchLists.csv') 
+    search_TimeRBT = timePerformanceSEARCHRedBlackTree(input_listOfLists, search_listOfLists)
     
-    listOfLists = readMYfile('test1.csv')
-    search_TimeSKL = timePerformanceSEARCHSkipList(listOfLists)
+    input_listOfLists = readMYfile('inputLists.csv')
+    search_listOfLists = readMYfile('searchLists.csv')
+    search_TimeSKL = timePerformanceSEARCHSkipList(input_listOfLists, search_listOfLists)
     
     #Performance FINGER SEARCH
-    listOfLists = readMYfile('test1.csv')
-    search_MinMaxFinger_TimeRBT = timePerformanceMinMaxFingerSEARCHRedBlackTree(listOfLists)
+    input_listOfLists = readMYfile('inputLists.csv')
+    search_listOfLists = readMYfile('searchLists.csv')
+    search_MinMaxFinger_TimeRBT = timePerformanceMinMaxFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists)
     
-    listOfLists = readMYfile('test1.csv')
-    search_LazyFinger_TimeRBT = timePerformanceLAZYFingerSEARCHRedBlackTree(listOfLists)
+    input_listOfLists = readMYfile('inputLists.csv')
+    search_listOfLists = readMYfile('searchLists.csv')
+    search_LazyFinger_TimeRBT = timePerformanceLAZYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists)
     
-    listOfLists = readMYfile('test1.csv')
-    search_SplayFinger_TimeRBT = timePerformanceSPLAYFingerSEARCHRedBlackTree(listOfLists)
+    input_listOfLists = readMYfile('inputLists.csv')
+    search_listOfLists = readMYfile('searchLists.csv')
+    search_SplayFinger_TimeRBT = timePerformanceSPLAYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists)
     
     
     # logischer weise hat diese Kennzahl das gleiche format wie List_performanceTime, gut für plot...
     # Anzahl der Input werte auslesen pro Liste
-    listOfLists = readMYfile('test1.csv')
+    listOfLists = readMYfile('inputLists.csv')
     numberOfInputValuesRBT = subListLengh(listOfLists)
     
-    listOfLists = readMYfile('test1.csv')
+    listOfLists = readMYfile('inputLists.csv')
     numberOfInputValuesSKL = subListLengh(listOfLists)
 
     

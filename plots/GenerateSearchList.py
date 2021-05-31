@@ -7,14 +7,24 @@ from _operator import concat
 
 # Beispiel test fälle mit Listen
 data_list = []
-a = list(range(0,1200))
-b = list(range(0,1400))
-c = list(range(0,1600))
-d = list(range(0,1800))
-e  = list(range(0,2000))
-f  = list(range(0,2200))
-g  = list(range(0,2400))
-h  = list(range(0,2600))
+a = []
+b = []
+c = []
+d = []
+e = []
+f = []
+g = []
+h = []
+
+
+# verteilungen:
+def make_zickzack(list):
+    while len(list) < 1200:
+        if (next(reversed(list)) // 2 == 0):
+            list.append(1200)
+        else:
+            list.append(1)    
+    return list
 
 
 def makeBigLists(listOfList):
@@ -53,4 +63,4 @@ def writeMYfile(filename, data):
 if __name__ == "__main__":
     dataForCSV = makeBigLists(data_list)
     # schreibe test1 csv mit datalisten:
-    writeMYfile("inputLists.csv", dataForCSV) 
+    writeMYfile("searchLists.csv", dataForCSV) 

@@ -18,6 +18,10 @@ class LazyFinger():
     def __init__ (self):
         self.lazyFinger = Finger(None)
         
+        # param to messure performance
+        self.usedNodesInSearch = 0
+        
+        
     # set the first finger to the root (why not)      
     def setfirst_LazyFinger(self, tree):
         if type(tree)== RedBlackTree:    
@@ -32,7 +36,13 @@ class LazyFinger():
         if type(tree)== RedBlackTree:    
             searchResult = (tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)) 
             #print("search result:", (tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)).data)
+            
+            if searchResult != self.lazyFinger:
+                # only count if lazy finger was realy set new
+                self.usedNodesInSearch += 1
+                
             self.lazyFinger = searchResult
+      
             #print("LazyFinger_search - lazyfinger was set to", self.lazyFinger.data)
         return searchResult
     
@@ -47,14 +57,34 @@ if __name__ == '__main__':
     
     bst = RedBlackTree()
     #skl = SkipList()
-    inputList1 = [1,2,3,4,2,2,2,5,6,7,0]
-    searchlist = [1,2,3,4,2,2,2,5,6,7,0]
+    inputList1 = [1,2,3,4,5,6,7,8]
+    searchlist = [1,2,3,4,5,6,7,8]
 
     bst.insertMultipleElem(inputList1)
-    bst.printTree()
+    
     # init
     lf = LazyFinger()
     lf.LazyFinger = lf.setfirst_LazyFinger(bst)
+    # finger performance
     lf.findMultipleElem_with_LazyFinger(bst, searchlist)
+    print ("so many LazyFinger.usedNodesInSearch:", lf.usedNodesInSearch)
+    print ("so many BST.usedNodesInSearch:", bst.usedNodesInSearch)
+    print ("so many BST+LAZYFinger usedNodesInSearch:", bst.usedNodesInSearch + lf.usedNodesInSearch)
+    
+    # finish finger 
+    bst.deleteFullTree()
+    
+    # compare without
+    print("--- without lazy finger ---")
+    
+    inputList1 = [1,2,3,4,5,6,7,8]
+    searchlist = [1,1,1,1,1,1,1,1]
+    
+    bst.insertMultipleElem(inputList1)
+    bst.findMultipleElem(searchlist)
+    print ("so many BST.usedNodesInSearch:", bst.usedNodesInSearch)
+    
+    
+    
     
     
