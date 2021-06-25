@@ -59,11 +59,11 @@ class BinarySplayTree:
             self.recrusive_print(currPtr.left, indent, False )
             self.recrusive_print(currPtr.right, indent, True)
     
-    def binary_search(self, startNode, key):
+    def binary_search_WORKING_VERSION(self, startNode, key):
         self.usedNodesInSearch += 1
         #print ("start this binary_search parameter:", type(startNode), type(key))
         if (type(startNode) == None) or (startNode == None):
-            print("FAIL: BinarySplayTree Startnode got lost -> self.root gecovery")
+            print("FAIL: BinarySplayTree Startnode got lost -> self.root recovery", type(startNode))
             return self.root
         else:
             if key == startNode.data:
@@ -84,6 +84,21 @@ class BinarySplayTree:
                     return startNode
             else:
                 return self.root
+
+    def binary_search(self, startNode, key):
+        self.usedNodesInSearch += 1
+        #print ("start this binary_search parameter:", type(startNode), type(key))
+        if (type(startNode) == None) or (startNode == None):
+            print("FAIL: BinarySplayTree Startnode got lost -> self.root recovery", type(startNode))
+            return self.root
+        while (key != startNode.data):
+            # print ("SplayTree Binary search result:", startNode.data)
+            if (type(startNode.left) != None):
+                self.binary_search(startNode.left, key)
+            if (type(startNode.right) != None):
+                self.binary_search(startNode.right, key)
+            break
+        return startNode
 
     def deleteElem(self, startNode, key):
         x = None

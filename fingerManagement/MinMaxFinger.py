@@ -20,6 +20,10 @@ class MinMaxFinger():
     def __init__ (self):
         self.maxiFinger = Finger(None)
         self.miniFinger = Finger(None)
+        
+        
+        # param to messure performance
+        self.usedNodesInSearch=0
     
     def setMaxiFingerFrom(self, tree):  
         if type(tree)== RedBlackTree:    
@@ -47,7 +51,10 @@ class MinMaxFinger():
     
     def fingerSearch(self, tree, keyInInt):
         searchResult = None
-        if type(tree)== RedBlackTree:    
+        if type(tree)== RedBlackTree: 
+            
+            self.usedNodesInSearch += 1
+            
             if self.maxiFinger.data - keyInInt < keyInInt - self.miniFinger.data:
                 searchResult = (tree.twoDirectSearch(self.maxiFinger, keyInInt)) 
                 #print ("fingerSearch used maxiFinger for:", searchResult)      
@@ -85,12 +92,14 @@ if __name__ == "__main__":
     mmf = MinMaxFinger()
     mmf.maxiFinger = mmf.setMaxiFingerFrom(bst)
     mmf.miniFinger = mmf.setMiniFingerFrom(bst)
+    print (mmf.usedNodesInSearch)
+    
     #mmf.maxiFinger = mmf.setMaxiFingerFrom(skl)
     #mmf.miniFinger = mmf.setMiniFingerFrom(skl)
        
     #print("\nErgebniss von Fingersearch ist, fingersearch entscheidet selbst ob es von minimum oder Maximum sucht:", mmf.fingerSearch(bst, 3))
-    #print("\nErgebniss von Fingersearch ist, fingersearch entscheidet selbst ob es von minimum oder Maximum sucht:", mmf.findMultipleElem_with_MinMaxFinger(bst, searchlist))
-
+    print("\nErgebniss von Fingersearch ist, fingersearch entscheidet selbst ob es von minimum oder Maximum sucht:", mmf.findMultipleElem_with_MinMaxFinger(bst, searchlist))
+    print (mmf.usedNodesInSearch)
     #bst.printTree()
     #skl.printSkipList()
     

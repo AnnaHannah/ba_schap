@@ -542,32 +542,35 @@ class RedBlackTree():
         minimum = self.findMinimum(self.root)
         #print("minimumInTree",minimum)
         return minimum 
+    
+    
 
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
     inputList = [1,2,3,4,5,6,7]
-    search_list = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    search_list = [0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
   
     # set up tree
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
     print("so many rotations were made:", bst.counterRotations)
-    
+    print("1) Rootsearch BST: bst.usedNodesInSearch ",bst.usedNodesInSearch)
     #start
     print("Rootsearch BST: optimal nodes ", math.log(bst.counterNodes, 2)*len(search_list))
     bst.findMultipleElem(search_list)
-    print("Rootsearch BST: bst.usedNodesInSearch ",bst.usedNodesInSearch)
+    print("2) Rootsearch BST: bst.usedNodesInSearch ",bst.usedNodesInSearch)
     
     # finish
     bst.deleteFullTree()
     
     print("\n --- now with splayspeedup ---\n ")
     inputList = [1,2,3,4,5,6,7]
-    search_list = [1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3]
+    search_list = [0,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3]
     
     splay = BinarySplayTree()
     splay.insertMultipleElem(inputList) 
+    
     splay.findMultipleElem_with_SplayTree(bst, search_list)
     print("1) bst.usedNodesInSearch ", bst.usedNodesInSearch)
     print("2) splay.usedNodesInSearch", splay.usedNodesInSearch)
