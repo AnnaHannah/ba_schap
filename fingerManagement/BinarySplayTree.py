@@ -9,6 +9,8 @@ from skiplist.SkipList import *
 import csv
 import math
 
+
+
 class Node:
     def  __init__(self, data):
         self.data = data
@@ -59,7 +61,7 @@ class BinarySplayTree:
             self.recrusive_print(currPtr.left, indent, False )
             self.recrusive_print(currPtr.right, indent, True)
     
-    def binary_search_WORKING_VERSION(self, startNode, key):
+    def binary_search(self, startNode, key):
         self.usedNodesInSearch += 1
         #print ("start this binary_search parameter:", type(startNode), type(key))
         if (type(startNode) == None) or (startNode == None):
@@ -67,7 +69,7 @@ class BinarySplayTree:
             return self.root
         else:
             if key == startNode.data:
-                # print ("SplayTree Binary search result:", startNode.data)
+                print ("-- binary_search found key in splay:", key, startNode.data)
                 return startNode
             
             if key < startNode.data:
@@ -85,20 +87,42 @@ class BinarySplayTree:
             else:
                 return self.root
 
-    def binary_search(self, startNode, key):
-        self.usedNodesInSearch += 1
-        #print ("start this binary_search parameter:", type(startNode), type(key))
-        if (type(startNode) == None) or (startNode == None):
+    def binary_search_NO_WORKING_VERSION(self, startNode, key):
+        
+        
+        if type(startNode) == None or (startNode == None):
             print("FAIL: BinarySplayTree Startnode got lost -> self.root recovery", type(startNode))
             return self.root
-        while (key != startNode.data):
+        
+        self.usedNodesInSearch += 1
+        print ("start this binary_search parameter:", (startNode.data, key))
+        
+        if key == startNode.data:
+            print ("-- binary_search found key in splay:", key, startNode.data)
+            return startNode
+        
+        if (key != startNode.data):
             # print ("SplayTree Binary search result:", startNode.data)
-            if (type(startNode.left) != None):
+            if type(startNode.left) != None and type(startNode.right) == None:
+                return self.binary_search(startNode.left, key)
+                
+            if type(startNode.right) != None and type(startNode.left) == None:
+                return self.binary_search(startNode.right, key)    
+                
+            else: 
                 self.binary_search(startNode.left, key)
-            if (type(startNode.right) != None):
-                self.binary_search(startNode.right, key)
-            break
-        return startNode
+                self.binary_search(startNode.right, key)       
+                return
+                if type(startNode) == None:
+                    print ("try to catch")
+                    return 
+            if type(startNode) == None:
+                    print ("try to catch")
+                    return    
+                
+            print("1) FAIL: Case missed in BinarySplayTree Startnode", type(startNode))
+             
+        print("2) FAIL: Case missed in BinarySplayTree Startnode", type(startNode))
 
     def deleteElem(self, startNode, key):
         x = None
@@ -284,14 +308,16 @@ class BinarySplayTree:
     # search the tree for the key k
     # and return the corresponding node
     def searchSplayTree(self, k):
-        if type(self.root)!= None: 
-            x = self.binary_search(self.root, k)
-            if x != None:
-                self.moveToTop(x)
-            return x
+        assert (type(self.root.data) and type(self)) is not None, " \n %r is not a Root in Splaytree" % (self.root)
+        
+        if type(self.root)!= None and type(self) != None and type(self.root.data)!= None:
+                print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k )
+                x = self.binary_search(self.root, k)
+                if x != None:
+                    self.moveToTop(x)
+                return x
         else:
-            print("no root in Splaytree!")
-
+            print("NO Root in Splaytree!")
             
     def minimumNode(self, node):
         while node.left != None:
@@ -341,31 +367,54 @@ class BinarySplayTree:
     def printSplaytree(self):
         self.recrusive_print(self.root, "", True)
 
-    def findMultipleElem_with_SplayTree (self, tree, list):
-        searchlist  = list
-        while len(searchlist) != 0:
+    def findMultipleElem_with_SplayTree (self, tree, searchlist):
+        global resultList 
+        resultList =[]
+        while (len(searchlist) > 0):
             key = searchlist.pop()
             splay_result = self.searchSplayTree(key)
             
             #print ("\nStart twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
             x = tree.twoDirectSearch_Node(splay_result, key)
-            #print ("twoDirectSearch_Node in BST is searching for key:", key)
+            #print ("twoDirectSearch_Node in BST is searching for key:", key) 
             
             if x != None:
-                #print("result twoDirectSearch_Node in BST:", (x.data))
-                return x
+                #print("1) result twoDirectSearch_Node in BST:", (x.data))    
+                resultList.append(x.data) 
             else:
-                #print("result twoDirectSearch_Node in BST: ", (x))
-                return x
+                #print("2) result twoDirectSearch_Node in BST: ", (x))
+                resultList.append(x)
+        return resultList
+    
+    def findMultipleElem_with_SplayTree_WORKING (self, tree, searchlist, resultList):
+        while (len(searchlist) > 0):
+            key = searchlist.pop()
+            splay_result = self.searchSplayTree(key)
+            
+            #print ("\nStart twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
+            x = tree.twoDirectSearch_Node(splay_result, key)
+            #print ("twoDirectSearch_Node in BST is searching for key:", key) 
+            
+            if x != None:
+                #print("1) result twoDirectSearch_Node in BST:", (x.data))    
+                resultList.append(x.data) 
+            else:
+                #print("2) result twoDirectSearch_Node in BST: ", (x))
+                resultList.append(x)
+        return resultList
 
 
 
 if __name__ == '__main__':
     
-    sys.setrecursionlimit(2000)
-    list1 = [9,8,7,6,5,4,3,2,1,0]
-    list2 = [9,8,7,6,5,4,3,2,1]
-    searchlist =[9,8,7,6,5,4,3,2,1]
+    sys.setrecursionlimit(20000)
+    list = [9,8,7,6,5,4,3,2,1,0]
+    
+    list1 = list.copy()
+    list2 = list.copy()
+    searchlist = [9,1,9,1,9,9,9,9,9,9,9,9,9,9,1,2,3,2,1,2,3]
+    
+    resultList = []
     
     bst = RedBlackTree()            
     splay = BinarySplayTree()
@@ -384,8 +433,11 @@ if __name__ == '__main__':
     #print("number of nodes in spl is:", sptree.counterNodes)
     print("Pre search: number of splay tree used Nodes in search:", splay.usedNodesInSearch)
     print("Pre search: number of used RedBlacktree  Nodes in search:", bst.usedNodesInSearch)
-    
+    print ("- > so many elements should be found", len(searchlist))
+    #splay.findMultipleElem_with_SplayTree(bst, searchlist, resultList)
     splay.findMultipleElem_with_SplayTree(bst, searchlist)
+    print("RESULT- LIST", resultList)
+    print ("SEARCH- LIST", searchlist)
     print("Post Search: number of used Splaytree  Nodes in search:", splay.usedNodesInSearch)
     print("Post Search: number of used RedBlacktree  Nodes in search:", bst.usedNodesInSearch)
     

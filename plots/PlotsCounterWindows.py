@@ -166,14 +166,14 @@ def messureNodes_SPLAYFingerSEARCH_RedBlackTree(inputList, searchlist):
         searchlist = searchlist.tolist() 
     
     # init für Tree und Finger
-    inputSplay = inputList
-    
-    bst = RedBlackTree()
-    bst.insertMultipleElem(inputList)
+    inputSplay = inputList.copy()
 
     splay = BinarySplayTree()
     splay.insertMultipleElem(inputSplay) 
-    
+
+    bst = RedBlackTree()
+    bst.insertMultipleElem(inputList)
+
     # Aktion
     splay.findMultipleElem_with_SplayTree(bst, searchlist)
     
@@ -239,6 +239,7 @@ def PerformanceLAZYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfList
     return res   
 
 def PerformanceSPLAYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
+    #print ("PerformanceSPLAYFingerSEARCHRedBlackTree started with:", len(input_listOfLists), len(search_listOfLists))
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_SPLAYFingerSEARCH_RedBlackTree)
     print ("PerformanceSPLAYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
     return res  
@@ -253,7 +254,7 @@ def subListLengh(listOfLists):
 if __name__ == "__main__":
     
     # Je nach dem wie stark die Rechenleistung ist, bitte begrenzen:
-    sys.setrecursionlimit(20000)
+    sys.setrecursionlimit(50000)
     
     #Performance INSERT
     # in_listOfLists = readMYfile('inputLists.csv')

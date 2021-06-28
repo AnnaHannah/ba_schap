@@ -25,9 +25,9 @@ def make_zickzack(list):
     max = list [-1]
     for i in list:
         if (i % 2 == 0):
-           list[i] = 0
+           list[i] = 1
         else:
-            list[i] = max 
+            list[i] = max-1
             
     return list
 
@@ -73,14 +73,14 @@ def makeBigLists(listOfList):
     print("2. ... ")
     # verarbeitung der Listen mit verteilungen 
     
-    make_oneCluster_middle(a,600)
-    make_oneCluster_middle(b,700)
-    make_oneCluster_middle(c,800)
-    make_oneCluster_middle(d,900)
-    make_oneCluster_middle(e,1000)
-    make_oneCluster_middle(f,1100)
-    make_oneCluster_middle(g,1200)
-    make_oneCluster_middle(h,1300)
+    make_zickzack(a)
+    make_zickzack(b)
+    make_zickzack(c)
+    make_zickzack(d)
+    make_zickzack(e)
+    make_zickzack(f)
+    make_zickzack(g)
+    make_zickzack(h)
     
     # Beispiel um alle Listen anzuhängen  
     ouput_list.append(a) 
@@ -105,7 +105,7 @@ def writeMYfile(filename, data):
 
 if __name__ == "__main__":
     sys.setrecursionlimit(3000)
-    print("\n !!! Recursion allowed in this program:", sys.getrecursionlimit())
+    print("\n -> Recursion allowed in this program:", sys.getrecursionlimit())
     #print(make_zickzack(a))
     #print(make_oneCluster_middle(b, 2))
     #print(make_total_random(a))
