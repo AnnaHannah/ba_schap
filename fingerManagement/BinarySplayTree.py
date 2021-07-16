@@ -61,7 +61,7 @@ class BinarySplayTree:
             self.recrusive_print(currPtr.left, indent, False )
             self.recrusive_print(currPtr.right, indent, True)
     
-    def binary_search(self, startNode, key):
+    def binary_search_NO_WORKING_VERSION(self, startNode, key):
         self.usedNodesInSearch += 1
         #print ("start this binary_search parameter:", type(startNode), type(key))
         if (type(startNode) == None) or (startNode == None):
@@ -87,8 +87,7 @@ class BinarySplayTree:
             else:
                 return self.root
 
-    def binary_search_NO_WORKING_VERSION(self, startNode, key):
-        
+    def binary_search(self, startNode, key):
         
         if type(startNode) == None or (startNode == None):
             print("FAIL: BinarySplayTree Startnode got lost -> self.root recovery", type(startNode))
@@ -109,19 +108,15 @@ class BinarySplayTree:
             if type(startNode.right) != None and type(startNode.left) == None:
                 return self.binary_search(startNode.right, key)    
                 
-            else: 
+            elif type(startNode) == None: 
                 self.binary_search(startNode.left, key)
                 self.binary_search(startNode.right, key)       
-                return
-                if type(startNode) == None:
-                    print ("try to catch")
-                    return 
+
             if type(startNode) == None:
                     print ("try to catch")
                     return    
                 
-            print("1) FAIL: Case missed in BinarySplayTree Startnode", type(startNode))
-             
+            print("1) FAIL: Case missed in BinarySplayTree Startnode", type(startNode)) 
         print("2) FAIL: Case missed in BinarySplayTree Startnode", type(startNode))
 
     def deleteElem(self, startNode, key):
@@ -311,7 +306,7 @@ class BinarySplayTree:
         assert (type(self.root.data) and type(self)) is not None, " \n %r is not a Root in Splaytree" % (self.root)
         
         if type(self.root)!= None and type(self) != None and type(self.root.data)!= None:
-                print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k )
+                print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k)
                 x = self.binary_search(self.root, k)
                 if x != None:
                     self.moveToTop(x)
