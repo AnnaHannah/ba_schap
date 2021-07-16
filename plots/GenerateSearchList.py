@@ -10,17 +10,23 @@ from _operator import concat
 # Beispiel test fälle mit Listen
 
 data_list = []
-a  = list(range(0,120))
-b  = list(range(0,140))
-c  = list(range(0,160))
-d  = list(range(0,180))
-e  = list(range(0,200))
-f  = list(range(0,220))
-g  = list(range(0,240))
-h  = list(range(0,260))
+a  = list(range(0,1200))
+b  = list(range(0,1400))
+c  = list(range(0,1600))
+d  = list(range(0,1800))
+e  = list(range(0,2000))
+f  = list(range(0,2200))
+g  = list(range(0,2400))
+h  = list(range(0,2600))
 
 
 # verteilungen:
+
+def make_oneNumber(list, number):
+    for i in list:
+           list[i] = number
+    return list
+
 def make_zickzack(list):
     max = list [-1]
     for i in list:
@@ -28,12 +34,6 @@ def make_zickzack(list):
            list[i] = 1
         else:
             list[i] = max-1
-            
-    return list
-
-def make_oneNumber(list, number):
-    for i in list:
-           list[i] = number
     return list
 
 def make_oneCluster_left(list, x_spread):
@@ -66,6 +66,8 @@ def make_total_random(list):
         y = random.randrange(0, max)
         list[i] = y
     return list
+
+# --------------------------------------------------------------------------------
 
 def makeBigLists(listOfList):
     print("\n1. Generating with makeBigLists - method is starting")

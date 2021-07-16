@@ -6,6 +6,7 @@
 
 from red_black_tree.RedBlackTree import * 
 from skiplist.SkipList import * 
+from numpy import log
 
 
 class Finger():
@@ -51,18 +52,19 @@ class MinMaxFinger():
     
     def fingerSearch(self, tree, keyInInt):
         searchResult = None
+        resultlist = []
         if type(tree)== RedBlackTree: 
             
             self.usedNodesInSearch += 1
             
             if self.maxiFinger.data - keyInInt < keyInInt - self.miniFinger.data:
-                searchResult = (tree.twoDirectSearch(self.maxiFinger, keyInInt)) 
-                #print ("fingerSearch used maxiFinger for:", searchResult)      
+                searchResult = tree.twoDirectSearch_Node(self.maxiFinger, keyInInt)
+                print ("fingerSearch used maxiFinger for:", mmf.maxiFinger.data, searchResult.data)      
             if self.maxiFinger.data - keyInInt > keyInInt - self.miniFinger.data:
-                searchResult = (tree.twoDirectSearch(self.miniFinger, keyInInt))
-                #print ("fingerSearch used miniFinger for:", searchResult)
+                searchResult = tree.twoDirectSearch_Node(self.miniFinger, keyInInt)
+                print ("fingerSearch used miniFinger for:",mmf.miniFinger.data, searchResult.data)
                 #print ("\nfingerSearch has found:", searchResult)
-            return searchResult
+            #return searchResult
         
         # #if type(tree)== SkipList: 
             # if self.maxiFinger.data - keyInInt < keyInInt - self.miniFinger.data:
@@ -84,22 +86,36 @@ if __name__ == "__main__":
     bst = RedBlackTree()
     #skl = SkipList()
     inputList1 = [1,2,3,4,2,2,2,5,6,7,0]
-    searchlist = [1,2,3,4,2,2,2,5,6,7,0]
+    searchlist = [5,5,5,5,5,5,5,5,5,5,5]
+    
+    len_s = len(searchlist)
+    len_i = len(inputList1)
 
     bst.insertMultipleElem(inputList1)
     #skl.insertMultipleElem(inputList1)
     
     mmf = MinMaxFinger()
     mmf.maxiFinger = mmf.setMaxiFingerFrom(bst)
+    print ("maxiFinger = ", mmf.maxiFinger.data)
     mmf.miniFinger = mmf.setMiniFingerFrom(bst)
-    print (mmf.usedNodesInSearch)
+    print ("miniFinger = ", mmf.miniFinger.data)
     
     #mmf.maxiFinger = mmf.setMaxiFingerFrom(skl)
     #mmf.miniFinger = mmf.setMiniFingerFrom(skl)
-       
+    
+    print ("Used Nodes in mmf search:", mmf.usedNodesInSearch)
+    print ("Used Nodes in bst search:", bst.usedNodesInSearch)
     #print("\nErgebniss von Fingersearch ist, fingersearch entscheidet selbst ob es von minimum oder Maximum sucht:", mmf.fingerSearch(bst, 3))
-    print("\nErgebniss von Fingersearch ist, fingersearch entscheidet selbst ob es von minimum oder Maximum sucht:", mmf.findMultipleElem_with_MinMaxFinger(bst, searchlist))
-    print (mmf.usedNodesInSearch)
+    print("\nmmf.findMultipleElem_with_MinMaxFinger(bst, searchlist)")
+    mmf.findMultipleElem_with_MinMaxFinger(bst, searchlist)
+    print ("Used Nodes in mmf search:", mmf.usedNodesInSearch)
+    print ("Used Nodes in bst search:", bst.usedNodesInSearch)
+    print ("TOTAL Used Nodes in search:", bst.usedNodesInSearch + mmf.usedNodesInSearch)
+    
+    print ("len_s", len_s)
+    print("mathematical search would be", (math.log2(len_i))*(len_s))
+    
+    bst.printTree()
     #bst.printTree()
     #skl.printSkipList()
     

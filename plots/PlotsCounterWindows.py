@@ -287,11 +287,11 @@ if __name__ == "__main__":
     
     
     # logischer weise hat diese Kennzahl das gleiche format wie List_performanceTime, gut für plot...
-    # Anzahl der Input werte auslesen pro Liste
-    listOfLists = readMYfile('inputLists.csv')
+    # Anzahl der Search Werte auslesen pro Liste < Anzahl der Input werte
+    listOfLists = readMYfile('searchLists.csv')
     numberOfInputValuesRBT = subListLengh(listOfLists)
     
-    listOfLists = readMYfile('inputLists.csv')
+    listOfLists = readMYfile('searchLists.csv')
     numberOfInputValuesSKL = subListLengh(listOfLists)
 
     
@@ -312,10 +312,10 @@ if __name__ == "__main__":
     #plt1.set_xlabel('Number of values per list from CSV')
     
     # Plot 2
-    plt2.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label=r'Rootsearch time in RedBlackTree ') 
-    plt2.plot (numberOfInputValuesRBT, search_MinMaxFinger_TimeRBT, 'go', linestyle='--', label=r'MinMax-Finger-Search time in RedBlackTree') 
-    plt2.plot (numberOfInputValuesRBT, search_LazyFinger_TimeRBT, 'ko', linestyle='--', label=r'Lazy-Finger-Search time in RedBlackTree') 
-    plt2.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search time in RedBlackTree')
+    plt2.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label=r'Rootsearch in Tree ') 
+    plt2.plot (numberOfInputValuesRBT, search_MinMaxFinger_TimeRBT, 'go', linestyle='--', label=r'MinMax-Finger-Search in Tree') 
+    plt2.plot (numberOfInputValuesRBT, search_LazyFinger_TimeRBT, 'ko', linestyle='--', label=r'Lazy-Finger-Search in Tree') 
+    plt2.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search in Tree')
     
     plt2.set_ylabel('Total number of touched Nodes')
     plt2.set_xlabel('Number of Nodes in Datastructure (used from CSV)')
@@ -330,7 +330,7 @@ if __name__ == "__main__":
     plt4.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search time in RedBlackTree') 
     
     plt4.set_ylabel('Total number of touched Nodes')
-    plt4.set_xlabel('Number of Nodes in Datastructure (used from CSV)')
+    plt4.set_xlabel('Number of Searched Nodes in Datastructure (used from CSV)')
    
     
     # Legende einblenden:

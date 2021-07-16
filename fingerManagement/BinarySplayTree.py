@@ -94,7 +94,7 @@ class BinarySplayTree:
             return self.root
         
         self.usedNodesInSearch += 1
-        print ("start this binary_search parameter:", (startNode.data, key))
+        #print ("start this binary_search parameter:", (startNode.data, key))
         
         if key == startNode.data:
             print ("-- binary_search found key in splay:", key, startNode.data)
@@ -113,12 +113,9 @@ class BinarySplayTree:
                 self.binary_search(startNode.right, key)       
 
             if type(startNode) == None:
-                    print ("try to catch")
+                    print ("0) FAIL: Case missed in BinarySplayTree Startnode", startNode.data, type(startNode))
                     return    
                 
-            print("1) FAIL: Case missed in BinarySplayTree Startnode", type(startNode)) 
-        print("2) FAIL: Case missed in BinarySplayTree Startnode", type(startNode))
-
     def deleteElem(self, startNode, key):
         x = None
         t = None 
@@ -306,7 +303,7 @@ class BinarySplayTree:
         assert (type(self.root.data) and type(self)) is not None, " \n %r is not a Root in Splaytree" % (self.root)
         
         if type(self.root)!= None and type(self) != None and type(self.root.data)!= None:
-                print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k)
+                #print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k)
                 x = self.binary_search(self.root, k)
                 if x != None:
                     self.moveToTop(x)
