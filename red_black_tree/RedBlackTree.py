@@ -31,6 +31,7 @@ class RedBlackTree():
         self.TNULL.left = None
         self.TNULL.right = None
         self.root = self.TNULL
+        self.hight = 0
         
         # param to messure performance
         self.counterNodes = 0
@@ -481,6 +482,7 @@ class RedBlackTree():
             #fix manipulations: 
             self.fixInsert(node)
             self.usedNodesInSearch = 0
+            self.hight = math.ceil(math.log2(self.counterNodes)) # ceil rundet auf
             
         else: 
             return
