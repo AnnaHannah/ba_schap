@@ -7,6 +7,7 @@
 from red_black_tree.RedBlackTree import * 
 from skiplist.SkipList import * 
 from numpy import log
+from plots.GenerateSearchList import *
 
 
 class Finger():
@@ -102,8 +103,8 @@ if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     bst = RedBlackTree()
     #skl = SkipList()
-    inputList1 = [1,2,3,4,5,6,7,8]
-    searchlist = [4,4,4,4,4,4,4,4]
+    inputList1 = list(range(1,75))
+    searchlist = make_zickzack(list(range(1,12)))
     
     len_s = len(searchlist)
     len_i = len(inputList1)

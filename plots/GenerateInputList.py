@@ -8,14 +8,15 @@ from _operator import concat
 # Beispiel test fälle mit Listen
 # bitte nicht 0 verwenden, das hat komische effekte im Code
 data_list = []
-a  = list(range(1,120))
-b  = list(range(1,140))
-c  = list(range(1,160))
-d  = list(range(1,180))
-e  = list(range(1,200))
-f  = list(range(1,220))
-g  = list(range(1,240))
-h  = list(range(1,260))
+x = [1]
+a = list(range(1,25))
+b = list(range(1,50))
+c = list(range(1,75))
+d = list(range(1,100))
+e = list(range(1,125))
+f = list(range(1,150))
+g = list(range(1,175))
+h = list(range(1,200))
 
 def makeBigLists(listOfList):
     print("\n1. Generating with makeBigLists - method is starting")
@@ -31,6 +32,7 @@ def makeBigLists(listOfList):
             ouput_list.append(single_list[j])
    
 # Beispiel um alle Listen anzuhängen  
+    ouput_list.append(x) 
     ouput_list.append(a) 
     ouput_list.append(b) 
     ouput_list.append(c) 

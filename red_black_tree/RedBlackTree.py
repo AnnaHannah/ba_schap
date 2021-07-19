@@ -85,6 +85,7 @@ class RedBlackTree():
         if node == self.TNULL or type(node) == Node(None) or node == None or key ==0:
             return None
         if key == node.data:
+            self.usedNodesInSearch += 1
             #print ("Gesucht nach %r und im Tree gefunden." % node.data)
             return node.data
         
@@ -105,7 +106,7 @@ class RedBlackTree():
         if node == self.TNULL or type(node) == Node(None) or node == None or key ==0:
             return None
         if key == node.data:
-            self.usedNodesInSearch += 1
+            
             return node        
         if key < node.data:
             self.usedNodesInSearch += 1
@@ -126,6 +127,7 @@ class RedBlackTree():
         if node.data != None:    
             #print (" Node in twoDirectSearch is now: ", node.data)
             if key == node.data:
+                self.usedNodesInSearch += 1
                 return node.data
                   
             if key < node.data and node.parent == None:
@@ -163,32 +165,31 @@ class RedBlackTree():
             return None
  
         if key == node.data:
+            self.usedNodesInSearch += 1
             return node
               
         if key < node.data and node.parent == None:
-            
+            self.usedNodesInSearch += 1
             return self.downSearchTree_Node(node.left, key) 
         
         if key > node.data and node.parent == None:
-            
+            self.usedNodesInSearch += 1
             return self.downSearchTree_Node(node.right, key)
         
         if key < node.data and node.parent != None:
-            
+            self.usedNodesInSearch += 1
             x = self.downSearchTree_Node(node.left, key) 
             if x != None:
                 return x
             else:
-                self.usedNodesInSearch += 1
                 return self.twoDirectSearch_Node(node.parent, key)
                
         if key > node.data and node.parent != None:
-            
+            self.usedNodesInSearch += 1
             x = self.downSearchTree_Node(node.right, key) 
             if x != None:
                 return x
             else:
-                self.usedNodesInSearch += 1
                 return self.twoDirectSearch_Node(node.parent, key) 
        
 
@@ -299,40 +300,37 @@ class RedBlackTree():
             self.fixDelete(x)
     
     # Balance the tree after insertion
-
-    def fixInsert(self, k):
-        while k.parent.color == 1:
-            if k.parent == k.parent.parent.right:
-                u = k.parent.parent.left
+    def fixInsert(self, new_node):
+        while new_node != self.root and new_node.parent.color == 1:
+            if new_node.parent == new_node.parent.parent.right:
+                u = new_node.parent.parent.left  # uncle
                 if u.color == 1:
-                    u.color = 0
-                    k.parent.color = 0
-                    k.parent.parent.color = 1
-                    k = k.parent.parent
+                  
+                    new_node.parent.color = 0
+                    new_node.parent.parent.color = 1
+                    new_node = new_node.parent.parent
                 else:
-                    if k == k.parent.left:
-                        k = k.parent
-                        self.rightRotate(k)
-                    k.parent.color = 0
-                    k.parent.parent.color = 1
-                    self.leftRotate(k.parent.parent)
+                    if new_node == new_node.parent.left:
+                        new_node = new_node.parent
+                        self.rotate_right(new_node)
+                    new_node.parent.color = 0
+                    new_node.parent.parent.color = 1
+                    self.leftRotate(new_node.parent.parent)
             else:
-                u = k.parent.parent.right
+                u = new_node.parent.parent.right  # uncle
 
                 if u.color == 1:
                     u.color = 0
-                    k.parent.color = 0
-                    k.parent.parent.color = 1
-                    k = k.parent.parent
+                    new_node.parent.color = 0
+                    new_node.parent.parent.color = 1
+                    new_node = new_node.parent.parent
                 else:
-                    if k == k.parent.right:
-                        k = k.parent
-                        self.leftRotate(k)
-                    k.parent.color = 0
-                    k.parent.parent.color = 1
-                    self.rightRotate(k.parent.parent)
-            if k == self.root:
-                break
+                    if new_node == new_node.parent.right:
+                        new_node = new_node.parent
+                        self.rotate_left(new_node)
+                    new_node.parent.color = 0
+                    new_node.parent.parent.color = 1
+                    self.rightRotate(new_node.parent.parent)
         self.root.color = 0
 
     
@@ -406,6 +404,8 @@ class RedBlackTree():
     def rootSearchTree(self, k):
         return self.downSearchTree(self.root, k)
 
+
+    # rotations and balancing from here (19.07.2021 - 18:45 UHr): https://qvault.io/python/red-black-tree-python/
     def leftRotate(self, x):
         
         self.counterRotations += 1
@@ -424,11 +424,9 @@ class RedBlackTree():
             x.parent.right = y
         y.left = x
         x.parent = y
-
+        
     def rightRotate(self, x):
-        
         self.counterRotations += 1
-        
         y = x.left
         x.left = y.right
         if y.right != self.TNULL:
@@ -443,7 +441,7 @@ class RedBlackTree():
             x.parent.left = y
         y.right = x
         x.parent = y
-
+        
     def insert(self, key):
         assert type(key) is int, " \n %r is not an integer, in this Tree is only interger accepted. \n Please modify your Input. \n Insertionprozess stopped now" % key
         if self.contains(key) == False:
@@ -524,18 +522,41 @@ class RedBlackTree():
         if self.usedNodesInSearch >= 1:
             self.usedNodesInSearch -= 1
         return (x == key)
-        
+    
+    
     def findMaximum(self, key): 
+        # this maximum should NOT BE A LOGICAL MAXIMUM - this is the most right object
         currentMax = key
         if currentMax.data != None: 
-            while ((currentMax.left.data != None) and (currentMax.left.data > currentMax.data)):
-                currentMax = currentMax.left
-            #eigentlich unnötig 
-            while ((currentMax.right.data != None) and (currentMax.right.data > currentMax.data)):
-                currentMax = currentMax.right
+            while (currentMax.right.data != None):
+                currentMax = currentMax.right 
+        print ("current maximum in Tree:", currentMax.data)
         return (currentMax)
            
     def findMinimum(self, key): 
+         # this minimum should NOT BE A LOGICAL MAXIMUM - this is the most left object
+        currentMini = key
+        if currentMini.data != None: 
+            while (currentMini.left.data != None):
+                currentMini = currentMini.left
+        print ("current minimum in Tree:", currentMini.data)
+        return (currentMini)
+    
+    def findMaximum_WORKiNG(self, key): 
+        # this maximum should NOT BE A LOGICAL MAXIMUM
+        currentMax = key
+        if currentMax.data != None: 
+            while ((currentMax.right.data != None) and (currentMax.right.data > currentMax.data)):
+                currentMax = currentMax.right
+                print 
+             #eigentlich unnötig
+            while ((currentMax.left.data != None) and (currentMax.left.data > currentMax.data)):
+                currentMax = currentMax.left
+            
+        print ("current maximum in Tree:", currentMax.data)
+        return (currentMax)
+           
+    def findMinimum_WORKING(self, key): 
         currentMini = key
         if currentMini.data != None: 
             while ((currentMini.left.data != None) and (currentMini.left.data < currentMini.data)):
@@ -543,6 +564,7 @@ class RedBlackTree():
             #eigentlich unnötig 
             while ((currentMini.right.data != None) and (currentMini.right.data < currentMini.data)):
                 currentMini = currentMini.right
+        print ("current minimum in Tree:", currentMini.data)
         return (currentMini)
         
     def maximumInTree(self): 
@@ -560,12 +582,13 @@ class RedBlackTree():
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList = [1,2,3,4,5,6,7,8]
+    inputList = list(range(0,75))
     search_list = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0]
   
     # set up tree
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
+    bst.printTree()
     print("so many rotations were made:", bst.counterRotations)
     print("1) Rootsearch BST: bst.usedNodesInSearch ",bst.usedNodesInSearch)
     #start
@@ -588,6 +611,6 @@ if __name__ == "__main__":
     print("1) bst.usedNodesInSearch ", bst.usedNodesInSearch)
     print("2) splay.usedNodesInSearch", splay.usedNodesInSearch)
     print ("\n => total numbers of nodes used with splay tree:",  bst.usedNodesInSearch + splay.usedNodesInSearch)
-   # bst.printTree()
+    bst.printTree()
 
     

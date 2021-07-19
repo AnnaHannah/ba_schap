@@ -37,7 +37,7 @@ class LazyFinger():
         if type(tree)== RedBlackTree:
             
             if keyInInt == self.lazyFinger.data:
-                self.usedNodesInSearch = 0
+                self.usedNodesInSearch += 1
                 searchResult = LazyFinger
                 #print ("1a) lazy finger %r was used for search result:" % self.lazyFinger.data, searchResult.data)
                 #print ("1b) lazyFinger_search - self.usedNodesInSearch:", self.usedNodesInSearch)

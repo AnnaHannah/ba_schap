@@ -325,9 +325,9 @@ if __name__ == "__main__":
     
     # Legende einblenden:
     #plt1.legend(loc='upper left', frameon=True)
-    plt2.legend(loc='upper right', frameon=True)
-    plt3.legend(loc='upper left', frameon=True)
-    plt4.legend(loc='upper right', frameon=True)
+    plt2.legend(loc='upper left', frameon=True)
+    #plt3.legend(loc='upper left', frameon=True)
+    plt4.legend(loc='upper left', frameon=True)
    
     print ("Plot is on Display")
     plt.show()
