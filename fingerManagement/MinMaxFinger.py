@@ -40,7 +40,7 @@ class MinMaxFinger():
     
     def setMiniFingerFrom(self, tree):  
         if type(tree)== RedBlackTree:        
-            newMinFinger = tree.minimumInTree()
+            newMinFinger = tree.minimumInTree()              
             self.miniFinger = newMinFinger
             #print("MiniFinger was set from " + str(type(tree)) + " to", newMinFinger.data)
             return newMinFinger
@@ -52,20 +52,37 @@ class MinMaxFinger():
     
     def fingerSearch(self, tree, keyInInt):
         searchResult = None
-        resultlist = []
         if type(tree)== RedBlackTree: 
+            assert type(self.maxiFinger.data) is not None, " \n %r is not a Finger, in this Tree only Maxi Finger as Finger accepted. \n Please modify your Finger" % (self.maxiFinger.data)
+            assert type(self.miniFinger.data) is not None, " \n %r is not a Finger, in this Tree only Mini Finger as Finger accepted. \n Please modify your Finger" % (self.miniFinger.data)
+            assert type(keyInInt) is not None, " \n %r is not a keyInInt, in this Tree only keyInInt as Integer accepted. \n Please modify your keyInInt" % (type(keyInInt))
             
             self.usedNodesInSearch += 1
             
-            if self.maxiFinger.data - keyInInt < keyInInt - self.miniFinger.data:
+            if self.maxiFinger.data - keyInInt <= keyInInt - self.miniFinger.data:
                 searchResult = tree.twoDirectSearch_Node(self.maxiFinger, keyInInt)
-                print ("fingerSearch used maxiFinger for:", mmf.maxiFinger.data, searchResult.data)      
+                #if( type(searchResult) != None or type(searchResult.data) != None):
+                    #print ("1a) fingerSearch maxifinger case:", type(searchResult)) 
+                    #print ("2a) twoDirectSearch_Node used maxiFinger %r for:"  % self.maxiFinger.data, keyInInt, searchResult.data)
+                #else: 
+                    #print ("fingerSearch has not found:", type(searchResult))  
+               # print (self.usedNodesInSearch)
+                #print (bst.usedNodesInSearch)    
             if self.maxiFinger.data - keyInInt > keyInInt - self.miniFinger.data:
                 searchResult = tree.twoDirectSearch_Node(self.miniFinger, keyInInt)
-                print ("fingerSearch used miniFinger for:",mmf.miniFinger.data, searchResult.data)
-                #print ("\nfingerSearch has found:", searchResult)
+                #if type(searchResult) != None or type(searchResult.data != None):
+                    #print ("1b) fingerSearch minifinger case:", type(searchResult)) 
+                    #print ("2b) twoDirectSearch_Node used miniFinger %r for:" % self.miniFinger.data, keyInInt, searchResult.data)
+                #else: 
+                    #print ("fingerSearch has not found:", type(searchResult))
+                #print (self.usedNodesInSearch) 
+                #print (bst.usedNodesInSearch) 
+            #if keyInInt == searchResult.data:
+                #print ("fingerSearch done")
+            #else:
+                #print ("fingerSearch case missed")
             #return searchResult
-        
+    # skiplist ansatz    
         # #if type(tree)== SkipList: 
             # if self.maxiFinger.data - keyInInt < keyInInt - self.miniFinger.data:
                 # searchResult = (tree.twoDirectSearch(self.maxiFinger, keyInInt)) 
@@ -85,8 +102,8 @@ if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     bst = RedBlackTree()
     #skl = SkipList()
-    inputList1 = [1,2,3,4,2,2,2,5,6,7,0]
-    searchlist = [5,5,5,5,5,5,5,5,5,5,5]
+    inputList1 = [1,2,3,4,5,6,7,8]
+    searchlist = [4,4,4,4,4,4,4,4]
     
     len_s = len(searchlist)
     len_i = len(inputList1)

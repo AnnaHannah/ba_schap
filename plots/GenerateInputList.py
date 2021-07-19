@@ -6,16 +6,16 @@ from _socket import close
 from _operator import concat
 
 # Beispiel test fälle mit Listen
+# bitte nicht 0 verwenden, das hat komische effekte im Code
 data_list = []
-a = list(range(0,120))
-b = list(range(0,140))
-c = list(range(0,160))
-d = list(range(0,180))
-e  = list(range(0,200))
-f  = list(range(0,220))
-g  = list(range(0,240))
-h  = list(range(0,260))
-
+a  = list(range(1,120))
+b  = list(range(1,140))
+c  = list(range(1,160))
+d  = list(range(1,180))
+e  = list(range(1,200))
+f  = list(range(1,220))
+g  = list(range(1,240))
+h  = list(range(1,260))
 
 def makeBigLists(listOfList):
     print("\n1. Generating with makeBigLists - method is starting")

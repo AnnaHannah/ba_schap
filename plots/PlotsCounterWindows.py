@@ -56,12 +56,20 @@ def readMYfile(filename):
 def map_lists(in_listOfLists, se_listOfLists, func):
     result = []
     while len(in_listOfLists) > 0 and len(se_listOfLists) > 0:
-        x = in_listOfLists.pop()
-        y = se_listOfLists.pop()
+        # always use first element
+        x = in_listOfLists.pop(0)
+        y = se_listOfLists.pop(0)
         
         z = func(x, y)
         result.append(z)
     return result
+
+def subListLengh(listOfLists):
+    lenSublist_Output = [] 
+    for list in listOfLists:
+        lenSublist_Output.append(len(list))
+    #print ("the lenght of every SubList in ListOfLists is", lenSublist_Output)
+    return lenSublist_Output 
 
 def messureTime_INSERT_RedBlackTree (inputList):
     if type(inputList) != list:
@@ -98,7 +106,6 @@ def messureTime_INSERT_SkipList(inputList):
     return (int(delta_time))
 
 def messureNodes_SEARCH_RedBlackTree(inputList, searchlist):
-
     # formale sache
     if type(inputList) != list:
         inputList = inputList.tolist()
@@ -181,33 +188,15 @@ def messureNodes_SPLAYFingerSEARCH_RedBlackTree(inputList, searchlist):
     x = (bst.usedNodesInSearch + splay.usedNodesInSearch)
     return int(x)
 
-# def messureTime_SEARCH_Skiplist(inputList, searchlist):
-        # # formale sache
-    # if type(inputList) != list:
-        # inputList = inputList.tolist()
-    # if type(searchlist) != list:
-        # searchlist = searchlist.tolist() 
-        #
-    # # init für Skiplist
-    # delta_time = 0.0
-    #
-    # skl = SkipList()
-    # skl.insertMultipleElem(inputList)
-    # #start timer
-    # start = time.perf_counter_ns()
-    #
-    # skl.findMultipleElem(searchlist)
-    #
-    # end = time.perf_counter_ns()
-    # delta_time = (int(end-start)//(100000))
-    # return int(delta_time)
 
 def timePerformanceINSERTRedBlackTree(listOfLists):
     perf_OutputList = []   
     for list in listOfLists:
         timeRBT = messureTime_INSERT_RedBlackTree(list)
         perf_OutputList.append(timeRBT)
-    print ("timePerformanceINSERTRedBlackTree has messured time pro list iteration, and will return:", perf_OutputList)
+        
+   
+    print ("timePerformanceINSERTRedBlackTree will return:", perf_OutputList)
     return perf_OutputList
 
 # def timePerformanceINSERTSkipList(listOfLists):
@@ -220,36 +209,37 @@ def timePerformanceINSERTRedBlackTree(listOfLists):
 
 def PerformanceSEARCHRedBlackTree(input_listOfLists, search_listOfLists): 
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_SEARCH_RedBlackTree)
-    print ("PerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+   
+    print ("PerformanceSEARCHRedBlackTree will return:", res)
     return res
 
 # def timePerformanceSEARCHSkipList(input_listOfLists, search_listOfLists):
     # res = map_lists(input_listOfLists, search_listOfLists, messureTime_SEARCH_Skiplist)
+    # reverse list, because of pop() use (witch starts from opposite end)
+    # res.reverse()
     # print ("timePerformanceSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
     # return res    
 
 def PerformanceMinMaxFingerSEARCHRedBlackTree (input_listOfLists, search_listOfLists):
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_MinMaxFingerSEARCH_RedBlackTree)
-    print ("PerformanceMinMaxFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+    
+    print ("PerformanceMinMaxFingerSEARCHRedBlackTree will return:", res)
     return res  
 
 def PerformanceLAZYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_LAZYFingerSEARCH_RedBlackTree)
-    print ("PerformanceLAZYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+   
+    print ("PerformanceLAZYFingerSEARCHRedBlackTree will return:", res)
     return res   
 
 def PerformanceSPLAYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
     #print ("PerformanceSPLAYFingerSEARCHRedBlackTree started with:", len(input_listOfLists), len(search_listOfLists))
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_SPLAYFingerSEARCH_RedBlackTree)
-    print ("PerformanceSPLAYFingerSEARCHRedBlackTree has messured time pro list iteration, and will return:", res)
+        
+    print ("PerformanceSPLAYFingerSEARCHRedBlackTree will return:", res)
     return res  
 
-def subListLengh(listOfLists):
-    lenSublist_Output = [] 
-    for list in listOfLists:
-        lenSublist_Output.append(len(list))
-    #print ("the lenght of every SubList in ListOfLists is", lenSublist_Output)
-    return lenSublist_Output 
+
 
 if __name__ == "__main__":
     
@@ -315,7 +305,7 @@ if __name__ == "__main__":
     plt2.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label=r'Rootsearch in Tree ') 
     plt2.plot (numberOfInputValuesRBT, search_MinMaxFinger_TimeRBT, 'go', linestyle='--', label=r'MinMax-Finger-Search in Tree') 
     plt2.plot (numberOfInputValuesRBT, search_LazyFinger_TimeRBT, 'ko', linestyle='--', label=r'Lazy-Finger-Search in Tree') 
-    plt2.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search in Tree')
+    plt2.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search  in Tree')
     
     plt2.set_ylabel('Total number of touched Nodes')
     plt2.set_xlabel('Number of Nodes in Datastructure (used from CSV)')
@@ -326,11 +316,11 @@ if __name__ == "__main__":
     # plt3.set_xlabel('Number of Values from CSV')
     
     # Plot 4
-    plt4.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label=r'Rootsearch time in RedBlackTree ') 
-    plt4.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search time in RedBlackTree') 
+    plt4.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label='Rootsearch in RedBlackTree ') 
+    plt4.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label='SplayTree-Finger-Search in RedBlackTree') 
     
     plt4.set_ylabel('Total number of touched Nodes')
-    plt4.set_xlabel('Number of Searched Nodes in Datastructure (used from CSV)')
+    plt4.set_xlabel('Number of Nodes in Datastructure (used from CSV)')
    
     
     # Legende einblenden:

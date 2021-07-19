@@ -69,7 +69,7 @@ class BinarySplayTree:
             return self.root
         else:
             if key == startNode.data:
-                print ("-- binary_search found key in splay:", key, startNode.data)
+                #print ("-- binary_search found key in splay:", key, startNode.data)
                 return startNode
             
             if key < startNode.data:
@@ -97,7 +97,7 @@ class BinarySplayTree:
         #print ("start this binary_search parameter:", (startNode.data, key))
         
         if key == startNode.data:
-            print ("-- binary_search found key in splay:", key, startNode.data)
+            #print ("-- binary_search found key in splay:", key, startNode.data)
             return startNode
         
         if (key != startNode.data):

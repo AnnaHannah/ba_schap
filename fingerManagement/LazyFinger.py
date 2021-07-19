@@ -39,13 +39,20 @@ class LazyFinger():
             if keyInInt == self.lazyFinger.data:
                 self.usedNodesInSearch = 0
                 searchResult = LazyFinger
-                
+                #print ("1a) lazy finger %r was used for search result:" % self.lazyFinger.data, searchResult.data)
+                #print ("1b) lazyFinger_search - self.usedNodesInSearch:", self.usedNodesInSearch)
+                #print ("1c) lazyFinger_search - bst.usedNodesInSearch:", bst.usedNodesInSearch)
             else:
                 searchResult = None
                 self.usedNodesInSearch += 1
                 searchResult = tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)
-                #print("search result:", (tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)).data)
-
+                #print ("2a) lazy finger %r was used for search result:" % self.lazyFinger.data, searchResult.data)
+                #print ("2b) lazyFinger_search - self.usedNodesInSearch:", self.usedNodesInSearch)
+                #print ("2c) lazyFinger_search - bst.usedNodesInSearch:", bst.usedNodesInSearch)
+            
+            self.lazyFinger = searchResult
+            #print ("Lazy Finger now set to:", self.lazyFinger.data)
+            #print (searchResult.data == self.lazyFinger.data)
             return searchResult
     
     def findMultipleElem_with_LazyFinger (self, tree, list):
@@ -60,7 +67,7 @@ if __name__ == '__main__':
     bst = RedBlackTree()
     #skl = SkipList()
     inputList1 = [1,2,3,4,5,6,7,8]
-    searchlist = [1,1,1,1,1,1,1,1]
+    searchlist = [1,8,1,8,1,8,1,8,1]
 
     bst.insertMultipleElem(inputList1)
     

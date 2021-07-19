@@ -10,14 +10,14 @@ from _operator import concat
 # Beispiel test fälle mit Listen
 
 data_list = []
-a  = list(range(0,1200))
-b  = list(range(0,1400))
-c  = list(range(0,1600))
-d  = list(range(0,1800))
-e  = list(range(0,2000))
-f  = list(range(0,2200))
-g  = list(range(0,2400))
-h  = list(range(0,2600))
+a  = list(range(1,120))
+b  = list(range(1,140))
+c  = list(range(1,160))
+d  = list(range(1,180))
+e  = list(range(1,200))
+f  = list(range(1,220))
+g  = list(range(1,240))
+h  = list(range(1,260))
 
 
 # verteilungen:

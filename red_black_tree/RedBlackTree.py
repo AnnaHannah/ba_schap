@@ -82,32 +82,39 @@ class RedBlackTree():
         # retruns Keys not Nodes
         #print (" Node in downSearchTree is now: ", node.data)
         
-        self.usedNodesInSearch += 1
-        
-        if (type(node) or node.data) is None:
+        if node == self.TNULL or type(node) == Node(None) or node == None or key ==0:
             return None
-    
         if key == node.data:
             #print ("Gesucht nach %r und im Tree gefunden." % node.data)
             return node.data
-        if node == self.TNULL:
-            return None
+        
         if key < node.data:
+            self.usedNodesInSearch += 1
+            #print("downSearchTree %r used, for" % node.data, key)
             return self.downSearchTree(node.left, key)
-        return self.downSearchTree(node.right, key)
+        if key > node.data:
+            self.usedNodesInSearch += 1
+            return self.downSearchTree(node.right, key)
+        else:
+            print("case missed in downSearchTree", node.data)
     
     def downSearchTree_Node(self, node, key):
         # Search downwards the tree
         # returns Nodes not keys
-        self.usedNodesInSearch += 1
         
-        if node == self.TNULL or type(node) == Node(None) or node == None:
+        if node == self.TNULL or type(node) == Node(None) or node == None or key ==0:
             return None
         if key == node.data:
+            self.usedNodesInSearch += 1
             return node        
         if key < node.data:
+            self.usedNodesInSearch += 1
             return self.downSearchTree_Node(node.left, key)
-        return self.downSearchTree_Node(node.right, key)
+        if key > node.data:
+            self.usedNodesInSearch += 1
+            return self.downSearchTree_Node(node.right, key)
+        else:
+            print("case missed in downSearchTree_Node", node.data)
     
     def twoDirectSearch(self, node, key):
         # Search the tree upwards an downwords   
@@ -151,7 +158,6 @@ class RedBlackTree():
     def twoDirectSearch_Node(self, node, key):
         # Search the tree upwards an downwords  
         # returns Nodes not keys   
-        self.usedNodesInSearch += 1
         
         if type(node) == Node(None) or node == None or node.data == None:
             return None
@@ -160,23 +166,29 @@ class RedBlackTree():
             return node
               
         if key < node.data and node.parent == None:
+            
             return self.downSearchTree_Node(node.left, key) 
         
         if key > node.data and node.parent == None:
+            
             return self.downSearchTree_Node(node.right, key)
         
         if key < node.data and node.parent != None:
+            
             x = self.downSearchTree_Node(node.left, key) 
             if x != None:
                 return x
             else:
+                self.usedNodesInSearch += 1
                 return self.twoDirectSearch_Node(node.parent, key)
                
         if key > node.data and node.parent != None:
+            
             x = self.downSearchTree_Node(node.right, key) 
             if x != None:
                 return x
             else:
+                self.usedNodesInSearch += 1
                 return self.twoDirectSearch_Node(node.parent, key) 
        
 
@@ -548,8 +560,8 @@ class RedBlackTree():
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList = [1,2,3,4,5,6,7]
-    search_list = [0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    inputList = [1,2,3,4,5,6,7,8]
+    search_list = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0]
   
     # set up tree
     bst = RedBlackTree()
@@ -561,12 +573,13 @@ if __name__ == "__main__":
     bst.findMultipleElem(search_list)
     print("2) Rootsearch BST: bst.usedNodesInSearch ",bst.usedNodesInSearch)
     
+    
     # finish
     bst.deleteFullTree()
     
     print("\n --- now with splayspeedup ---\n ")
-    inputList = [1,2,3,4,5,6,7]
-    search_list = [0,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3,1,2,3]
+    inputList = [1,2,3,4,5,6,7,8]
+    search_list = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     
     splay = BinarySplayTree()
     splay.insertMultipleElem(inputList) 
