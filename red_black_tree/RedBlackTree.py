@@ -472,7 +472,7 @@ class RedBlackTree():
                 y.left = node
             else:
                 y.right = node
-    
+            self.fixInsert(node)
             if node.parent == None:
                 node.color = 0
                 return
@@ -480,12 +480,11 @@ class RedBlackTree():
                 return
             
             #fix manipulations: 
-            self.fixInsert(node)
-            self.usedNodesInSearch = 0
-            self.hight = math.ceil(math.log2(self.counterNodes)) # ceil rundet auf
+        
+        self.usedNodesInSearch = 0
+        self.hight = math.ceil(math.log2(self.counterNodes)) # ceil rundet auf
             
-        else: 
-            return
+        
         
     def fixColor(self):
         self.fixColorHelper(self.root)
@@ -494,6 +493,7 @@ class RedBlackTree():
         while list != []:
             x = list.pop()
             self.insert(x)
+            #self.fixInsert(x)
         self.fixColor()
         
 
@@ -584,8 +584,8 @@ class RedBlackTree():
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList = list(range(0,75))
-    search_list = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0]
+    inputList = list(range(0,10))
+    search_list = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
   
     # set up tree
     bst = RedBlackTree()
