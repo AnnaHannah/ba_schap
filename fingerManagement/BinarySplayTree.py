@@ -96,11 +96,7 @@ class BinarySplayTree:
         
         self.usedNodesInSearch += 1
         #print ("start this binary_search parameter:", (startNode.data, key))
-        
-        if key == startNode.data:
-            #print ("-- binary_search found key in splay:", key, startNode.data)
-            return startNode
-        
+                
         if (key != startNode.data):
             # print ("SplayTree Binary search result:", startNode.data)
             if type(startNode.left) != None and type(startNode.right) == None:
@@ -116,7 +112,13 @@ class BinarySplayTree:
             if type(startNode) == None:
                     print ("0) FAIL: Case missed in BinarySplayTree Startnode", startNode.data, type(startNode))
                     return    
-                
+        if key == startNode.data:
+            #print ("-- binary_search found key in splay:", key, startNode.data)
+            return startNode  
+        
+        return startNode
+    
+             
     def deleteElem(self, startNode, key):
         x = None
         t = None 
@@ -405,8 +407,8 @@ if __name__ == '__main__':
     
     list1 = list.copy()
     list2 = list.copy()
-    searchlist = [9,1,9,1,9,9,9,9,9,9,9,9,9,9,1,2,3,2,1,2,3]
-    
+    searchlist = [9,1,9,1,9,1,9,1,9,1]
+    len_s=  len(searchlist)
     resultList = []
     
     bst = RedBlackTree()            
@@ -435,7 +437,8 @@ if __name__ == '__main__':
     print("Post Search: number of used RedBlacktree  Nodes in search:", bst.usedNodesInSearch)
     
     print ("Post Search: totalnumber of used Nodes in all BST+SplayTree:",splay.usedNodesInSearch + bst.usedNodesInSearch)
-    print ("optimal BST search numers would be:", (math.log(bst.counterNodes, 2))*6)
+    
+    print ("optimal BST search numers would be:", int((math.log(bst.counterNodes, 2))*len_s))
     
     #print("Splay tree after usage : -----------------------------")
     #sptree.printSplaytree()
