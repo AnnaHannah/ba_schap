@@ -85,17 +85,15 @@ class RedBlackTree():
         
         if node == self.TNULL or type(node) == Node(None) or node == None or key ==0:
             return None
+        
+        self.usedNodesInSearch += 1
         if key == node.data:
-            self.usedNodesInSearch += 1
             #print ("Gesucht nach %r und im Tree gefunden." % node.data)
             return node.data
-        
         if key < node.data:
-            self.usedNodesInSearch += 1
             #print("downSearchTree %r used, for" % node.data, key)
             return self.downSearchTree(node.left, key)
         if key > node.data:
-            self.usedNodesInSearch += 1
             return self.downSearchTree(node.right, key)
         else:
             print("case missed in downSearchTree", node.data)
@@ -106,14 +104,13 @@ class RedBlackTree():
         
         if node == self.TNULL or type(node) == Node(None) or node == None or key ==0:
             return None
+        
+        self.usedNodesInSearch += 1
         if key == node.data:
-            
             return node        
         if key < node.data:
-            self.usedNodesInSearch += 1
             return self.downSearchTree_Node(node.left, key)
         if key > node.data:
-            self.usedNodesInSearch += 1
             return self.downSearchTree_Node(node.right, key)
         else:
             print("case missed in downSearchTree_Node", node.data)
@@ -121,14 +118,15 @@ class RedBlackTree():
     def twoDirectSearch(self, node, key):
         # Search the tree upwards an downwords   
         # retruns Keys not Nodes  
-        self.usedNodesInSearch += 1
         
         if node == self.TNULL:
             return None
+        
+        self.usedNodesInSearch += 1
+        
         if node.data != None:    
             #print (" Node in twoDirectSearch is now: ", node.data)
             if key == node.data:
-                self.usedNodesInSearch += 1
                 return node.data
                   
             if key < node.data and node.parent == None:
@@ -164,21 +162,19 @@ class RedBlackTree():
         
         if type(node) == Node(None) or node == None or node.data == None:
             return None
- 
+        
+        self.usedNodesInSearch += 1
+        
         if key == node.data:
-            self.usedNodesInSearch += 1
             return node
               
         if key < node.data and node.parent == None:
-            self.usedNodesInSearch += 1
             return self.downSearchTree_Node(node.left, key) 
         
         if key > node.data and node.parent == None:
-            self.usedNodesInSearch += 1
             return self.downSearchTree_Node(node.right, key)
         
         if key < node.data and node.parent != None:
-            self.usedNodesInSearch += 1
             x = self.downSearchTree_Node(node.left, key) 
             if x != None:
                 return x
@@ -186,13 +182,14 @@ class RedBlackTree():
                 return self.twoDirectSearch_Node(node.parent, key)
                
         if key > node.data and node.parent != None:
-            self.usedNodesInSearch += 1
             x = self.downSearchTree_Node(node.right, key) 
             if x != None:
                 return x
             else:
                 return self.twoDirectSearch_Node(node.parent, key) 
-       
+        else:
+            print("case missed in downSearchTree_Node", node.data)
+
 
     def fixDelete(self, x):
         # Balancing the tree after deletion
@@ -585,31 +582,30 @@ if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
     inputList = list(range(0,10))
-    search_list = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-  
+    inputList1 = inputList.copy()
+    
+    search_list = [1,9,1,9,1,9,1,9,1,9]
+    search_list1= search_list.copy()
+    
     # set up tree
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
-    bst.printTree()
-    print("so many rotations were made:", bst.counterRotations)
-    print("1) Rootsearch BST: bst.usedNodesInSearch ",bst.usedNodesInSearch)
-    #start
+   
     print("Rootsearch BST: optimal nodes ", math.log(bst.counterNodes, 2)*len(search_list))
     bst.findMultipleElem(search_list)
-    print("2) Rootsearch BST: bst.usedNodesInSearch ",bst.usedNodesInSearch)
+    print("2) Rootsearch BST: bst.usedNodesInSearch ", bst.usedNodesInSearch)
     
-    
+    bst.printTree()
+
     # finish
     bst.deleteFullTree()
     
     print("\n --- now with splayspeedup ---\n ")
-    inputList = [1,2,3,4,5,6,7,8]
-    search_list = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-    
+        
     splay = BinarySplayTree()
-    splay.insertMultipleElem(inputList) 
+    splay.insertMultipleElem(inputList1) 
     
-    splay.findMultipleElem_with_SplayTree(bst, search_list)
+    splay.findMultipleElem_with_SplayTree(bst, search_list1)
     print("1) bst.usedNodesInSearch ", bst.usedNodesInSearch)
     print("2) splay.usedNodesInSearch", splay.usedNodesInSearch)
     print ("\n => total numbers of nodes used with splay tree:",  bst.usedNodesInSearch + splay.usedNodesInSearch)

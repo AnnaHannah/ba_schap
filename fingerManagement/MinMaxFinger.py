@@ -7,7 +7,7 @@
 from red_black_tree.RedBlackTree import * 
 from skiplist.SkipList import * 
 from numpy import log
-from plots.GenerateSearchList import *
+from main.GenerateSearchList import *
 
 
 class Finger():
