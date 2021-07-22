@@ -68,7 +68,7 @@ class BinarySplayTree:
         if (type(startNode) == None) or (startNode == None):
             print("FAIL: BinarySplayTree Startnode got lost -> self.root recovery", type(startNode))
             return self.root
-        else:
+        elif(startNode != None):
             if key == startNode.data:
                 #print ("-- binary_search found key in splay:", key, startNode.data)
                 return startNode
@@ -85,8 +85,8 @@ class BinarySplayTree:
                 else: 
                     #print ("SplayTree Binarysearch result nearby:", startNode.data)
                     return startNode
-            else:
-                return self.root
+        else:
+             return self.root
 
     def binary_search(self, startNode, key):
         

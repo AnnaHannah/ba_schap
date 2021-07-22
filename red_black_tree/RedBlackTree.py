@@ -7,6 +7,8 @@ from time import sleep
 from tkinter.tix import INTEGER
 from idlelib.idle_test.test_configdialog import root
 from fingerManagement.BinarySplayTree import * 
+from fingerManagement.ShortSplayTree import * 
+
 
 # global Variable
 mRcounter = 0
@@ -101,19 +103,30 @@ class RedBlackTree():
     def downSearchTree_Node(self, node, key):
         # Search downwards the tree
         # returns Nodes not keys
+        self.usedNodesInSearch += 1
         
-        if node == self.TNULL or type(node) == Node(None) or node == None or key ==0:
+        global firstRes
+        firstRes = None
+        
+        if node == self.TNULL or type(node) == Node(None) or node.data == None or key == 0:
+            #print("downSearchTree_Node returns None because of node.data:", node.data)
             return None
         
-        self.usedNodesInSearch += 1
         if key == node.data:
-            return node        
-        if key < node.data:
-            return self.downSearchTree_Node(node.left, key)
-        if key > node.data:
-            return self.downSearchTree_Node(node.right, key)
+            firstRes == node
+            return firstRes        
+        if key < node.data and firstRes == None:
+            x = self.downSearchTree_Node(node.left, key)
+            return x
+        if key > node.data and firstRes == None:
+            x = self.downSearchTree_Node(node.right, key)
+            return x
+        
+        if firstRes != None:
+            return firstRes
+        
         else:
-            print("case missed in downSearchTree_Node", node.data)
+            print("case missed in downSearchTree_Node", node.data, firstRes )
     
     def twoDirectSearch(self, node, key):
         # Search the tree upwards an downwords   
@@ -128,13 +141,15 @@ class RedBlackTree():
             #print (" Node in twoDirectSearch is now: ", node.data)
             if key == node.data:
                 return node.data
-                  
+            
+            # root cases      
             if key < node.data and node.parent == None:
                 return self.downSearchTree(node.left, key) 
             
             if key > node.data and node.parent == None:
                 return self.downSearchTree(node.right, key)
             
+            # basic cases
             if key < node.data and node.parent != None:
                 x = self.downSearchTree(node.left, key) 
                 if x != None:
@@ -144,7 +159,6 @@ class RedBlackTree():
                     #print ("twoDirectSearch  started because, node.data is bigger then key:",key, node.data)
                     return self.twoDirectSearch(node.parent, key)
                 
-               
             if key > node.data and node.parent != None:
                 x = self.downSearchTree(node.right, key) 
                 if x != None:
@@ -160,35 +174,67 @@ class RedBlackTree():
         # Search the tree upwards an downwords  
         # returns Nodes not keys   
         
-        if type(node) == Node(None) or node == None or node.data == None:
+        if type(node) == Node(None) or node == None or node.data == None or key ==0:
+            # print("twoDirectSearch_Node returns None because of node:", node)
             return None
         
-        self.usedNodesInSearch += 1
+        self.usedNodesInSearch += 1 #(down tree search hat schon +1 hier wäre es dopelt)
+        # abbruch der Suche wenn ergebnis gefunden:
+        global firstRes
+        firstRes = None
+        global leafRes
+        leafRes = None
         
         if key == node.data:
-            return node
+            firstRes = node
+            return firstRes
               
-        if key < node.data and node.parent == None:
+        # root cases
+        if key < node.data and node.parent == None and node.left != None:
             return self.downSearchTree_Node(node.left, key) 
         
-        if key > node.data and node.parent == None:
+        if key > node.data and node.parent == None and node.right != None:
             return self.downSearchTree_Node(node.right, key)
         
-        if key < node.data and node.parent != None:
+        # node cases
+        if key < node.data and node.left != None and node.parent != None and firstRes == None:
+            
+            # eigentlich müsste man beides Paralell machen, aber ich gehen davonaus dass lokalitätsprinzip gilt => daher zuerst downsearch
             x = self.downSearchTree_Node(node.left, key) 
-            if x != None:
-                return x
-            else:
-                return self.twoDirectSearch_Node(node.parent, key)
+            print ("1) twoDirectSearch_Node now x =", x)
+            if x == None and firstRes == None:
+                #self.usedNodesInSearch += 1
+                y = self.twoDirectSearch_Node(node.parent, key)
+                print ("1) twoDirectSearch_Node now y =", y)
+                if y != None:
+                    firstRes = y
+                    return firstRes
+            else: 
+                firstRes = x
+                return firstRes
                
-        if key > node.data and node.parent != None:
+        if key > node.data and node.right != None and node.parent != None and firstRes == None:
+             # eigentlich müsste man beides Paralell machen, aber ich gehen davonaus dass lokalitätsprinzip gilt => daher zuerst downsearch
             x = self.downSearchTree_Node(node.right, key) 
-            if x != None:
-                return x
-            else:
-                return self.twoDirectSearch_Node(node.parent, key) 
+            print ("2) twoDirectSearch_Node now x =", x)
+            if x == None and firstRes == None:
+                #self.usedNodesInSearch += 1
+                y = self.twoDirectSearch_Node(node.parent, key)
+                print ("2) twoDirectSearch_Node now y =", y)
+                if y != None:
+                    ("twoDirectSearch_Node FOUND:", firstRes, key)
+                    firstRes = y
+                    return firstRes
+            else: 
+                ("twoDirectSearch_Node FOUND:", firstRes, key)
+                firstRes = x
+                return firstRes
+        
+        if firstRes != None:
+            print ("twoDirectSearch_Node FOUND:", firstRes, key)
+            return firstRes
         else:
-            print("case missed in downSearchTree_Node", node.data)
+            print("case missed in twoDirectSearch_Node", node.data, firstRes)
 
 
     def fixDelete(self, x):
@@ -400,7 +446,8 @@ class RedBlackTree():
         self.postOrderHelper(self.root)
 
     def rootSearchTree(self, k):
-        return self.downSearchTree(self.root, k)
+        self.twoDirectSearch_Node (self.root, k)
+        #return self.downSearchTree(self.root, k)
 
 
     # rotations and balancing from here (19.07.2021 - 18:45 UHr): https://qvault.io/python/red-black-tree-python/
@@ -497,7 +544,7 @@ class RedBlackTree():
     def findMultipleElem (self, list):
         foundList = []
         while list != []:
-            x = list.pop()
+            x = list.pop(0)
             self.rootSearchTree(x)
             # if self.rootSearchTree(x) != None:
                 # foundList.append(self.rootSearchTree(x))
@@ -581,34 +628,47 @@ class RedBlackTree():
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList = list(range(0,10))
+    inputList = list(range(1,10))
     inputList1 = inputList.copy()
+    inputList2 = inputList.copy()
     
-    search_list = [1,9,1,9,1,9,1,9,1,9]
+    search_list = [3,7,3]
     search_list1= search_list.copy()
+    print("inputlist is:", inputList)
+    print("searchlist is:", search_list)
     
     # set up tree
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
    
-    print("Rootsearch BST: optimal nodes ", math.log(bst.counterNodes, 2)*len(search_list))
+   
     bst.findMultipleElem(search_list)
-    print("2) Rootsearch BST: bst.usedNodesInSearch ", bst.usedNodesInSearch)
+    print("2) => total numbers of nodes used with bst: ", bst.usedNodesInSearch)
+    print("\n1) Rootsearch BST: optimal nodes ", math.log(bst.counterNodes, 2)*len(search_list))
     
-    bst.printTree()
-
+    #bst.printTree()
     # finish
     bst.deleteFullTree()
     
     print("\n --- now with splayspeedup ---\n ")
-        
-    splay = BinarySplayTree()
-    splay.insertMultipleElem(inputList1) 
     
+    print("inputlist is:", inputList1)
+    print("inputlist is:", inputList2)
+    print("searchlist is:", search_list1, "\n")
+    
+    # set up tree
+    bst = RedBlackTree()
+    bst.insertMultipleElem(inputList1)
+     
+    splay = ShortSplayTree()
+    splay.insertMultipleElem(inputList2) 
+    #splay.printSplaytree()
     splay.findMultipleElem_with_SplayTree(bst, search_list1)
-    print("1) bst.usedNodesInSearch ", bst.usedNodesInSearch)
+    
+    print("1) bst.usedNodesInSearch (twoDirectSearch_Node)", bst.usedNodesInSearch)
     print("2) splay.usedNodesInSearch", splay.usedNodesInSearch)
     print ("\n => total numbers of nodes used with splay tree:",  bst.usedNodesInSearch + splay.usedNodesInSearch)
     bst.printTree()
+    splay.printSplaytree()
 
     
