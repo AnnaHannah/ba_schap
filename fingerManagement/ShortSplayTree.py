@@ -63,12 +63,13 @@ class ShortSplayTree:
             self.recrusive_print(currPtr.right, indent, True)
     
     def binary_search_NO_WORKING_VERSION(self, startNode, key):
-        self.usedNodesInSearch += 1
+        
         #print ("start this binary_search parameter:", type(startNode), type(key))
         if (type(startNode) == None) or (startNode == None):
             print("FAIL: BinarySplayTree Startnode got lost -> self.root recovery", type(startNode))
             return self.root
         else:
+            self.usedNodesInSearch += 1
             if key == startNode.data:
                 #print ("-- binary_search found key in splay:", key, startNode.data)
                 return startNode
@@ -88,51 +89,72 @@ class ShortSplayTree:
             else:
                 return self.root
 
+    
+        
+    
+    
     def binary_search(self, startNode, key):
         
         if type(startNode) == None or (startNode == None):
             print("ERROR: binary_search type of StartNod is invalid - break", type(startNode))
-
         
-        #print ("B) start this binary_search parameter:", (startNode.data, key))
-
-        if (key != startNode.data):
-            self.usedNodesInSearch += 1
-            #print ("B) binary_search search temp:", startNode.data)
-            #self.printSplaytree()
-            
+        # abbruch der Suche wenn ergebnis gefunden:
+        global firstRes
+        firstRes = None
+        global leafRes
+        leafRes = None
+        
+        #print ("\n B) START this binary_search parameter:", (startNode.data, key))
+        #print ("-- START usedNodesInSearch :", self.usedNodesInSearch, "\n")
+        if key == startNode.data:
+            #self.usedNodesInSearch += 1
+            firstRes = startNode
+            #print ("B) return END1: binary_search - FOUND key: ", key, firstRes.data)
+            #print ("-- END1 usedNodesInSearch :", self.usedNodesInSearch, "\n")
+            return firstRes
+        
+        self.usedNodesInSearch += 1
+               
+        if key != startNode.data and firstRes == None:
+                            
             if (startNode.left != None) and (startNode.right == None):
-                #print ("binary_search GO LEFT:", startNode.left.data)
+                #print ("binary_search GO LEFT:", (startNode.data, key))
+                #print ("-- GO LEFT: self.usedNodesInSearch :", self.usedNodesInSearch)
                 self.binary_search(startNode.left, key)
+                #print ("-- GO LEFT: self.usedNodesInSearch :", self.usedNodesInSearch)
                 
             if (startNode.left == None) and (startNode.right != None):
-                #print ("binary_search GO RIGHT:", startNode.right.data)
+                #print ("binary_search GO RIGHT:", (startNode.data, key))
+                #print ("-- GO RIGHT self.usedNodesInSearch :", self.usedNodesInSearch)
                 self.binary_search(startNode.right, key)    
+                #print ("-- GO RIGHT self.usedNodesInSearch :", self.usedNodesInSearch)
+                                
+            if (startNode.left != None) and (startNode.right != None):
+                #print ("binary_search GO Left+RIGHT:", (startNode.data, key))
+                #print ("-- GO Left+RIGHT self.usedNodesInSearch :", self.usedNodesInSearch)
+                x = self.binary_search(startNode.left, key)
+                if x == None and (firstRes) == None:
+                    y = self.binary_search(startNode.right, key)  
+                #print ("-- GO Left+RIGHT self.usedNodesInSearch :", self.usedNodesInSearch)
             
-            elif (startNode.left != None) and (startNode.right != None): 
-                #print ("binary_search - do both Left+right for:", startNode.data)
+            if (startNode.left == None) and (startNode.right == None):
+                # leaf situation AND no result found -> set new leaf as result
                 
-                self.binary_search(startNode.left, key)
+                #print ("B) binary_search SET LEAF:", startNode.data, key)
+                #print ("-- SET LEAF usedNodesInSearch :", self.usedNodesInSearch)
+                leafRes = startNode
                 
-                self.binary_search(startNode.right, key)   
+                #print ("-- SET LEAF usedNodesInSearch :", self.usedNodesInSearch)
+              
+        if firstRes != None:
+            #print ("B) return END3: binary_search - FOUND key: ", (firstRes.data, key))
+            #print ("-- END3 usedNodesInSearch :", self.usedNodesInSearch, "\n")
+            return firstRes
+        #else: return leafRes
+            
+       
+            
         
-        if key == startNode.data:
-            self.usedNodesInSearch += 1
-            global y
-            y = startNode
-            #print ("B) return 1, END: binary_search - FOUND key: ", key, y.data)
-            return y
-        
-        if (startNode.left == None) and (startNode.right == None):
-            self.usedNodesInSearch += 1
-            y = startNode
-            #print ("B) return 2: END: binary_search - LEAF State: ", key, y.data)
-            return y
-        
-        print ("B) binary_search will return:", y.data)
-        print ("B) binary_search self.usedNodesInSearch:", self.usedNodesInSearch)
-        return y
-                
     def deleteElem(self, startNode, key):
         x = None
         t = None 
@@ -322,17 +344,17 @@ class ShortSplayTree:
         assert (type(self.root.data) or type(self) or type(k)) is not None, " \n %r is not a Root in Splaytree" % (self.root)
         
         if type(self.root)!= None and type(self) != None and type(self.root.data)!= None:
-            print ("A) searchSplayTree gives (%r) as startpoint for binary_search for:" % self.root.data, k)
-            x = Node(None)
+            #print ("A) searchSplayTree gives (%r) as startpoint for binary_search for:" % self.root.data, k)
+            x = None
             x = self.binary_search(self.root, k)
            
             if x != None:
-                print ("A) searchSplayTree -> binary_search returns:", x.data)
+                #print ("A) searchSplayTree -> binary_search returns:", x.data, k)
                 self.moveToTop(x)
-            else: print ("A) searchSplayTree -> binary_search returns %r for:" % type(x),  k)
-            
+            else: 
+                print ("A) searchSplayTree -> binary_search returns %r for:" % type(x),  k)
+           
             return x
-        
         else:
             print("NO Root in Splaytree!")
             
@@ -345,7 +367,6 @@ class ShortSplayTree:
         while node.right != None:
             node = node.right
         return node
-
 
     # insert the key to the tree in its appropriate position
     def insert(self, key):
@@ -390,13 +411,13 @@ class ShortSplayTree:
         while (len(searchlist) > 0):
             key = searchlist.pop()
             splay_result = self.searchSplayTree(key)
-            if splay_result == None:
-                print ("\n C) findMultipleElem_with_SplayTree: start twoDirectSearch_Node in BST with Splaynode:", splay_result)
-            print ("\n C) findMultipleElem_with_SplayTree: start twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
+            #if splay_result == None:
+                #print ("\n C) findMultipleElem_with_SplayTree: start twoDirectSearch_Node in BST with Splaynode:", splay_result)
+            #print ("\n C) findMultipleElem_with_SplayTree: start twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
             x = tree.twoDirectSearch_Node(splay_result, key)
-            if x == None:
-                print ("\n C) twoDirectSearch_Node in BST has found:", type(x))
-            print ("\n C) twoDirectSearch_Node in BST has found:", x.data)
+            #if x != None:
+               # print ("\n C) with splay twoDirectSearch_Node in BST has found:", x.data)
+            #else: #print ("\n C) twoDirectSearch_Node in BST has found:", type(x))
             
             if x != None:
                 #print("1) result twoDirectSearch_Node in BST:", (x.data))    
@@ -429,10 +450,10 @@ if __name__ == '__main__':
     
     sys.setrecursionlimit(20000)
     
-    print("\n --- now with splayspeedup ---\n ")
+    
     list1 = list(range(1,10))
     list2 = list1.copy()
-    search_list = [5,9,5,9,5,9,5,9,5,9]
+    search_list = [5,9,5,9,5,9,5,9,5]
     print ("list1:", list1)
     print ("list2:", list2)
     print ("search_list:", search_list)
@@ -440,10 +461,12 @@ if __name__ == '__main__':
     bst = RedBlackTree()
     splay = ShortSplayTree()
     splay.insertMultipleElem(list1) 
+    
     bst.insertMultipleElem(list2)
+    
     print("\n-- now searching -- ")
     
-    print(splay.findMultipleElem_with_SplayTree(bst, search_list))
+    splay.findMultipleElem_with_SplayTree(bst, search_list)
     
     print("1) bst.usedNodesInSearch: ", bst.usedNodesInSearch)
     print("2) splay.usedNodesInSearch: ", splay.usedNodesInSearch)
