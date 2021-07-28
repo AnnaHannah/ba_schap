@@ -8,6 +8,7 @@ from red_black_tree.RedBlackTree import *
 from skiplist.SkipList import * 
 from numpy import log
 from main.GenerateSearchList import *
+import logging
 
 
 class Finger():
@@ -101,6 +102,8 @@ class MinMaxFinger():
         
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
+    logging.basicConfig(filename='logFILE.log', encoding='utf-8', level=logging.DEBUG)
+
     bst = RedBlackTree()
     #skl = SkipList()
     inputList1 = list(range(1,75))

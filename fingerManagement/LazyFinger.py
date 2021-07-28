@@ -4,6 +4,7 @@
 from red_black_tree.RedBlackTree import * 
 from skiplist.SkipList import * 
 import csv
+import logging
 
 
 class Finger():
@@ -17,59 +18,65 @@ class Finger():
 class LazyFinger():
     def __init__ (self):
         self.lazyFinger = Finger(None)
-        
         # param to messure performance
         self.usedNodesInSearch = 0
-        
-        
+
     # set the first finger to the root (why not)      
     def setfirst_LazyFinger(self, tree):
-        if type(tree)== RedBlackTree:    
-            newLazyFinger = tree.getRoot()
-            self.lazyFinger = newLazyFinger
-           
-            assert type(self.lazyFinger.data) or self.lazyFinger is not None, " \n %r is not a Finger, something went wrhong while setting up fisrt Lazy Finger:" % (self.lazyFinger.data)
-            #print(" Error, something went wrong, while setting the first finger")
-            return self.lazyFinger
+        newLazyFinger = tree.getRoot()
+        self.lazyFinger = newLazyFinger
+
+        assert type(self.lazyFinger.data) or self.lazyFinger is not None, " \n %r is not a Finger, something went wrhong while setting up first Lazy Finger:" % (self.lazyFinger.data)
+        #print(" Error, something went wrong, while setting the first finger")
+        return self.lazyFinger
     
     # update the finger after search
     def lazyFinger_search(self, tree, keyInInt):
-        assert (type(self.lazyFinger) or self.lazyFinger.data) is not None, " \n %r is not a Finger, in this Tree only Lazy Finger as Finger accepted. \n Please modify your Lazyfinger" % (self.lazyFinger)
-        
-        if type(tree)== RedBlackTree:
-            self.usedNodesInSearch += 1
+        global resultList
+        resultList = []
+        assert type(self.lazyFinger) or self.lazyFinger.data or keyInInt is not None, " \n %r is not a Finger, in this Tree only Lazy Finger as Finger accepted. \n Please modify your Lazyfinger" % (self.lazyFinger)
+        self.usedNodesInSearch += 1
             
-            #print("-- lazyFinger_search searches for:", keyInInt)
+        print("0) lazyFinger_search - searches for %r:"  % self.lazyFinger.data, keyInInt)
             
-            if keyInInt == self.lazyFinger.data:
-                searchResult = self.lazyFinger
-                #print ("1a) lazy finger %r was used for search result:" % self.lazyFinger.data, searchResult.data)
-                #print ("1b) lazyFinger_search - self.usedNodesInSearch:", self.usedNodesInSearch)
-                #print ("1c) lazyFinger_search - bst.usedNodesInSearch:", bst.usedNodesInSearch)
-            else:
-                searchResult = None
-                print(searchResult)
-                searchResult = tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)
-                
-                #print ("2a) lazy finger %r was used for search result:" % self.lazyFinger.data, searchResult.data)
-                #print ("2b) lazyFinger_search - self.usedNodesInSearch:", self.usedNodesInSearch)
-                #print ("2c) lazyFinger_search - bst.usedNodesInSearch:", bst.usedNodesInSearch)
-                print(searchResult)
-                self.lazyFinger = searchResult
-            #print ("Lazy Finger now set to:", self.lazyFinger.data)
-            #print (searchResult.data == self.lazyFinger.data)
-            
-            return searchResult     
+        if keyInInt == self.lazyFinger.data:
+            searchResult = self.lazyFinger
+            resultList.append(searchResult.data)
+            print("1) lazyFinger_search FOUND =", searchResult.data)
+            return searchResult
+
+        if self.lazyFinger.data != None:
+            searchResult = None
+            searchResult = tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)
+            resultList.append(searchResult.data)
+            print("2) lazyFinger_search used twoDirectSearch_Node =", searchResult.data)
+
+        if searchResult != None:
+            self.lazyFinger = searchResult
+            print("3) Lazy Finger now set to:", self.lazyFinger.data)
+            print("3) AFT lazyFinger_search resultList =", resultList)
+
+        if searchResult == None:
+            resultList.append(searchResult)
+            self.lazyFinger = tree.getRoot()
+            print("4) !BAD CASE: lazyFinger set to  = ", self.lazyFinger.data)
+            print("4) !BAD CASE: searchResult = ", searchResult)
+
+        print("5) lazyFinger_search END resultList =", resultList)
+        print("5) lazyFinger_search END searchResult =", searchResult.data)
+
+        return searchResult
     
-    def findMultipleElem_with_LazyFinger (self, tree, list):
+    def findMultipleElem_with_LazyFinger(self, tree, list):
         foundList = []
         while list != []:
             x = list.pop()
-            self.lazyFinger_search(tree, x)   
+            self.lazyFinger_search(tree, x)
+            print ("\n lazyfinger now:",  self.lazyFinger.data, "\n")
 
 if __name__ == '__main__':
     sys.setrecursionlimit(2000)
-    
+    logging.basicConfig(filename='logFILE.log', encoding='utf-8', level=logging.DEBUG)
     
     #skl = SkipList()
     inputList1 = [1,2,3,4,5,6,7,8]

@@ -9,6 +9,7 @@ from red_black_tree.RedBlackTree import *
 from skiplist.SkipList import * 
 import csv
 import math
+import logging
 
 
 
@@ -449,6 +450,7 @@ class ShortSplayTree:
 if __name__ == '__main__':
     
     sys.setrecursionlimit(20000)
+    logging.basicConfig(filename='logFILE.log', encoding='utf-8', level=logging.DEBUG)
     
     
     list1 = list(range(1,10))

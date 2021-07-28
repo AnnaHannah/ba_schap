@@ -9,8 +9,7 @@ from red_black_tree.RedBlackTree import *
 from skiplist.SkipList import * 
 import csv
 import math
-
-
+import logging
 
 class Node:
     def  __init__(self, data):
@@ -113,9 +112,8 @@ class BinarySplayTree:
                     print ("0) FAIL: Case missed in BinarySplayTree Startnode", startNode.data, type(startNode))
                     return    
         if key == startNode.data:
-            #print ("-- binary_search found key in splay:", key, startNode.data)
-            return startNode  
-        
+            print ("-- binary_search found key in splay:", key, startNode.data)
+            return startNode
         return startNode
     
              
@@ -401,7 +399,7 @@ class BinarySplayTree:
 
 
 if __name__ == '__main__':
-    
+    logging.basicConfig(filename='logFILE.log', encoding='utf-8', level=logging.DEBUG)
     sys.setrecursionlimit(20000)
     list = [9,8,7,6,5,4,3,2,1,0]
     

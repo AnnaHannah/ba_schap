@@ -1,0 +1,2329 @@
+INFO:root:
+ notice, before insertion the search proofs if there is a need for insertion - this search is also logged here 
+ 
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ notice, before insertion the search proofs if there is a need for insertion - this search is also logged here 
+ 
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ notice, before insertion the search proofs if there is a need for insertion - this search is also logged here 
+ 
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ notice, before insertion the search proofs if there is a need for insertion - this search is also logged here 
+ 
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ notice, before insertion the search proofs if there is a need for insertion - this search is also logged here 
+ 
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+ERROR:root:twoDirectSearch_Node NONE with (None, 9 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 8 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 8 )call downSearchTree_Node
+ERROR:root:downSearchTree_Node NONE with (None, 8 ) parent: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 7 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 7 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 7-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 7 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 7 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 6 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 6 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (8, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 6 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (7, 6-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 6 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 6 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 5 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 5 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 5 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 5-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 5 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 5 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 4 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 4 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (6, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (6, 4 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 4-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 4 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 4 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (9, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (7, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (7, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 2 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 2 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (4, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (4, 2 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 2-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 2 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 2 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 1 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 1 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (3, 1 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (2, 1-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (2, 1 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 1 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
+INFO:root:
+ twoDirectSearch_Node START with (3, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (3, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (4, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (4, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (3, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (5, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:2) twoDirectSearch_Node GO RIGHT with (5, 9)call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (6, 9-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO RIGHT (6, 9 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 9 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:2) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:2) twoDirectSearch_Node GO-UP with (5, 9) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 9 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO RIGHT with (7, 9 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (9, 9-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (9, 9 ) firstRes: 9
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:2) twoDirectSearch_Node GO-UP now y = 9 
+INFO:root:2) twoDirectSearch_Node now y is firstRES = 9 
+INFO:root:2) twoDirectSearch_Node RETURN firstRES = 9 
+INFO:root:
+ twoDirectSearch_Node START with (9, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:
+ downSearchTree_Node START (8, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (8, 3 ) firstRes: None
+ERROR:root:downSearchTree_Node NONE with (None, 3 ) parent: None
+INFO:root:downSearchTree_Node GO LEFT now return: None
+INFO:root:1) twoDirectSearch_Node GO RIGHT with (9, 3)call downSearchTree_Node
+INFO:root:1) twoDirectSearch_Node GO RIGHT now x = None 
+INFO:root:1) twoDirectSearch_Node GO-UP with (9, 3) firstRes: None leafRes: None 
+ 
+INFO:root:
+ twoDirectSearch_Node START with (7, 3 ) firstRes: None, leafRes: None 
+
+INFO:root:twoDirectSearch_Node GO LEFT with (7, 3 )call downSearchTree_Node
+INFO:root:
+ downSearchTree_Node START (5, 3-key) firstRes: None 
+ 
+INFO:root:downSearchTree_Node GO LEFT (5, 3 ) firstRes: None
+INFO:root:
+ downSearchTree_Node START (3, 3-key) firstRes: None 
+ 
+INFO:root: 
+ downSearchTree_Node FOUND1 (3, 3 ) firstRes: 3
+INFO:root:downSearchTree_Node GO LEFT now return: 3
+INFO:root:1) twoDirectSearch_Node GO-UP now y = 3 
+INFO:root:1) twoDirectSearch_Node now y is firstRES = 3 
+INFO:root:1) twoDirectSearch_Node RETURN firstRES = 3 
