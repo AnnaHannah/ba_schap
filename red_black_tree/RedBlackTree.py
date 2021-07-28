@@ -7,7 +7,9 @@ from time import sleep
 from tkinter.tix import INTEGER
 from idlelib.idle_test.test_configdialog import root
 from fingerManagement.BinarySplayTree import * 
-from fingerManagement.ShortSplayTree import * 
+from fingerManagement.ShortSplayTree import *
+from fingerManagement.LazyFinger import *
+import logging
 
 
 # global Variable
@@ -84,7 +86,10 @@ class RedBlackTree():
         # Search the tree
         # retruns Keys not Nodes
         #print (" Node in downSearchTree is now: ", node.data)
-        
+        # now checking the good Cases:
+
+        logging.error("\n downSearchTree (NOT NODE) START (%r," % node.data + " %r )" % key + " firstRes: %r \n " % firstRes)
+
         if node == self.TNULL or type(node) == Node(None) or node == None or key ==0:
             return None
         
@@ -98,35 +103,52 @@ class RedBlackTree():
         if key > node.data:
             return self.downSearchTree(node.right, key)
         else:
-            print("case missed in downSearchTree", node.data)
+            logging.error("\n downSearchTree (NOT NODE) CASE MISSED (%r," % node.data + " %r )" % key + " firstRes: %r \n " % firstRes)
     
     def downSearchTree_Node(self, node, key):
         # Search downwards the tree
         # returns Nodes not keys
         self.usedNodesInSearch += 1
-        
+
         global firstRes
         firstRes = None
-        
+
         if node == self.TNULL or type(node) == Node(None) or node.data == None or key == 0:
             #print("downSearchTree_Node returns None because of node.data:", node.data)
+            logging.error("downSearchTree_Node NONE with (%r," % node.data + " %r )" % key + " parent: %r" % node.parent)
             return None
-        
-        if key == node.data:
-            firstRes == node
-            return firstRes        
-        if key < node.data and firstRes == None:
-            x = self.downSearchTree_Node(node.left, key)
-            return x
-        if key > node.data and firstRes == None:
-            x = self.downSearchTree_Node(node.right, key)
-            return x
-        
+
+        # now checking the good Cases:
+        logging.info("\n downSearchTree_Node START (%r," % node.data + " %r-key)" % key + " firstRes: %r \n " % firstRes)
+
         if firstRes != None:
+            logging.info("downSearchTree_Node firstRES FOUND2 (%r," % node.data + " %r )" % key + " firstRes: %r" % firstRes)
             return firstRes
-        
+
+        if key == node.data:
+            firstRes = node
+            logging.info(" \n downSearchTree_Node FOUND1 (%r," % node.data + " %r )" % key + " firstRes: %r" % firstRes.data)
+            return firstRes        
+
+        if key > node.data:
+            logging.info("downSearchTree_Node GO RIGHT (%r," % node.data + " %r )" % key + " firstRes: %r" % firstRes)
+            x = self.downSearchTree_Node(node.right, key)
+            if x != None:
+                logging.info("downSearchTree_Node GO RIGHT now return: %r" % x.data)
+            else:
+                logging.info("downSearchTree_Node GO LEFT now return: %r" % x)
+            return x
+
+        if key < node.data:
+            logging.info("downSearchTree_Node GO LEFT (%r," % node.data + " %r )" % key + " firstRes: %r" % firstRes)
+            x = self.downSearchTree_Node(node.left, key)
+            if x != None:
+                logging.info("downSearchTree_Node GO LEFT now return: %r" % x.data)
+            else:
+                logging.info("downSearchTree_Node GO LEFT now return: %r" % x)
+            return x
         else:
-            print("case missed in downSearchTree_Node", node.data, firstRes )
+            logging.info("downSearchTree_Node MISSED CASE with (%r," % node.data + " %r )" % key + " firstRes: %r" % firstRes)
     
     def twoDirectSearch(self, node, key):
         # Search the tree upwards an downwords   
@@ -172,70 +194,91 @@ class RedBlackTree():
 
     def twoDirectSearch_Node(self, node, key):
         # Search the tree upwards an downwords  
-        # returns Nodes not keys   
-        
-        if type(node) == Node(None) or node == None or node.data == None or key ==0:
-            # print("twoDirectSearch_Node returns None because of node:", node)
+        # returns Nodes not keys
+        # if first res is found - > stop searching (specially needed for finger search)
+
+        if type(node) == Node(None) or node == None or node.data == None or key <= 0:
+            logging.error("twoDirectSearch_Node NONE with (%r," % node.data + " %r )" % key + " parent: %r" % node.parent)
             return None
-        
+
         self.usedNodesInSearch += 1 #(down tree search hat schon +1 hier wäre es dopelt)
+
         # abbruch der Suche wenn ergebnis gefunden:
         global firstRes
         firstRes = None
         global leafRes
         leafRes = None
-        
+
+        logging.info("\n twoDirectSearch_Node START with (%r," % node.data + " %r )" % key + " firstRes: %r," % firstRes + " leafRes: %r \n" % leafRes )
+
         if key == node.data:
             firstRes = node
+            logging.info(
+                "twoDirectSearch_Node FOUND1 with (%r," % node.data + " %r )" % key + " firstRes: %r," % firstRes + " leafRes: %r  " % leafRes)
             return firstRes
-              
+
+        if firstRes != None:
+            logging.info("twoDirectSearch_Node FOUND2 with (%r," % node.data + " %r )" % key + " firstRes: %r," % firstRes + " leafRes: %r" % leafRes)
+            return firstRes
+
         # root cases
-        if key < node.data and node.parent == None and node.left != None:
-            return self.downSearchTree_Node(node.left, key) 
-        
-        if key > node.data and node.parent == None and node.right != None:
+        if None == node.parent and key < node.data and node.left != None:
+            logging.info("twoDirectSearch_Node GO LEFT with (%r," % node.data + " %r )" % key + "call downSearchTree_Node")
+            return self.downSearchTree_Node(node.left, key)
+        if None == node.parent and key > node.data and node.right != None:
+            logging.info("twoDirectSearch_Node GO RIGHT with (%r," % node.data + " %r )" % key + "call downSearchTree_Node")
             return self.downSearchTree_Node(node.right, key)
-        
+
         # node cases
         if key < node.data and node.left != None and node.parent != None and firstRes == None:
-            
-            # eigentlich müsste man beides Paralell machen, aber ich gehen davonaus dass lokalitätsprinzip gilt => daher zuerst downsearch
-            x = self.downSearchTree_Node(node.left, key) 
+            # Eigentlich müsste man beides Paralell machen, aber ich gehen davonaus dass lokalitätsprinzip gilt => daher zuerst downsearch
+            x = self.downSearchTree_Node(node.left, key)
+            logging.info("1) twoDirectSearch_Node GO RIGHT with (%r," % node.data + " %r)" % key + "call downSearchTree_Node")
             print ("1) twoDirectSearch_Node now x =", x)
+            logging.info("1) twoDirectSearch_Node GO RIGHT now x = %r " %x)
             if x == None and firstRes == None:
-                #self.usedNodesInSearch += 1
+                #go UP
+                logging.info("1) twoDirectSearch_Node GO-UP with (%r," % node.data + " %r) " % key + "firstRes: %r " % firstRes + "leafRes: %r \n " % leafRes)
                 y = self.twoDirectSearch_Node(node.parent, key)
-                print ("1) twoDirectSearch_Node now y =", y)
+                logging.info("1) twoDirectSearch_Node GO-UP now y = %r " %y.data)
+                print ("1) twoDirectSearch_Node now y =", y.data)
                 if y != None:
                     firstRes = y
-                    return firstRes
-            else: 
+                    logging.info("1) twoDirectSearch_Node now y is firstRES = %r " % firstRes.data)
+            else:
                 firstRes = x
-                return firstRes
-               
+                logging.info("1) twoDirectSearch_Node now x is firstRES = %r " % firstRes.data)
+                print("twoDirectSearch_Node FOUND:", firstRes, key)
+
+            logging.info("1) twoDirectSearch_Node RETURN firstRES = %r " %  firstRes.data)
+            return firstRes
+
         if key > node.data and node.right != None and node.parent != None and firstRes == None:
-             # eigentlich müsste man beides Paralell machen, aber ich gehen davonaus dass lokalitätsprinzip gilt => daher zuerst downsearch
-            x = self.downSearchTree_Node(node.right, key) 
+            # Eigentlich müsste man beides Paralell machen, aber ich gehen davonaus dass lokalitätsprinzip gilt => daher zuerst downsearch
+            logging.info("2) twoDirectSearch_Node GO RIGHT with (%r," % node.data + " %r)" % key + "call downSearchTree_Node")
+            x = self.downSearchTree_Node(node.right, key)
+            logging.info("2) twoDirectSearch_Node GO RIGHT now x = %r " % x)
             print ("2) twoDirectSearch_Node now x =", x)
             if x == None and firstRes == None:
                 #self.usedNodesInSearch += 1
+                logging.info("2) twoDirectSearch_Node GO-UP with (%r," % node.data + " %r) " % key + "firstRes: %r " % firstRes + "leafRes: %r \n " % leafRes)
                 y = self.twoDirectSearch_Node(node.parent, key)
-                print ("2) twoDirectSearch_Node now y =", y)
+                logging.info("2) twoDirectSearch_Node GO-UP now y = %r " % y.data)
+                print ("2) twoDirectSearch_Node now y =", y.data)
                 if y != None:
-                    ("twoDirectSearch_Node FOUND:", firstRes, key)
                     firstRes = y
-                    return firstRes
-            else: 
-                ("twoDirectSearch_Node FOUND:", firstRes, key)
+                    logging.info("2) twoDirectSearch_Node now y is firstRES = %r " % firstRes.data)
+                    print ("twoDirectSearch_Node FOUND:", firstRes, key)
+            else:
                 firstRes = x
-                return firstRes
-        
-        if firstRes != None:
-            print ("twoDirectSearch_Node FOUND:", firstRes, key)
+                logging.info("2) twoDirectSearch_Node now x is firstRES = %r " % firstRes.data)
+                print("twoDirectSearch_Node FOUND:", firstRes, key)
+            logging.info("2) twoDirectSearch_Node RETURN firstRES = %r " % firstRes.data)
             return firstRes
-        else:
-            print("case missed in twoDirectSearch_Node", node.data, firstRes)
 
+        else:
+            logging.ERROR("CASE MISSED twoDirectSearch_Node node.data = %r, " % node.data + "firstRES = %r " % firstRes.data)
+            print("case missed in twoDirectSearch_Node", node.data, firstRes)
 
     def fixDelete(self, x):
         # Balancing the tree after deletion
@@ -627,12 +670,15 @@ class RedBlackTree():
 
 if __name__ == "__main__":
     sys.setrecursionlimit(2000)
+    logging.basicConfig(filename='logFILE-RedBlackTree.log', encoding='utf-8', level=logging.DEBUG)
+    logging.info("\n notice, before insertion the search proofs if there is a need for insertion - this search is also logged here \n ")
+
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
     inputList = list(range(1,10))
     inputList1 = inputList.copy()
     inputList2 = inputList.copy()
     
-    search_list = [3,7,3]
+    search_list = [3,9,3,9,3,9,3]
     search_list1= search_list.copy()
     print("inputlist is:", inputList)
     print("searchlist is:", search_list)
@@ -659,16 +705,20 @@ if __name__ == "__main__":
     # set up tree
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList1)
-     
-    splay = ShortSplayTree()
-    splay.insertMultipleElem(inputList2) 
+
+    lf = LazyFinger()
+    lf.LazyFinger = lf.setfirst_LazyFinger(bst)
+    lf.findMultipleElem_with_LazyFinger(bst, search_list1)
+
+    #splay = ShortSplayTree()
+    #splay.insertMultipleElem(inputList2)
     #splay.printSplaytree()
-    splay.findMultipleElem_with_SplayTree(bst, search_list1)
+    #splay.findMultipleElem_with_SplayTree(bst, search_list1)
     
     print("1) bst.usedNodesInSearch (twoDirectSearch_Node)", bst.usedNodesInSearch)
-    print("2) splay.usedNodesInSearch", splay.usedNodesInSearch)
-    print ("\n => total numbers of nodes used with splay tree:",  bst.usedNodesInSearch + splay.usedNodesInSearch)
+    print("2) lf.usedNodesInSearch", lf.usedNodesInSearch)
+    print ("\n => total numbers of nodes used with splay tree:",  bst.usedNodesInSearch + lf.usedNodesInSearch)
     bst.printTree()
-    splay.printSplaytree()
+    #splay.printSplaytree()
 
     

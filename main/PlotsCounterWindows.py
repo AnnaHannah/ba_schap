@@ -17,6 +17,8 @@ from _operator import concat
 from matplotlib.pyplot import title
 from unicodedata import numeric
 from numpy import double
+import logging
+
 
 # my files BAUSTELLE
 import GenerateInputList
@@ -245,6 +247,7 @@ if __name__ == "__main__":
     
     # Je nach dem wie stark die Rechenleistung ist, bitte begrenzen:
     sys.setrecursionlimit(50000)
+    logging.basicConfig(filename='logFILE-PlotsCounterWindows.log', encoding='utf-8', level=logging.DEBUG)
     
     #Performance INSERT
     # in_listOfLists = readMYfile('inputLists.csv')

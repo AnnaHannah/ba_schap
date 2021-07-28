@@ -15,6 +15,7 @@ from red_black_tree.RedBlackTree import *
 from skiplist.SkipList import * 
 from fingerManagement.MinMaxFinger import *
 from fingerManagement.LazyFinger import *
+import logging
 
 # Beispiel test fälle mit Listen
 
@@ -45,7 +46,8 @@ def make_zickzack(list):
         else:
            res.append(max)  
     #print ("make_zickzack %r list lenght with list:" % str(len(res)+1),  res )
-    return list
+    print (res)
+    return res
 
 def make_oneCluster_left(list, x_spread):
     res = []
@@ -89,26 +91,38 @@ def makeBigLists(listOfList):
     ouput_list=[]
     print("2. ... ")
     # verarbeitung der Listen mit verteilungen 
-    
-    make_zickzack(a)
-    make_zickzack(b)
-    make_zickzack(c)
-    make_zickzack(d)
-    make_zickzack(e)
-    make_zickzack(f)
-    make_zickzack(g)
-    make_zickzack(h)
+    a_new = []
+    b_new = []
+    c_new = []
+    d_new = []
+    e_new = []
+    f_new = []
+    g_new = []
+    h_new = []
+
+    a_new = make_zickzack(a)
+    b_new = make_zickzack(b)
+    c_new = make_zickzack(c)
+    d_new = make_zickzack(d)
+    e_new = make_zickzack(e)
+    f_new = make_zickzack(f)
+    g_new = make_zickzack(g)
+    h_new = make_zickzack(h)
+
+    # Logging for easy study
+    logging.info("\n first list is logged here:")
+    logging.info ("\n a_new = % r" % a_new)
     
     # Beispiel um alle Listen anzuhängen 
     ouput_list.append(x) 
-    ouput_list.append(a) 
-    ouput_list.append(b) 
-    ouput_list.append(c) 
-    ouput_list.append(d)   
-    ouput_list.append(e) 
-    ouput_list.append(f) 
-    ouput_list.append(g)
-    ouput_list.append(h)
+    ouput_list.append(a_new)
+    ouput_list.append(b_new)
+    ouput_list.append(c_new)
+    ouput_list.append(d_new)
+    ouput_list.append(e_new)
+    ouput_list.append(f_new)
+    ouput_list.append(g_new)
+    ouput_list.append(h_new)
     print ("3. Generated number of sublists/Testcase is: ", len(ouput_list))     
     return ouput_list
 
@@ -122,6 +136,10 @@ def writeMYfile(filename, data):
     
 
 if __name__ == "__main__":
+    logging.basicConfig(filename='logFILE-GenerateInputLists.log', encoding='utf-8', level=logging.DEBUG)
+    logging.info("\n -> Recursion allowed in this program: %r" % sys.getrecursionlimit())
+
+
     sys.setrecursionlimit(3000)
     print("\n -> Recursion allowed in this program:", sys.getrecursionlimit())
     #print(make_zickzack(a))

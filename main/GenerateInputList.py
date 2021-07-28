@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from _socket import close
 from _operator import concat
+import logging
 
 # Beispiel test fälle mit Listen
 # bitte nicht 0 verwenden, das hat komische effekte im Code
@@ -53,6 +54,7 @@ def writeMYfile(filename, data):
     
 
 if __name__ == "__main__":
+    logging.basicConfig(filename='logFILE-GenerateInputLists.log', encoding='utf-8', level=logging.DEBUG)
     dataForCSV = makeBigLists(data_list)
     # schreibe test1 csv mit datalisten:
     writeMYfile("inputLists.csv", dataForCSV) 
