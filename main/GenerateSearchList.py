@@ -33,9 +33,10 @@ h = list(range(1,200))
 # verteilungen:
 
 def make_oneNumber(list, number):
+    res =[]
     for i in list:
-           list[i] = number
-    return list
+        res.append(number)
+    return res
 
 def make_zickzack(list):
     max = int(list[-1])
@@ -100,14 +101,14 @@ def makeBigLists(listOfList):
     g_new = []
     h_new = []
 
-    a_new = make_zickzack(a)
-    b_new = make_zickzack(b)
-    c_new = make_zickzack(c)
-    d_new = make_zickzack(d)
-    e_new = make_zickzack(e)
-    f_new = make_zickzack(f)
-    g_new = make_zickzack(g)
-    h_new = make_zickzack(h)
+    a_new = make_oneNumber(a ,1)
+    b_new = make_oneNumber(b, 1)
+    c_new = make_oneNumber(c, 1)
+    d_new = make_oneNumber(d, 1)
+    e_new = make_oneNumber(e, 1)
+    f_new = make_oneNumber(f, 1)
+    g_new = make_oneNumber(g, 1)
+    h_new = make_oneNumber(h, 1)
 
     # Logging for easy study
     logging.info("\n first list is logged here:")
@@ -123,6 +124,7 @@ def makeBigLists(listOfList):
     ouput_list.append(f_new)
     ouput_list.append(g_new)
     ouput_list.append(h_new)
+    print ("2. Sample of first list:",  a_new[0:20])
     print ("3. Generated number of sublists/Testcase is: ", len(ouput_list))     
     return ouput_list
 

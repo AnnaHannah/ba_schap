@@ -16,3 +16,59 @@ INFO:root:
  first list is logged here:
 INFO:root:
  a_new = [1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24, 1, 24]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
