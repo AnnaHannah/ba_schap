@@ -281,10 +281,10 @@ if __name__ == "__main__":
     
     # logischer weise hat diese Kennzahl das gleiche format wie List_performanceTime, gut für plot...
     # Anzahl der Search Werte auslesen pro Liste < Anzahl der Input werte
-    listOfLists = readMYfile('searchLists.csv')
+    listOfLists = readMYfile('inputLists.csv')
     numberOfInputValuesRBT = subListLengh(listOfLists)
     
-    listOfLists = readMYfile('searchLists.csv')
+    listOfLists = readMYfile('inputLists.csv')
     numberOfInputValuesSKL = subListLengh(listOfLists)
 
     

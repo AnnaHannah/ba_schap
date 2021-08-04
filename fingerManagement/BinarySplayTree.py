@@ -11,7 +11,7 @@ import csv
 import math
 import logging
 
-class Node:
+class Node: #i should rename it to Finger!!
     def  __init__(self, data):
         self.data = data
         self.parent = None
@@ -94,8 +94,10 @@ class BinarySplayTree:
             return self.root
         
         self.usedNodesInSearch += 1
-        #print ("start this binary_search parameter:", (startNode.data, key))
-                
+        print ("\n start this binary_search parameter:", (startNode.data, key))
+        if key == startNode.data:
+            return startNode
+
         if (key != startNode.data):
             # print ("SplayTree Binary search result:", startNode.data)
             if type(startNode.left) != None and type(startNode.right) == None:
@@ -110,10 +112,7 @@ class BinarySplayTree:
 
             if type(startNode) == None:
                     print ("0) FAIL: Case missed in BinarySplayTree Startnode", startNode.data, type(startNode))
-                    return    
-        if key == startNode.data:
-            print ("-- binary_search found key in splay:", key, startNode.data)
-            return startNode
+                    return
         return startNode
     
              
@@ -302,7 +301,6 @@ class BinarySplayTree:
     # and return the corresponding node
     def searchSplayTree(self, k):
         assert (type(self.root.data) and type(self)) is not None, " \n %r is not a Root in Splaytree" % (self.root)
-        
         if type(self.root)!= None and type(self) != None and type(self.root.data)!= None:
                 #print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k)
                 x = self.binary_search(self.root, k)
@@ -405,7 +403,7 @@ if __name__ == '__main__':
     
     list1 = list.copy()
     list2 = list.copy()
-    searchlist = [9,1,9,1,9,1,9,1,9,1]
+    searchlist = [9,8,7,6,5,4,3,2,1,0]
     len_s=  len(searchlist)
     resultList = []
     

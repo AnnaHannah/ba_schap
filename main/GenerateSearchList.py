@@ -101,14 +101,14 @@ def makeBigLists(listOfList):
     g_new = []
     h_new = []
 
-    a_new = make_oneNumber(a ,1)
-    b_new = make_oneNumber(b, 1)
-    c_new = make_oneNumber(c, 1)
-    d_new = make_oneNumber(d, 1)
-    e_new = make_oneNumber(e, 1)
-    f_new = make_oneNumber(f, 1)
-    g_new = make_oneNumber(g, 1)
-    h_new = make_oneNumber(h, 1)
+    a_new = make_oneNumber(a ,a[int(len(a)/2)])
+    b_new = make_oneNumber(b, b[int(len(b)/2)])
+    c_new = make_oneNumber(c, c[int(len(c)/2)])
+    d_new = make_oneNumber(d, d[int(len(d)/2)])
+    e_new = make_oneNumber(e, e[int(len(e)/2)])
+    f_new = make_oneNumber(f, f[int(len(f)/2)])
+    g_new = make_oneNumber(g, g[int(len(g)/2)])
+    h_new = make_oneNumber(h, h[int(len(h)/2)])
 
     # Logging for easy study
     logging.info("\n first list is logged here:")
