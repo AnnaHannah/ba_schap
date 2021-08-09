@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75bb3a3c-bc3c-438f-8274-0a91bde7d757" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/GenerateSearchList.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/GenerateSearchList.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/PlotsCounterWindows.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/PlotsCounterWindows.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fingerManagement/MinMaxFinger.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/MinMaxFinger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/Dokumentation_Plot.md" beforeDir="false" afterPath="$PROJECT_DIR$/main/Dokumentation_Plot.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" beforeDir="false" afterPath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/logFILE-PlotsCounterWindows.log" beforeDir="false" afterPath="$PROJECT_DIR$/main/logFILE-PlotsCounterWindows.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/searchLists.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/searchLists.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/red_black_tree/RedBlackTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/red_black_tree/RedBlackTree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/red_black_tree/logFILE-RedBlackTree.log" beforeDir="false" afterPath="$PROJECT_DIR$/red_black_tree/logFILE-RedBlackTree.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +47,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.BinarySplayTree">
+  <component name="RunManager" selected="Python.RedBlackTree">
     <configuration name="BinarySplayTree" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -134,6 +135,9 @@
     <configuration name="PlotsCounterWindows" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\Anna\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -172,18 +176,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.PlotsCounterWindows" />
+      <item itemvalue="Python.BinarySplayTree" />
       <item itemvalue="Python.GenerateSearchList" />
       <item itemvalue="Python.LazyFinger" />
-      <item itemvalue="Python.RedBlackTree" />
       <item itemvalue="Python.MinMaxFinger" />
-      <item itemvalue="Python.BinarySplayTree" />
+      <item itemvalue="Python.RedBlackTree" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.RedBlackTree" />
         <item itemvalue="Python.BinarySplayTree" />
         <item itemvalue="Python.GenerateSearchList" />
         <item itemvalue="Python.MinMaxFinger" />
-        <item itemvalue="Python.RedBlackTree" />
         <item itemvalue="Python.LazyFinger" />
       </list>
     </recent_temporary>
@@ -211,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627649563962</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung">
+      <created>1628100150101</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1628100150102</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -232,6 +243,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new logfiles everywhere&#10;&#10;- problem with two direct search is solved" />
     <MESSAGE value="Working version (all Functions)&#10;&#10;- generate input file is correcter now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working version (all Functions)&#10;&#10;- generate input file is correcter now" />
+    <MESSAGE value="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung" />
   </component>
 </project>

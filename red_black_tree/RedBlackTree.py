@@ -19,13 +19,15 @@ mBcounter = 0
 
 # Node creation
 class Node():
-
     def __init__(self, data):
         self.data = data
         self.parent = None
         self.left = None
         self.right = None
         self.color = None
+
+    self.a = None
+    self.lateral = None
 
 class RedBlackTree():
 
@@ -392,7 +394,7 @@ class RedBlackTree():
             if new_node.parent == new_node.parent.parent.right:
                 u = new_node.parent.parent.left  # uncle
                 if u.color == 1:
-                  
+                    u.color = 0
                     new_node.parent.color = 0
                     new_node.parent.parent.color = 1
                     new_node = new_node.parent.parent
@@ -405,7 +407,6 @@ class RedBlackTree():
                     self.leftRotate(new_node.parent.parent)
             else:
                 u = new_node.parent.parent.right  # uncle
-
                 if u.color == 1:
                     u.color = 0
                     new_node.parent.color = 0
@@ -565,8 +566,6 @@ class RedBlackTree():
                 return
             if node.parent.parent == None:
                 return
-            
-            #fix manipulations: 
         
         self.usedNodesInSearch = 0
         self.hight = math.ceil(math.log2(self.counterNodes)) # ceil rundet auf
@@ -674,7 +673,7 @@ if __name__ == "__main__":
     logging.info("\n notice, before insertion the search proofs if there is a need for insertion - this search is also logged here \n ")
 
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList = list(range(1,10))
+    inputList = list(range(1,1000))
     inputList1 = inputList.copy()
     inputList2 = inputList.copy()
     

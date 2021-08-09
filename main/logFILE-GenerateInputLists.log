@@ -16,3 +16,9 @@ INFO:root:
  first list is logged here:
 INFO:root:
  a_new = [13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13]
+INFO:root:
+ -> Recursion allowed in this program: 1000
+INFO:root:
+ first list is logged here:
+INFO:root:
+ a_new = [13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13]

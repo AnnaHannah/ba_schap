@@ -20,8 +20,7 @@ Auswirkungen dieser Abfolge:
 
 
 ## --- Beispielcode für main ---
-
-
+```
 if __name__ == "__main__":
     #Je nach dem wie stark die Rechenleistung ist, bitte begrenzen:
     sys.setrecursionlimit(20000)
@@ -77,13 +76,13 @@ if __name__ == "__main__":
     plt4.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search time in RedBlackTree') 
     plt4.set_ylabel('Time in nano sec')
     plt4.set_xlabel('Number of Values from CSV')
-   # Legende einblenden:
+    #Legende einblenden:
     plt1.legend(loc='upper left', frameon=True)
     plt2.legend(loc='upper right', frameon=True)
     plt3.legend(loc='upper left', frameon=True)
     plt4.legend(loc='upper right', frameon=True)
-   print ("Plot is on Display")
+    print ("Plot is on Display")
     plt.show()
-    
+```    
 
 
