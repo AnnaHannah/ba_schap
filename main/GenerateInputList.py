@@ -9,15 +9,26 @@ import logging
 # Beispiel test fälle mit Listen
 # bitte nicht 0 verwenden, das hat komische effekte im Code
 data_list = []
-x = [1]
-a = list(range(1,25))
-b = list(range(1,50))
-c = list(range(1,75))
-d = list(range(1,100))
-e = list(range(1,125))
-f = list(range(1,150))
-g = list(range(1,175))
-h = list(range(1,200))
+#x = [1]
+a = list(range(1,2500))
+b = list(range(1,5000))
+c = list(range(1,7500))
+d = list(range(1,10000))
+e = list(range(1,12500))
+f = list(range(1,15000))
+g = list(range(1,17500))
+h = list(range(1,20000))
+
+k = list(range(1,22500))
+l = list(range(1,25000))
+m = list(range(1,27500))
+n = list(range(1,30000))
+o = list(range(1,32500))
+p = list(range(1,35000))
+q = list(range(1,37500))
+r = list(range(1,40000))
+
+
 
 def makeBigLists(listOfList):
     print("\n1. Generating with makeBigLists - method is starting")
@@ -33,7 +44,7 @@ def makeBigLists(listOfList):
             ouput_list.append(single_list[j])
    
 # Beispiel um alle Listen anzuhängen  
-    ouput_list.append(x) 
+    #ouput_list.append(x)
     ouput_list.append(a) 
     ouput_list.append(b) 
     ouput_list.append(c) 
@@ -42,6 +53,16 @@ def makeBigLists(listOfList):
     ouput_list.append(f) 
     ouput_list.append(g)
     ouput_list.append(h)
+
+    ouput_list.append(k)
+    ouput_list.append(l)
+    ouput_list.append(m)
+    ouput_list.append(n)
+    ouput_list.append(o)
+    ouput_list.append(p)
+    ouput_list.append(q)
+    ouput_list.append(r)
+
     print ("3. Generated number of sublists/Testcase is: ", len(ouput_list))        
     return ouput_list
 

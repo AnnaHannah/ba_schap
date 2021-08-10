@@ -37,33 +37,33 @@ class LazyFinger():
         assert type(self.lazyFinger) or self.lazyFinger.data or keyInInt is not None, " \n %r is not a Finger, in this Tree only Lazy Finger as Finger accepted. \n Please modify your Lazyfinger" % (self.lazyFinger)
         self.usedNodesInSearch += 1
             
-        print("0) lazyFinger_search - searches for %r:"  % self.lazyFinger.data, keyInInt)
+        #print("0) lazyFinger_search - searches for %r:"  % self.lazyFinger.data, keyInInt)
             
         if keyInInt == self.lazyFinger.data:
             searchResult = self.lazyFinger
             resultList.append(searchResult.data)
-            print("1) lazyFinger_search FOUND =", searchResult.data)
+            #print("1) lazyFinger_search FOUND =", searchResult.data)
             return searchResult
 
         if self.lazyFinger.data != None:
             searchResult = None
             searchResult = tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)
             resultList.append(searchResult.data)
-            print("2) lazyFinger_search used twoDirectSearch_Node =", searchResult.data)
+            #print("2) lazyFinger_search used twoDirectSearch_Node =", searchResult.data)
 
         if searchResult != None:
             self.lazyFinger = searchResult
-            print("3) Lazy Finger now set to:", self.lazyFinger.data)
-            print("3) AFT lazyFinger_search resultList =", resultList)
+            #print("3) Lazy Finger now set to:", self.lazyFinger.data)
+            #print("3) AFT lazyFinger_search resultList =", resultList)
 
         if searchResult == None:
             resultList.append(searchResult)
             self.lazyFinger = tree.getRoot()
-            print("4) !BAD CASE: lazyFinger set to  = ", self.lazyFinger.data)
-            print("4) !BAD CASE: searchResult = ", searchResult)
+            #print("4) !BAD CASE: lazyFinger set to  = ", self.lazyFinger.data)
+            #print("4) !BAD CASE: searchResult = ", searchResult)
 
-        print("5) lazyFinger_search END resultList =", resultList)
-        print("5) lazyFinger_search END searchResult =", searchResult.data)
+        #print("5) lazyFinger_search END resultList =", resultList)
+        #print("5) lazyFinger_search END searchResult =", searchResult.data)
 
         return searchResult
     
@@ -72,7 +72,7 @@ class LazyFinger():
         while list != []:
             x = list.pop()
             self.lazyFinger_search(tree, x)
-            print ("\n lazyfinger now:",  self.lazyFinger.data, "\n")
+            #print ("\n lazyfinger now:",  self.lazyFinger.data, "\n")
 
 if __name__ == '__main__':
     sys.setrecursionlimit(2000)

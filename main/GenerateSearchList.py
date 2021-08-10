@@ -20,15 +20,24 @@ import logging
 # Beispiel test fälle mit Listen
 
 data_list = []
-x = [1]
-a = list(range(1,25))
-b = list(range(1,50))
-c = list(range(1,75))
-d = list(range(1,100))
-e = list(range(1,125))
-f = list(range(1,150))
-g = list(range(1,175))
-h = list(range(1,200))
+#x = [1]
+a = list(range(1,2500))
+b = list(range(1,5000))
+c = list(range(1,7500))
+d = list(range(1,10000))
+e = list(range(1,12500))
+f = list(range(1,15000))
+g = list(range(1,17500))
+h = list(range(1,20000))
+
+k = list(range(1,22500))
+l = list(range(1,25000))
+m = list(range(1,27500))
+n = list(range(1,30000))
+o = list(range(1,32500))
+p = list(range(1,35000))
+q = list(range(1,37500))
+r = list(range(1,40000))
 
 # verteilungen:
 
@@ -47,7 +56,7 @@ def make_zickzack(list):
         else:
            res.append(max)  
     #print ("make_zickzack %r list lenght with list:" % str(len(res)+1),  res )
-    print (res)
+    #print (res)
     return res
 
 def make_oneCluster_left(list, x_spread):
@@ -101,21 +110,31 @@ def makeBigLists(listOfList):
     g_new = []
     h_new = []
 
-    a_new = make_oneNumber(a ,a[int(len(a)/2)])
-    b_new = make_oneNumber(b, b[int(len(b)/2)])
-    c_new = make_oneNumber(c, c[int(len(c)/2)])
-    d_new = make_oneNumber(d, d[int(len(d)/2)])
-    e_new = make_oneNumber(e, e[int(len(e)/2)])
-    f_new = make_oneNumber(f, f[int(len(f)/2)])
-    g_new = make_oneNumber(g, g[int(len(g)/2)])
-    h_new = make_oneNumber(h, h[int(len(h)/2)])
+    a_new = make_zickzack(a)
+    b_new = make_zickzack(b)
+    c_new = make_zickzack(c)
+    d_new = make_zickzack(d)
+    e_new = make_zickzack(e)
+    f_new = make_zickzack(f)
+    g_new = make_zickzack(g)
+    h_new = make_zickzack(h)
+
+    k_new = make_zickzack(k)
+    l_new = make_zickzack(l)
+    m_new = make_zickzack(m)
+    n_new = make_zickzack(n)
+    o_new = make_zickzack(o)
+    p_new = make_zickzack(p)
+    q_new = make_zickzack(q)
+    r_new = make_zickzack(r)
 
     # Logging for easy study
     logging.info("\n first list is logged here:")
     logging.info ("\n a_new = % r" % a_new)
     
     # Beispiel um alle Listen anzuhängen 
-    ouput_list.append(x) 
+    #ouput_list.append(x)
+
     ouput_list.append(a_new)
     ouput_list.append(b_new)
     ouput_list.append(c_new)
@@ -124,6 +143,17 @@ def makeBigLists(listOfList):
     ouput_list.append(f_new)
     ouput_list.append(g_new)
     ouput_list.append(h_new)
+
+    ouput_list.append(k_new)
+    ouput_list.append(l_new)
+    ouput_list.append(m_new)
+    ouput_list.append(n_new)
+    ouput_list.append(o_new)
+    ouput_list.append(p_new)
+    ouput_list.append(q_new)
+    ouput_list.append(r_new)
+
+
     print ("2. Sample of first list:",  a_new[0:20])
     print ("3. Generated number of sublists/Testcase is: ", len(ouput_list))     
     return ouput_list

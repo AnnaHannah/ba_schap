@@ -209,11 +209,25 @@ def timePerformanceINSERTRedBlackTree(listOfLists):
     # print ("timePerformanceINSERTSkipList has messured time pro list iteration, and will return:", perf_OutputList)
     # return perf_OutputList
 
-def PerformanceSEARCHRedBlackTree(input_listOfLists, search_listOfLists): 
+def PerformanceSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_SEARCH_RedBlackTree)
-   
-    print ("PerformanceSEARCHRedBlackTree will return:", res)
-    return res
+    out = []
+    se = readMYfile('searchLists.csv')
+    # print(se)
+    while len(res) > 0 and len(se) > 0:
+        a = res.pop(0)
+        b = (se.pop(0))
+        if type(b) == list:
+            b = len(b)
+        if b != 0:
+            x = a // b
+        else:
+            x = 0
+        print(a, b, x)
+        out.append(x)
+
+    print ("PerformanceSEARCHRedBlackTree will return:", out)
+    return out
 
 # def timePerformanceSEARCHSkipList(input_listOfLists, search_listOfLists):
     # res = map_lists(input_listOfLists, search_listOfLists, messureTime_SEARCH_Skiplist)
@@ -224,22 +238,65 @@ def PerformanceSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
 
 def PerformanceMinMaxFingerSEARCHRedBlackTree (input_listOfLists, search_listOfLists):
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_MinMaxFingerSEARCH_RedBlackTree)
-    
-    print ("PerformanceMinMaxFingerSEARCHRedBlackTree will return:", res)
-    return res  
+    out = []
+    se = readMYfile('searchLists.csv')
+    # print(se)
+    while len(res) > 0 and len(se) > 0:
+        a = res.pop(0)
+        b = (se.pop(0))
+        if type(b) == list:
+            b = len(b)
+        if b != 0:
+            x = a // b
+        else:
+            x = 0
+        print(a, b, x)
+        out.append(x)
+
+    print("PerformanceMinMaxFingerSEARCHRedBlackTree will return:", out)
+    return out
+
 
 def PerformanceLAZYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_LAZYFingerSEARCH_RedBlackTree)
-   
-    print ("PerformanceLAZYFingerSEARCHRedBlackTree will return:", res)
-    return res   
+    out = []
+    se = readMYfile('searchLists.csv')
+    # print(se)
+    while len(res) > 0 and len(se) > 0:
+        a = res.pop(0)
+        b = (se.pop(0))
+        if type(b) == list:
+            b = len(b)
+        if b != 0:
+            x = a // b
+        else:
+            x = 0
+        print(a, b, x)
+        out.append(x)
+
+    print("PerformanceLAZYFingerSEARCHRedBlackTree will return:", out)
+    return out
 
 def PerformanceSPLAYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
     #print ("PerformanceSPLAYFingerSEARCHRedBlackTree started with:", len(input_listOfLists), len(search_listOfLists))
     res = map_lists(input_listOfLists, search_listOfLists, messureNodes_SPLAYFingerSEARCH_RedBlackTree)
-        
-    print ("PerformanceSPLAYFingerSEARCHRedBlackTree will return:", res)
-    return res  
+    out = []
+    se = readMYfile('searchLists.csv')
+    # print(se)
+    while len(res) > 0 and len(se) > 0:
+        a = res.pop(0)
+        b = (se.pop(0))
+        if type(b) == list:
+            b = len(b)
+        if b != 0:
+            x = a // b
+        else:
+            x = 0
+        print(a, b, x)
+        out.append(x)
+
+    print("PerformanceSPLAYFingerSEARCHRedBlackTree will return:", out)
+    return out
 
 
 
@@ -260,7 +317,7 @@ if __name__ == "__main__":
     input_listOfLists = readMYfile('inputLists.csv')
     search_listOfLists = readMYfile('searchLists.csv') 
     search_TimeRBT = PerformanceSEARCHRedBlackTree(input_listOfLists, search_listOfLists)
-    
+
     # input_listOfLists = readMYfile('inputLists.csv')
     # search_listOfLists = readMYfile('searchLists.csv')
     # search_TimeSKL = timePerformanceSEARCHSkipList(input_listOfLists, search_listOfLists)
@@ -310,8 +367,8 @@ if __name__ == "__main__":
     plt2.plot (numberOfInputValuesRBT, search_LazyFinger_TimeRBT, 'ko', linestyle='--', label=r'Lazy-Finger-Search in Tree') 
     plt2.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label=r'SplayTree-Finger-Search  in Tree')
     
-    plt2.set_ylabel('Total number of touched Nodes')
-    plt2.set_xlabel('Number of Nodes in Datastructure (used from CSV)')
+    plt2.set_ylabel('Number of touched Nodes per Search')
+    plt2.set_xlabel('Number of Nodes in Datastructure')
     
     # Plot 3
     # plt3.plot (numberOfInputValuesSKL, search_TimeSKL, 'ko', linestyle='--', label=r'Rootsearch time in SkipList ') 
@@ -322,8 +379,8 @@ if __name__ == "__main__":
     plt4.plot (numberOfInputValuesRBT, search_TimeRBT, 'bo', linestyle='--', label='Rootsearch in RedBlackTree ') 
     plt4.plot (numberOfInputValuesRBT, search_SplayFinger_TimeRBT, 'ro', linestyle='--', label='SplayTree-Finger-Search in RedBlackTree') 
     
-    plt4.set_ylabel('Total number of touched Nodes')
-    plt4.set_xlabel('Number of Nodes in Datastructure (used from CSV)')
+    plt4.set_ylabel('Total number of touched Nodes per Search')
+    plt4.set_xlabel('Number of Nodes in Datastructure')
    
     
     # Legende einblenden:

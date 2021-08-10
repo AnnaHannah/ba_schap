@@ -352,8 +352,8 @@ class ShortSplayTree:
             if x != None:
                 #print ("A) searchSplayTree -> binary_search returns:", x.data, k)
                 self.moveToTop(x)
-            else: 
-                print ("A) searchSplayTree -> binary_search returns %r for:" % type(x),  k)
+            #else:
+                #print ("A) searchSplayTree -> binary_search returns %r for:" % type(x),  k)
            
             return x
         else:

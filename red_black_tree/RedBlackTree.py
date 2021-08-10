@@ -11,6 +11,8 @@ from fingerManagement.ShortSplayTree import *
 from fingerManagement.LazyFinger import *
 import logging
 
+import matplotlib.pyplot as plt
+
 
 # global Variable
 mRcounter = 0
@@ -26,8 +28,25 @@ class Node():
         self.right = None
         self.color = None
 
-    self.a = None
-    self.lateral = None
+    @property
+    def x_y_wurzel(self):
+        abstand_x = 0
+        abstand_y = 0
+        current = self
+        while current.parent:
+            abstand_y += 1
+            if current == current.parent.left:
+                abstand_x -= 1*abstand_y
+            elif current == current.parent.right:
+                abstand_x += 1*abstand_y
+            else:
+                raise Error("hilfe hilfe(panik panik); Node hat mehr als 2 Kinder u./o. ist nicht richtig verlinkt")
+            current = current.parent
+
+
+        return (abstand_x, abstand_y)
+
+
 
 class RedBlackTree():
 
@@ -43,7 +62,21 @@ class RedBlackTree():
         self.counterNodes = 0
         self.usedNodesInSearch = 0
         self.counterRotations = 0
-    
+
+    @property
+    def all_nodes(self):
+        output = []
+        to_be_processed = [self.root]
+        while to_be_processed:
+            current = to_be_processed.pop()
+            output.append(current)
+            if current.left and current.left != self.TNULL:
+                to_be_processed.append(current.left)
+            if current.right and current.right != self.TNULL:
+                to_be_processed.append(current.right)
+        return output
+
+
     
     def deleteFullTree (self):
         # all Nodes in tree
@@ -236,21 +269,21 @@ class RedBlackTree():
             # Eigentlich müsste man beides Paralell machen, aber ich gehen davonaus dass lokalitätsprinzip gilt => daher zuerst downsearch
             x = self.downSearchTree_Node(node.left, key)
             logging.info("1) twoDirectSearch_Node GO RIGHT with (%r," % node.data + " %r)" % key + "call downSearchTree_Node")
-            print ("1) twoDirectSearch_Node now x =", x)
+            #print ("1) twoDirectSearch_Node now x =", x)
             logging.info("1) twoDirectSearch_Node GO RIGHT now x = %r " %x)
             if x == None and firstRes == None:
                 #go UP
                 logging.info("1) twoDirectSearch_Node GO-UP with (%r," % node.data + " %r) " % key + "firstRes: %r " % firstRes + "leafRes: %r \n " % leafRes)
                 y = self.twoDirectSearch_Node(node.parent, key)
                 logging.info("1) twoDirectSearch_Node GO-UP now y = %r " %y.data)
-                print ("1) twoDirectSearch_Node now y =", y.data)
+                #print ("1) twoDirectSearch_Node now y =", y.data)
                 if y != None:
                     firstRes = y
                     logging.info("1) twoDirectSearch_Node now y is firstRES = %r " % firstRes.data)
             else:
                 firstRes = x
                 logging.info("1) twoDirectSearch_Node now x is firstRES = %r " % firstRes.data)
-                print("twoDirectSearch_Node FOUND:", firstRes, key)
+                #print("twoDirectSearch_Node FOUND:", firstRes, key)
 
             logging.info("1) twoDirectSearch_Node RETURN firstRES = %r " %  firstRes.data)
             return firstRes
@@ -673,7 +706,7 @@ if __name__ == "__main__":
     logging.info("\n notice, before insertion the search proofs if there is a need for insertion - this search is also logged here \n ")
 
     # print("1. Recursion allowed in this program:", sys.getrecursionlimit())
-    inputList = list(range(1,1000))
+    inputList = list(reversed(range(1,2500)))
     inputList1 = inputList.copy()
     inputList2 = inputList.copy()
     
@@ -685,8 +718,20 @@ if __name__ == "__main__":
     # set up tree
     bst = RedBlackTree()
     bst.insertMultipleElem(inputList)
+
+    all_nodes = bst.all_nodes
+    fig, ax = plt.subplots(3, 1, figsize=(8, 10))
+
+    # single point
+
+    for node in all_nodes:
+        x, y = node.x_y_wurzel
+        ax[0].plot(x, y, '-ro', label='line & marker - no line because only 1 point')
+    plt.show()
+
+    assert 1 == 1
    
-   
+
     bst.findMultipleElem(search_list)
     print("2) => total numbers of nodes used with bst: ", bst.usedNodesInSearch)
     print("\n1) Rootsearch BST: optimal nodes ", math.log(bst.counterNodes, 2)*len(search_list))

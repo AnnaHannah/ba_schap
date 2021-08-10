@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="75bb3a3c-bc3c-438f-8274-0a91bde7d757" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fingerManagement/MinMaxFinger.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/MinMaxFinger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Dokumentation_Plot.md" beforeDir="false" afterPath="$PROJECT_DIR$/main/Dokumentation_Plot.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fingerManagement/LazyFinger.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/LazyFinger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fingerManagement/ShortSplayTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/ShortSplayTree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/GenerateInputList.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/GenerateInputList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/GenerateSearchList.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/GenerateSearchList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/PlotsCounterWindows.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/PlotsCounterWindows.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/inputLists.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/inputLists.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" beforeDir="false" afterPath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/logFILE-PlotsCounterWindows.log" beforeDir="false" afterPath="$PROJECT_DIR$/main/logFILE-PlotsCounterWindows.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/searchLists.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/searchLists.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/red_black_tree/RedBlackTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/red_black_tree/RedBlackTree.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/red_black_tree/logFILE-RedBlackTree.log" beforeDir="false" afterPath="$PROJECT_DIR$/red_black_tree/logFILE-RedBlackTree.log" afterDir="false" />
     </list>
@@ -18,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="358ce614514f62aef0ff8d7bd4d03f77550cbdaf" />
+        <entry key="$PROJECT_DIR$" value="new_try" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,6 +38,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1vqyfIEhlTvBwcZH63tZuuj6sOT" />
   <component name="ProjectViewState">
@@ -47,7 +56,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.RedBlackTree">
+  <component name="RunManager" selected="Python.PlotsCounterWindows">
     <configuration name="BinarySplayTree" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -61,6 +70,27 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GenerateInputList" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ba_schap" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/GenerateInputList.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,54 +120,9 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="LazyFinger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Anna\AppData\Local\Programs\Python\Python39\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fingerManagement" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fingerManagement/LazyFinger.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MinMaxFinger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Anna\AppData\Local\Programs\Python\Python39\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fingerManagement" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fingerManagement/MinMaxFinger.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="PlotsCounterWindows" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="C:\Users\Anna\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -147,6 +132,27 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/PlotsCounterWindows.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PlotsTimerWindows" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ba_schap" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main/PlotsTimerWindows.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -178,17 +184,17 @@
       <item itemvalue="Python.PlotsCounterWindows" />
       <item itemvalue="Python.BinarySplayTree" />
       <item itemvalue="Python.GenerateSearchList" />
-      <item itemvalue="Python.LazyFinger" />
-      <item itemvalue="Python.MinMaxFinger" />
       <item itemvalue="Python.RedBlackTree" />
+      <item itemvalue="Python.PlotsTimerWindows" />
+      <item itemvalue="Python.GenerateInputList" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.RedBlackTree" />
-        <item itemvalue="Python.BinarySplayTree" />
         <item itemvalue="Python.GenerateSearchList" />
-        <item itemvalue="Python.MinMaxFinger" />
-        <item itemvalue="Python.LazyFinger" />
+        <item itemvalue="Python.GenerateInputList" />
+        <item itemvalue="Python.BinarySplayTree" />
+        <item itemvalue="Python.PlotsTimerWindows" />
+        <item itemvalue="Python.RedBlackTree" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628100150102</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung">
+      <created>1628504876902</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1628504876902</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -245,5 +258,28 @@
     <MESSAGE value="Working version (all Functions)&#10;&#10;- generate input file is correcter now" />
     <MESSAGE value="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung" />
     <option name="LAST_COMMIT_MESSAGE" value="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/red_black_tree/RedBlackTree.py</url>
+          <line>731</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/fingerManagement/BinarySplayTree.py</url>
+          <line>109</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

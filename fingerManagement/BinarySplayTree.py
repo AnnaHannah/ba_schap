@@ -87,33 +87,36 @@ class BinarySplayTree:
         else:
              return self.root
 
+
+
     def binary_search(self, startNode, key):
-        
+        global found_key
+        found_key = False
+
         if type(startNode) == None or (startNode == None):
-            print("FAIL: BinarySplayTree Startnode got lost -> self.root recovery", type(startNode))
-            return self.root
+            print(TypeError)
+            return None
         
         self.usedNodesInSearch += 1
-        print ("\n start this binary_search parameter:", (startNode.data, key))
+        print ("binary_search parameter Startnode:", startNode.data)
+
         if key == startNode.data:
+            print("done")
+            found_key = True
+            self.moveToTop(startNode)
             return startNode
 
-        if (key != startNode.data):
-            # print ("SplayTree Binary search result:", startNode.data)
-            if type(startNode.left) != None and type(startNode.right) == None:
-                return self.binary_search(startNode.left, key)
-                
-            if type(startNode.right) != None and type(startNode.left) == None:
-                return self.binary_search(startNode.right, key)    
-                
-            elif type(startNode) == None: 
+        # print ("SplayTree Binary search result:", startNode.data)
+        while key != startNode.data:
+            if startNode.left != None:
+                print("GO LEFT", startNode.data)
                 self.binary_search(startNode.left, key)
-                self.binary_search(startNode.right, key)       
+            if startNode.right != None:
+                print("GO Right",  startNode.data)
+                self.binary_search(startNode.right, key)
 
-            if type(startNode) == None:
-                    print ("0) FAIL: Case missed in BinarySplayTree Startnode", startNode.data, type(startNode))
-                    return
-        return startNode
+        print("binary_search END:",startNode.data, self.usedNodesInSearch)
+
     
              
     def deleteElem(self, startNode, key):
@@ -202,6 +205,7 @@ class BinarySplayTree:
                 else:
                     # zag rotation
                     self.left_rotate(x.parent)
+
             elif x == x.parent.left and x.parent == x.parent.parent.left:
                 # zig-zig rotation
                 self.right_rotate(x.parent.parent)
@@ -218,12 +222,13 @@ class BinarySplayTree:
                 # zag-zig rotation
                 self.right_rotate(x.parent)
                 self.left_rotate(x.parent)
+        # self.printSplaytree()
+
 
     # joins two trees s and t
     def joinToOneTree(self, s, t):
         if s == None:
             return t
-
         if t == None:
             return s
 
@@ -304,6 +309,7 @@ class BinarySplayTree:
         if type(self.root)!= None and type(self) != None and type(self.root.data)!= None:
                 #print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k)
                 x = self.binary_search(self.root, k)
+                print("searchSplayTree now given", x.data)
                 if x != None:
                     self.moveToTop(x)
                 return x
@@ -333,7 +339,7 @@ class BinarySplayTree:
                 x = x.left
             else:
                 x = x.right
-        self.counterNodes += 1       
+        self.counterNodes += 1
              
         # y is parent of x
         node.parent = y
@@ -344,7 +350,7 @@ class BinarySplayTree:
         else:
             y.right = node
         # splay the node
-        self.moveToTop(node)
+        #self.moveToTop(node)
         
     def insertMultipleElem(self, list):
         while list != []:
@@ -364,8 +370,7 @@ class BinarySplayTree:
         while (len(searchlist) > 0):
             key = searchlist.pop()
             splay_result = self.searchSplayTree(key)
-            
-            #print ("\nStart twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
+            print ("\nStart twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
             x = tree.twoDirectSearch_Node(splay_result, key)
             #print ("twoDirectSearch_Node in BST is searching for key:", key) 
             
@@ -399,36 +404,35 @@ class BinarySplayTree:
 if __name__ == '__main__':
     logging.basicConfig(filename='logFILE.log', encoding='utf-8', level=logging.DEBUG)
     sys.setrecursionlimit(20000)
-    list = [9,8,7,6,5,4,3,2,1,0]
-    
-    list1 = list.copy()
-    list2 = list.copy()
-    searchlist = [9,8,7,6,5,4,3,2,1,0]
-    len_s=  len(searchlist)
+
+    list0 = list(range(10,2))
+    list1 = list(range(1,25))
+    list2 = list(range(1,25))
+
+    searchlist = [1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9]
+    len_s = len(searchlist)
     resultList = []
     
     bst = RedBlackTree()            
     splay = BinarySplayTree()
-    
+    print("list1:", list1)
     bst.insertMultipleElem(list1)
+
+    print("list2:", list2)
     splay.insertMultipleElem(list2)
+    splay.printSplaytree()
     print("So many splaytree rotatioons happen after insert finished:", splay.counterRotations)
-    
-    
-    #print("-----------------------------")
-    #bst.printTree()
+
     print("-----------------------------")
-    #sptree.printSplaytree()
-    #print("-----------------------------")
-    #print("number of nodes in bst is:", bst.counterNodes)
-    #print("number of nodes in spl is:", sptree.counterNodes)
+
     print("Pre search: number of splay tree used Nodes in search:", splay.usedNodesInSearch)
     print("Pre search: number of used RedBlacktree  Nodes in search:", bst.usedNodesInSearch)
     print ("- > so many elements should be found", len(searchlist))
-    #splay.findMultipleElem_with_SplayTree(bst, searchlist, resultList)
-    splay.findMultipleElem_with_SplayTree(bst, searchlist)
+
+    splay.findMultipleElem_with_SplayTree(bst, searchlist, resultList)
+    splay.printSplaytree()
     print("RESULT- LIST", resultList)
-    print ("SEARCH- LIST", searchlist)
+    print("SEARCH- LIST", searchlist)
     print("Post Search: number of used Splaytree  Nodes in search:", splay.usedNodesInSearch)
     print("Post Search: number of used RedBlacktree  Nodes in search:", bst.usedNodesInSearch)
     
