@@ -4,8 +4,7 @@
     <list default="true" id="75bb3a3c-bc3c-438f-8274-0a91bde7d757" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fingerManagement/LazyFinger.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/LazyFinger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fingerManagement/ShortSplayTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/ShortSplayTree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fingerManagement/logFILE.log" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/logFILE.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/GenerateInputList.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/GenerateInputList.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/GenerateSearchList.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/GenerateSearchList.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/PlotsCounterWindows.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/PlotsCounterWindows.py" afterDir="false" />
@@ -13,8 +12,6 @@
       <change beforePath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" beforeDir="false" afterPath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/logFILE-PlotsCounterWindows.log" beforeDir="false" afterPath="$PROJECT_DIR$/main/logFILE-PlotsCounterWindows.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/searchLists.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/searchLists.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/red_black_tree/RedBlackTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/red_black_tree/RedBlackTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/red_black_tree/logFILE-RedBlackTree.log" beforeDir="false" afterPath="$PROJECT_DIR$/red_black_tree/logFILE-RedBlackTree.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +82,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Anna\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -191,8 +188,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.GenerateSearchList" />
-        <item itemvalue="Python.GenerateInputList" />
         <item itemvalue="Python.BinarySplayTree" />
+        <item itemvalue="Python.GenerateInputList" />
         <item itemvalue="Python.PlotsTimerWindows" />
         <item itemvalue="Python.RedBlackTree" />
       </list>
@@ -235,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628504876902</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Working version (all Functions)&#10;&#10;- schriftliche Ausarbeitung&#10;- plots - nodes per 1 suche erstellt">
+      <created>1628615366109</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1628615366109</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -257,7 +261,8 @@
     <MESSAGE value="new logfiles everywhere&#10;&#10;- problem with two direct search is solved" />
     <MESSAGE value="Working version (all Functions)&#10;&#10;- generate input file is correcter now" />
     <MESSAGE value="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung" />
+    <MESSAGE value="Working version (all Functions)&#10;&#10;- schriftliche Ausarbeitung&#10;- plots - nodes per 1 suche erstellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working version (all Functions)&#10;&#10;- schriftliche Ausarbeitung&#10;- plots - nodes per 1 suche erstellt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -269,8 +274,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/fingerManagement/BinarySplayTree.py</url>
-          <line>109</line>
-          <option name="timeStamp" value="7" />
+          <line>409</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

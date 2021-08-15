@@ -165,7 +165,7 @@ def messureNodes_LAZYFingerSEARCH_RedBlackTree(inputList, searchlist):
     
     # Messen
     x = (bst.usedNodesInSearch + lf.usedNodesInSearch)
-    return int(x)
+    return (x)
 
 def messureNodes_SPLAYFingerSEARCH_RedBlackTree(inputList, searchlist):
         # formale sache
@@ -188,7 +188,8 @@ def messureNodes_SPLAYFingerSEARCH_RedBlackTree(inputList, searchlist):
     
     # Messen
     x = (bst.usedNodesInSearch + splay.usedNodesInSearch)
-    return int(x)
+    print  ("messureNodes_SPLAYFingerSEARCH_RedBlackTree: usedNodesInSearch (bst+splay)", x)
+    return (x)
 
 
 def timePerformanceINSERTRedBlackTree(listOfLists):
@@ -220,10 +221,10 @@ def PerformanceSEARCHRedBlackTree(input_listOfLists, search_listOfLists):
         if type(b) == list:
             b = len(b)
         if b != 0:
-            x = a // b
+            x = a / b
         else:
             x = 0
-        print(a, b, x)
+        #print(a, b, x)
         out.append(x)
 
     print ("PerformanceSEARCHRedBlackTree will return:", out)
@@ -247,10 +248,10 @@ def PerformanceMinMaxFingerSEARCHRedBlackTree (input_listOfLists, search_listOfL
         if type(b) == list:
             b = len(b)
         if b != 0:
-            x = a // b
+            x = a / b
         else:
             x = 0
-        print(a, b, x)
+        #print(a, b, x)
         out.append(x)
 
     print("PerformanceMinMaxFingerSEARCHRedBlackTree will return:", out)
@@ -268,10 +269,10 @@ def PerformanceLAZYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfList
         if type(b) == list:
             b = len(b)
         if b != 0:
-            x = a // b
+            x = a / b
         else:
             x = 0
-        print(a, b, x)
+        #(a, b, x)
         out.append(x)
 
     print("PerformanceLAZYFingerSEARCHRedBlackTree will return:", out)
@@ -289,10 +290,10 @@ def PerformanceSPLAYFingerSEARCHRedBlackTree(input_listOfLists, search_listOfLis
         if type(b) == list:
             b = len(b)
         if b != 0:
-            x = a // b
+            x = a / b
         else:
             x = 0
-        print(a, b, x)
+        #print(a, b, x)
         out.append(x)
 
     print("PerformanceSPLAYFingerSEARCHRedBlackTree will return:", out)
@@ -385,9 +386,9 @@ if __name__ == "__main__":
     
     # Legende einblenden:
     #plt1.legend(loc='upper left', frameon=True)
-    plt2.legend(loc='upper left', frameon=True)
+    plt2.legend(loc='center right', frameon=True)
     #plt3.legend(loc='upper left', frameon=True)
-    plt4.legend(loc='upper left', frameon=True)
+    plt4.legend(loc='center right', frameon=True)
    
     print ("Plot is on Display")
     plt.show()

@@ -10,6 +10,9 @@ from skiplist.SkipList import *
 import csv
 import math
 import logging
+import copy
+
+import random
 
 class Node: #i should rename it to Finger!!
     def  __init__(self, data):
@@ -17,11 +20,14 @@ class Node: #i should rename it to Finger!!
         self.parent = None
         self.left = None
         self.right = None
+        # routen markierung /suche war schon da
+        self.marked = 0
         
 
 class BinarySplayTree:
     def __init__(self):
         self.root = None
+        self.oneParamCache = None
         
         # param to messure performance
         self.counterNodes = 0
@@ -88,37 +94,65 @@ class BinarySplayTree:
              return self.root
 
 
+    def mark_all_nodes_1 (self, startNode):
+        if startNode != None:
+            if startNode.left != None:
+                startNode.left.marked = 1
+                self.mark_all_nodes_1(startNode.left)
+            if startNode.right != None:
+                startNode.right.marked = 1
+                self.mark_all_nodes_1(startNode.right)
+            logging.info("mark_all_nodes_1 done for: {0}".format(startNode.data))
+
+    def mark_all_nodes_0 (self, startNode):
+        if startNode != None:
+            if startNode.left != None:
+                startNode.left.marked = 0
+                self.mark_all_nodes_0(startNode.left)
+            if startNode.right != None:
+                startNode.right.marked = 0
+                self.mark_all_nodes_0(startNode.right)
+
+        logging.info("mark_all_nodes_0 done for: {0}".format(startNode.data))
 
     def binary_search(self, startNode, key):
-        global found_key
-        found_key = False
+        marked_route = []
 
         if type(startNode) == None or (startNode == None):
             print(TypeError)
+            logging.info("TypeError: {0}".format(startNode))
             return None
         
         self.usedNodesInSearch += 1
-        print ("binary_search parameter Startnode:", startNode.data)
+        logging.info("binary_search parameter Startnode (data, key, marked): ({0}, {1}, {2}) ". format(startNode.data, key, startNode.marked))
 
         if key == startNode.data:
-            print("done")
-            found_key = True
-            self.moveToTop(startNode)
+            startNode.marked = 1
+            self.mark_all_nodes_1 (self.root)
+            logging.info("!!! self.mark_all_nodes_1 !!!")
+            logging.info("DONE - data: ({0})".format(startNode.data))
+            self.oneParamCache = startNode
             return startNode
 
-        # print ("SplayTree Binary search result:", startNode.data)
-        while key != startNode.data:
-            if startNode.left != None:
-                print("GO LEFT", startNode.data)
+        if startNode.marked != 1:
+            if startNode.left != None and startNode.left.marked != 1 and startNode.marked != 1:
+                logging.info("1-GO LEFT {0}" .format(startNode.data))
                 self.binary_search(startNode.left, key)
-            if startNode.right != None:
-                print("GO Right",  startNode.data)
+                startNode.marked = 1
+
+
+            if startNode.right != None and startNode.right.marked != 1 and startNode.marked != 1:
+                logging.info("1-GO RIGHT {0}".format(startNode.data))
                 self.binary_search(startNode.right, key)
+                startNode.marked = 1
 
-        print("binary_search END:",startNode.data, self.usedNodesInSearch)
+            if startNode.marked == 1 and self.oneParamCache != None:
+                logging.info("1-exit subsearch {0}".format(startNode.data))
+                return (self.oneParamCache)
+        else:
+            logging.info("2-exit subsearch {0}".format(startNode.data))
+            return (self.oneParamCache)
 
-    
-             
     def deleteElem(self, startNode, key):
         x = None
         t = None 
@@ -132,7 +166,7 @@ class BinarySplayTree:
                 startNode = startNode.left
         self.counterNodes -= 1
         if x == None:
-            print ("Couldn't find key in the tree")
+            print ("Couldn't find key to delete in the tree")
             return
         
         # split operation
@@ -307,9 +341,7 @@ class BinarySplayTree:
     def searchSplayTree(self, k):
         assert (type(self.root.data) and type(self)) is not None, " \n %r is not a Root in Splaytree" % (self.root)
         if type(self.root)!= None and type(self) != None and type(self.root.data)!= None:
-                #print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k)
                 x = self.binary_search(self.root, k)
-                print("searchSplayTree now given", x.data)
                 if x != None:
                     self.moveToTop(x)
                 return x
@@ -368,18 +400,29 @@ class BinarySplayTree:
         global resultList 
         resultList =[]
         while (len(searchlist) > 0):
-            key = searchlist.pop()
+            key = searchlist.pop(0)
+            logging.info("\nStart searchSplayTree for {0}".format(key))
+            # clean splaytree from markes
+            logging.info("\nStart Clean Splaytree, mark_all_nodes_0")
+            self.mark_all_nodes_0(self.root)
+            logging.info("\nStart splay_result for {0}".format(key))
             splay_result = self.searchSplayTree(key)
-            print ("\nStart twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
-            x = tree.twoDirectSearch_Node(splay_result, key)
-            #print ("twoDirectSearch_Node in BST is searching for key:", key) 
-            
-            if x != None:
-                #print("1) result twoDirectSearch_Node in BST:", (x.data))    
-                resultList.append(x.data) 
+            if splay_result != None:
+                logging.info("\nStart twoDirectSearch_Node in BST with Splaynode {0}".format(splay_result.data))
+
+            if splay_result == key:
+                resultList.append(splay_result.data)
+                break
             else:
-                #print("2) result twoDirectSearch_Node in BST: ", (x))
-                resultList.append(x)
+                x = tree.twoDirectSearch_Node(splay_result, key)
+                logging.info("\ntwoDirectSearch_Node in BST is searching for key {0}".format(key))
+            
+                if x != None:
+                    logging.info("1) result twoDirectSearch_Node in BST:{0}".format(x.data))
+                    resultList.append(x.data)
+                else:
+                    logging.info("2) result twoDirectSearch_Node in BST:{0}".format(x))
+                    resultList.append(x)
         return resultList
     
     def findMultipleElem_with_SplayTree_WORKING (self, tree, searchlist, resultList):
@@ -401,15 +444,24 @@ class BinarySplayTree:
 
 
 
+
 if __name__ == '__main__':
-    logging.basicConfig(filename='logFILE.log', encoding='utf-8', level=logging.DEBUG)
-    sys.setrecursionlimit(20000)
+    sys.setrecursionlimit(10000)
+    logging.basicConfig(filename='logFILE-BinarySplayTree.log', encoding='utf-8', level=logging.DEBUG)
 
-    list0 = list(range(10,2))
-    list1 = list(range(1,25))
-    list2 = list(range(1,25))
+    def make_total_random(list):
+        # Achtung, es macht nur Sinn nach Elementen zusuchen die auch da sind! => maximum der gegeben Listen ist größtest Elemeent
+        res = []
+        max = int(list[-1])
+        for i in list:
+            y = random.randrange(1, max)
+            res.append(y)
+        return res
 
-    searchlist = [1,9,1,9,1,9,1,9,1,9,1,9,1,9,1,9]
+    list1 = list(range(1,10))
+    list2 = list(range(1,10))
+
+    searchlist = make_total_random(list(range(1,10)))
     len_s = len(searchlist)
     resultList = []
     
@@ -421,18 +473,19 @@ if __name__ == '__main__':
     print("list2:", list2)
     splay.insertMultipleElem(list2)
     splay.printSplaytree()
-    print("So many splaytree rotatioons happen after insert finished:", splay.counterRotations)
 
     print("-----------------------------")
+    print ("\nsearchlist = ", searchlist)
 
     print("Pre search: number of splay tree used Nodes in search:", splay.usedNodesInSearch)
     print("Pre search: number of used RedBlacktree  Nodes in search:", bst.usedNodesInSearch)
     print ("- > so many elements should be found", len(searchlist))
 
-    splay.findMultipleElem_with_SplayTree(bst, searchlist, resultList)
+    splay.findMultipleElem_with_SplayTree(bst, searchlist)
     splay.printSplaytree()
     print("RESULT- LIST", resultList)
     print("SEARCH- LIST", searchlist)
+
     print("Post Search: number of used Splaytree  Nodes in search:", splay.usedNodesInSearch)
     print("Post Search: number of used RedBlacktree  Nodes in search:", bst.usedNodesInSearch)
     

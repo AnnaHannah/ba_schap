@@ -10,24 +10,42 @@ import logging
 # bitte nicht 0 verwenden, das hat komische effekte im Code
 data_list = []
 #x = [1]
-a = list(range(1,2500))
-b = list(range(1,5000))
-c = list(range(1,7500))
-d = list(range(1,10000))
-e = list(range(1,12500))
-f = list(range(1,15000))
-g = list(range(1,17500))
-h = list(range(1,20000))
+a = list(range(1,25))
+b = list(range(1,50))
+c = list(range(1,75))
+d = list(range(1,100))
+e = list(range(1,125))
+f = list(range(1,150))
+g = list(range(1,175))
+h = list(range(1,200))
 
-k = list(range(1,22500))
-l = list(range(1,25000))
-m = list(range(1,27500))
-n = list(range(1,30000))
-o = list(range(1,32500))
-p = list(range(1,35000))
-q = list(range(1,37500))
-r = list(range(1,40000))
+k = list(range(1,225))
+l = list(range(1,250))
+m = list(range(1,275))
+n = list(range(1,300))
+o = list(range(1,325))
+p = list(range(1,350))
+q = list(range(1,375))
+r = list(range(1,400))
 
+
+# a = list(range(1,2500))
+# b = list(range(1,5000))
+# c = list(range(1,7500))
+# d = list(range(1,10000))
+# e = list(range(1,12500))
+# f = list(range(1,15000))
+# g = list(range(1,17500))
+# h = list(range(1,20000))
+#
+# k = list(range(1,22500))
+# l = list(range(1,25000))
+# m = list(range(1,27500))
+# n = list(range(1,30000))
+# o = list(range(1,32500))
+# p = list(range(1,35000))
+# q = list(range(1,37500))
+# r = list(range(1,40000))
 
 
 def makeBigLists(listOfList):

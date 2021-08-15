@@ -21,33 +21,52 @@ import logging
 
 data_list = []
 #x = [1]
-a = list(range(1,2500))
-b = list(range(1,5000))
-c = list(range(1,7500))
-d = list(range(1,10000))
-e = list(range(1,12500))
-f = list(range(1,15000))
-g = list(range(1,17500))
-h = list(range(1,20000))
+a = list(range(1,25))
+b = list(range(1,50))
+c = list(range(1,75))
+d = list(range(1,100))
+e = list(range(1,125))
+f = list(range(1,150))
+g = list(range(1,175))
+h = list(range(1,200))
 
-k = list(range(1,22500))
-l = list(range(1,25000))
-m = list(range(1,27500))
-n = list(range(1,30000))
-o = list(range(1,32500))
-p = list(range(1,35000))
-q = list(range(1,37500))
-r = list(range(1,40000))
+k = list(range(1,225))
+l = list(range(1,250))
+m = list(range(1,275))
+n = list(range(1,300))
+o = list(range(1,325))
+p = list(range(1,350))
+q = list(range(1,375))
+r = list(range(1,400))
 
-# verteilungen:
 
-def make_oneNumber(list, number):
+# a = list(range(1,2500))
+# b = list(range(1,5000))
+# c = list(range(1,7500))
+# d = list(range(1,10000))
+# e = list(range(1,12500))
+# f = list(range(1,15000))
+# g = list(range(1,17500))
+# h = list(range(1,20000))
+#
+# k = list(range(1,22500))
+# l = list(range(1,25000))
+# m = list(range(1,27500))
+# n = list(range(1,30000))
+# o = list(range(1,32500))
+# p = list(range(1,35000))
+# q = list(range(1,37500))
+# r = list(range(1,40000))
+
+
+def make_oneNumber(list):
+    number = (list[-1])//2
     res =[]
     for i in list:
         res.append(number)
     return res
 
-def make_zickzack(list):
+def  make_total_random(list):
     max = int(list[-1])
     res = []
     for i in list:
@@ -55,18 +74,20 @@ def make_zickzack(list):
            res.append(1) 
         else:
            res.append(max)  
-    #print ("make_zickzack %r list lenght with list:" % str(len(res)+1),  res )
+    #print (" make_total_random %r list lenght with list:" % str(len(res)+1),  res )
     #print (res)
     return res
 
-def make_oneCluster_left(list, x_spread):
+def make_oneCluster_left(list):
+    x_spread = int(len(list) * 0.05)
     res = []
     for i in list:
         y = random.randrange(0, x_spread)
         res.append(y)
     return res
          
-def make_oneCluster_right(list, x_spread):
+def make_oneCluster_right(list):
+    x_spread = int(len(list) * 0.05)
     max = int(list[-1])
     res = []
     cluster_middle = (max - x_spread)
@@ -75,7 +96,8 @@ def make_oneCluster_right(list, x_spread):
         res.append(y)
     return res
 
-def make_oneCluster_middle(list, x_spread):
+def make_oneCluster_middle(list):
+    x_spread = int(len(list) * 0.05)
     res = []
     max = int(list[-1])
     list_middle = int(max//2 - x_spread)
@@ -90,7 +112,7 @@ def make_total_random(list):
     res=[]
     max = int(list [-1])
     for i in list:
-        y = random.randrange(0, max)
+        y = random.randrange(1, max)
         res.append(y)
     return res
 
@@ -110,23 +132,23 @@ def makeBigLists(listOfList):
     g_new = []
     h_new = []
 
-    a_new = make_zickzack(a)
-    b_new = make_zickzack(b)
-    c_new = make_zickzack(c)
-    d_new = make_zickzack(d)
-    e_new = make_zickzack(e)
-    f_new = make_zickzack(f)
-    g_new = make_zickzack(g)
-    h_new = make_zickzack(h)
+    a_new =   make_total_random(a)
+    b_new =   make_total_random(b)
+    c_new =   make_total_random(c)
+    d_new =   make_total_random(d)
+    e_new =   make_total_random(e)
+    f_new =   make_total_random(f)
+    g_new =   make_total_random(g)
+    h_new =   make_total_random(h)
 
-    k_new = make_zickzack(k)
-    l_new = make_zickzack(l)
-    m_new = make_zickzack(m)
-    n_new = make_zickzack(n)
-    o_new = make_zickzack(o)
-    p_new = make_zickzack(p)
-    q_new = make_zickzack(q)
-    r_new = make_zickzack(r)
+    k_new =   make_total_random(k)
+    l_new =   make_total_random(l)
+    m_new =   make_total_random(m)
+    n_new =   make_total_random(n)
+    o_new =   make_total_random(o)
+    p_new =   make_total_random(p)
+    q_new =   make_total_random(q)
+    r_new =   make_total_random(r)
 
     # Logging for easy study
     logging.info("\n first list is logged here:")
@@ -174,7 +196,7 @@ if __name__ == "__main__":
 
     sys.setrecursionlimit(3000)
     print("\n -> Recursion allowed in this program:", sys.getrecursionlimit())
-    #print(make_zickzack(a))
+    #print( make_total_random(a))
     #print(make_oneCluster_middle(b, 2))
     #print(make_total_random(a))
   
