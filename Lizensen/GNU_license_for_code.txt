@@ -2,7 +2,6 @@ Copyright 2021, Anna Hannah Schapiro
 
 This license is required by my university Freie Universität Berlin for my bachelor's degree: 
 
-
                  GNU LESSER GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
