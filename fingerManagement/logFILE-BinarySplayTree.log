@@ -2980,3 +2980,447 @@ Start twoDirectSearch_Node in BST with Splaynode 5
 INFO:root:
 twoDirectSearch_Node in BST is searching for key 6
 INFO:root:1) result twoDirectSearch_Node in BST:6
+INFO:root:
+Start searchSplayTree for 7
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:
+Start splay_result for 7
+INFO:root:binary_search parameter Startnode (data, key, marked): (9, 7, 0) 
+INFO:root:1-GO LEFT 9
+INFO:root:binary_search parameter Startnode (data, key, marked): (8, 7, 0) 
+INFO:root:1-GO LEFT 8
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 7, 0) 
+INFO:root:mark_all_nodes_1 done for: 1
+INFO:root:mark_all_nodes_1 done for: 2
+INFO:root:mark_all_nodes_1 done for: 3
+INFO:root:mark_all_nodes_1 done for: 4
+INFO:root:mark_all_nodes_1 done for: 5
+INFO:root:mark_all_nodes_1 done for: 6
+INFO:root:mark_all_nodes_1 done for: 7
+INFO:root:mark_all_nodes_1 done for: 8
+INFO:root:mark_all_nodes_1 done for: 9
+INFO:root:!!! self.mark_all_nodes_1 !!!
+INFO:root:DONE - data: (7)
+INFO:root:1-exit subsearch 8
+INFO:root:1-exit subsearch 9
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 7
+INFO:root:1) result twoDirectSearch_Node in BST:7
+INFO:root:
+Start searchSplayTree for 4
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:
+Start splay_result for 4
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 4, 1) 
+INFO:root:2-exit subsearch 7
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 4
+INFO:root:1) result twoDirectSearch_Node in BST:4
+INFO:root:
+Start searchSplayTree for 3
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:
+Start splay_result for 3
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 3, 1) 
+INFO:root:2-exit subsearch 7
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 3
+INFO:root:1) result twoDirectSearch_Node in BST:3
+INFO:root:
+Start searchSplayTree for 4
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:
+Start splay_result for 4
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 4, 1) 
+INFO:root:2-exit subsearch 7
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 4
+INFO:root:1) result twoDirectSearch_Node in BST:4
+INFO:root:
+Start searchSplayTree for 5
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:
+Start splay_result for 5
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 5, 1) 
+INFO:root:2-exit subsearch 7
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 5
+INFO:root:1) result twoDirectSearch_Node in BST:5
+INFO:root:
+Start searchSplayTree for 6
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:
+Start splay_result for 6
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 6, 1) 
+INFO:root:2-exit subsearch 7
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 6
+INFO:root:1) result twoDirectSearch_Node in BST:6
+INFO:root:
+Start searchSplayTree for 5
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:
+Start splay_result for 5
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 5, 1) 
+INFO:root:2-exit subsearch 7
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 5
+INFO:root:1) result twoDirectSearch_Node in BST:5
+INFO:root:
+Start searchSplayTree for 6
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:
+Start splay_result for 6
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 6, 1) 
+INFO:root:2-exit subsearch 7
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 6
+INFO:root:1) result twoDirectSearch_Node in BST:6
+INFO:root:
+Start searchSplayTree for 3
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:
+Start splay_result for 3
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 3, 1) 
+INFO:root:2-exit subsearch 7
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 7
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 3
+INFO:root:1) result twoDirectSearch_Node in BST:3
+INFO:root:
+Start searchSplayTree for 5
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:
+Start splay_result for 5
+INFO:root:binary_search parameter Startnode (data, key, marked): (9, 5, 0) 
+INFO:root:1-GO LEFT 9
+INFO:root:binary_search parameter Startnode (data, key, marked): (8, 5, 0) 
+INFO:root:1-GO LEFT 8
+INFO:root:binary_search parameter Startnode (data, key, marked): (7, 5, 0) 
+INFO:root:1-GO LEFT 7
+INFO:root:binary_search parameter Startnode (data, key, marked): (6, 5, 0) 
+INFO:root:1-GO LEFT 6
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 5, 0) 
+INFO:root:mark_all_nodes_1 done for: 1
+INFO:root:mark_all_nodes_1 done for: 2
+INFO:root:mark_all_nodes_1 done for: 3
+INFO:root:mark_all_nodes_1 done for: 4
+INFO:root:mark_all_nodes_1 done for: 5
+INFO:root:mark_all_nodes_1 done for: 6
+INFO:root:mark_all_nodes_1 done for: 7
+INFO:root:mark_all_nodes_1 done for: 8
+INFO:root:mark_all_nodes_1 done for: 9
+INFO:root:!!! self.mark_all_nodes_1 !!!
+INFO:root:DONE - data: (5)
+INFO:root:1-exit subsearch 6
+INFO:root:1-exit subsearch 7
+INFO:root:1-exit subsearch 8
+INFO:root:1-exit subsearch 9
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 5
+INFO:root:1) result twoDirectSearch_Node in BST:5
+INFO:root:
+Start searchSplayTree for 6
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:
+Start splay_result for 6
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 6, 1) 
+INFO:root:2-exit subsearch 5
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 6
+INFO:root:1) result twoDirectSearch_Node in BST:6
+INFO:root:
+Start searchSplayTree for 8
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:
+Start splay_result for 8
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 8, 1) 
+INFO:root:2-exit subsearch 5
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 8
+INFO:root:1) result twoDirectSearch_Node in BST:8
+INFO:root:
+Start searchSplayTree for 1
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:
+Start splay_result for 1
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 1, 1) 
+INFO:root:2-exit subsearch 5
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 1
+INFO:root:1) result twoDirectSearch_Node in BST:1
+INFO:root:
+Start searchSplayTree for 4
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:
+Start splay_result for 4
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 4, 1) 
+INFO:root:2-exit subsearch 5
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 4
+INFO:root:1) result twoDirectSearch_Node in BST:4
+INFO:root:
+Start searchSplayTree for 4
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:
+Start splay_result for 4
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 4, 1) 
+INFO:root:2-exit subsearch 5
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 4
+INFO:root:1) result twoDirectSearch_Node in BST:4
+INFO:root:
+Start searchSplayTree for 5
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:
+Start splay_result for 5
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 5, 1) 
+INFO:root:mark_all_nodes_1 done for: 1
+INFO:root:mark_all_nodes_1 done for: 2
+INFO:root:mark_all_nodes_1 done for: 3
+INFO:root:mark_all_nodes_1 done for: 4
+INFO:root:mark_all_nodes_1 done for: 7
+INFO:root:mark_all_nodes_1 done for: 6
+INFO:root:mark_all_nodes_1 done for: 9
+INFO:root:mark_all_nodes_1 done for: 8
+INFO:root:mark_all_nodes_1 done for: 5
+INFO:root:!!! self.mark_all_nodes_1 !!!
+INFO:root:DONE - data: (5)
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 5
+INFO:root:1) result twoDirectSearch_Node in BST:5
+INFO:root:
+Start searchSplayTree for 7
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:
+Start splay_result for 7
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 7, 1) 
+INFO:root:2-exit subsearch 5
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 7
+INFO:root:1) result twoDirectSearch_Node in BST:7
+INFO:root:
+Start searchSplayTree for 6
+INFO:root:
+Start Clean Splaytree, mark_all_nodes_0
+INFO:root:mark_all_nodes_0 done for: 1
+INFO:root:mark_all_nodes_0 done for: 2
+INFO:root:mark_all_nodes_0 done for: 3
+INFO:root:mark_all_nodes_0 done for: 4
+INFO:root:mark_all_nodes_0 done for: 7
+INFO:root:mark_all_nodes_0 done for: 6
+INFO:root:mark_all_nodes_0 done for: 9
+INFO:root:mark_all_nodes_0 done for: 8
+INFO:root:mark_all_nodes_0 done for: 5
+INFO:root:
+Start splay_result for 6
+INFO:root:binary_search parameter Startnode (data, key, marked): (5, 6, 1) 
+INFO:root:2-exit subsearch 5
+INFO:root:
+Start twoDirectSearch_Node in BST with Splaynode 5
+INFO:root:
+twoDirectSearch_Node in BST is searching for key 6
+INFO:root:1) result twoDirectSearch_Node in BST:6

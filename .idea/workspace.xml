@@ -4,14 +4,23 @@
     <list default="true" id="75bb3a3c-bc3c-438f-8274-0a91bde7d757" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/BinarySplayTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fingerManagement/logFILE.log" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/logFILE.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/GenerateInputList.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/GenerateInputList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fingerManagement/logFILE-BinarySplayTree.log" beforeDir="false" afterPath="$PROJECT_DIR$/fingerManagement/logFILE-BinarySplayTree.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/GenerateSearchList.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/GenerateSearchList.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/PlotsCounterWindows.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/PlotsCounterWindows.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/inputLists.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/inputLists.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" beforeDir="false" afterPath="$PROJECT_DIR$/main/logFILE-GenerateInputLists.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/logFILE-PlotsCounterWindows.log" beforeDir="false" afterPath="$PROJECT_DIR$/main/logFILE-PlotsCounterWindows.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/searchLists.csv" beforeDir="false" afterPath="$PROJECT_DIR$/main/searchLists.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/Dokumentation_Plot.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/GenerateInputList.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/GenerateSearchList.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/PlotsCounterWindows.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/PlotsTimerLinux.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/PlotsTimerWindows.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/PrintWhatsInCSV.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/inputLists.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/searchLists.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/testFILE.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +129,9 @@
     <configuration name="PlotsCounterWindows" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\Anna\AppData\Local\Programs\Python\Python39\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/main" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -178,18 +190,18 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.PlotsCounterWindows" />
       <item itemvalue="Python.BinarySplayTree" />
-      <item itemvalue="Python.GenerateSearchList" />
-      <item itemvalue="Python.RedBlackTree" />
-      <item itemvalue="Python.PlotsTimerWindows" />
       <item itemvalue="Python.GenerateInputList" />
+      <item itemvalue="Python.GenerateSearchList" />
+      <item itemvalue="Python.PlotsCounterWindows" />
+      <item itemvalue="Python.PlotsTimerWindows" />
+      <item itemvalue="Python.RedBlackTree" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.GenerateSearchList" />
-        <item itemvalue="Python.BinarySplayTree" />
         <item itemvalue="Python.GenerateInputList" />
+        <item itemvalue="Python.BinarySplayTree" />
         <item itemvalue="Python.PlotsTimerWindows" />
         <item itemvalue="Python.RedBlackTree" />
       </list>
@@ -239,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628615366109</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Working version (all Functions)&#10;&#10;- schriftliche Ausarbeitung&#10;- splaytree hat marker bei nodes, um pfade nicht doppelt auszuführen">
+      <created>1629064053343</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1629064053343</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -262,7 +281,8 @@
     <MESSAGE value="Working version (all Functions)&#10;&#10;- generate input file is correcter now" />
     <MESSAGE value="Working version (all Functions)&#10;&#10;- schriftliche ausarbeitung" />
     <MESSAGE value="Working version (all Functions)&#10;&#10;- schriftliche Ausarbeitung&#10;- plots - nodes per 1 suche erstellt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working version (all Functions)&#10;&#10;- schriftliche Ausarbeitung&#10;- plots - nodes per 1 suche erstellt" />
+    <MESSAGE value="Working version (all Functions)&#10;&#10;- schriftliche Ausarbeitung&#10;- splaytree hat marker bei nodes, um pfade nicht doppelt auszuführen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working version (all Functions)&#10;&#10;- schriftliche Ausarbeitung&#10;- splaytree hat marker bei nodes, um pfade nicht doppelt auszuführen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -197,8 +197,7 @@ def timePerformanceINSERTRedBlackTree(listOfLists):
     for list in listOfLists:
         timeRBT = messureTime_INSERT_RedBlackTree(list)
         perf_OutputList.append(timeRBT)
-        
-   
+
     print ("timePerformanceINSERTRedBlackTree will return:", perf_OutputList)
     return perf_OutputList
 

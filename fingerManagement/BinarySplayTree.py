@@ -486,14 +486,12 @@ if __name__ == '__main__':
     print("RESULT- LIST", resultList)
     print("SEARCH- LIST", searchlist)
 
+    print("-----------------------------")
     print("Post Search: number of used Splaytree  Nodes in search:", splay.usedNodesInSearch)
     print("Post Search: number of used RedBlacktree  Nodes in search:", bst.usedNodesInSearch)
     
     print ("Post Search: totalnumber of used Nodes in all BST+SplayTree:",splay.usedNodesInSearch + bst.usedNodesInSearch)
     
     print ("optimal BST search numers would be:", int((math.log(bst.counterNodes, 2))*len_s))
-    
-    #print("Splay tree after usage : -----------------------------")
-    #sptree.printSplaytree()
-    
+
     
