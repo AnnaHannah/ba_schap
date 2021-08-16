@@ -24,7 +24,8 @@ class LazyFinger():
         
     # set the first finger to the root (why not)      
     def setfirst_LazyFinger(self, tree):
-        if type(tree)== RedBlackTree:    
+        assert type(tree) is not None, "LazyFinger has invalid Tree input"
+        if type(tree) == RedBlackTree:
             newLazyFinger = tree.getRoot()
             self.lazyFinger = newLazyFinger
             #print("setfirst_LazyFinger - lazy Finger was set to:", self.lazyFinger.data)
@@ -32,34 +33,28 @@ class LazyFinger():
     
     # update the finger after search
     def lazyFinger_search(self, tree, keyInInt):
-        assert type(self.lazyFinger.data) is not None, " \n %r is not a Finger, in this Tree only Lazy Finger as Finger accepted. \n Please modify your Lazyfinger" % (self.lazyFinger.data)
-        
-        if type(tree)== RedBlackTree:
-            
-            if keyInInt == self.lazyFinger.data:
-                self.usedNodesInSearch += 1
-                searchResult = LazyFinger
-                #print ("1a) lazy finger %r was used for search result:" % self.lazyFinger.data, searchResult.data)
-                #print ("1b) lazyFinger_search - self.usedNodesInSearch:", self.usedNodesInSearch)
-                #print ("1c) lazyFinger_search - bst.usedNodesInSearch:", bst.usedNodesInSearch)
-            else:
-                searchResult = None
-                self.usedNodesInSearch += 1
-                searchResult = tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)
-                #print ("2a) lazy finger %r was used for search result:" % self.lazyFinger.data, searchResult.data)
-                #print ("2b) lazyFinger_search - self.usedNodesInSearch:", self.usedNodesInSearch)
-                #print ("2c) lazyFinger_search - bst.usedNodesInSearch:", bst.usedNodesInSearch)
-            
-            self.lazyFinger = searchResult
-            #print ("Lazy Finger now set to:", self.lazyFinger.data)
-            #print (searchResult.data == self.lazyFinger.data)
-            return searchResult
+        assert type(tree) is not None, "LazyFinger has invalid Tree input"
+        assert type(self.lazyFinger.data) is not None, " %r is not a Finger, in this Tree only Lazy Finger as Finger accepted. Please modify your Lazy Finger" % self.lazyFinger.data
+        self.usedNodesInSearch += 1
+
+        if keyInInt == self.lazyFinger.data:
+            searchResult = self.lazyFinger
+
+        elif (keyInInt != self.lazyFinger.data):
+            searchResult = None
+            searchResult = tree.twoDirectSearch_Node(self.lazyFinger, keyInInt)
+            if searchResult != None:
+                 self.lazyFinger = searchResult
+        return searchResult
     
     def findMultipleElem_with_LazyFinger (self, tree, list):
         foundList = []
         while list != []:
             x = list.pop()
-            self.lazyFinger_search(tree, x)   
+            if x != None:
+                y = self.lazyFinger_search(tree, x)
+            if y!= None:
+                self.lazyFinger = y
 
 if __name__ == '__main__':
     sys.setrecursionlimit(2000)
@@ -87,9 +82,9 @@ if __name__ == '__main__':
     
     # compare without
     print("--- without lazy finger ---")
-    
-    inputList1 = [1,2,3,4,5,6,7,8]
-    searchlist = [1,1,1,1,1,1,1,1]
+
+    inputList1 = [1, 2, 3, 4, 5, 6, 7, 8]
+    searchlist = [1, 8, 1, 8, 1, 8, 1, 8, 1]
     
     bst.insertMultipleElem(inputList1)
     bst.findMultipleElem(searchlist)

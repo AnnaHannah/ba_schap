@@ -32,9 +32,10 @@ h = list(range(1,200))
 # verteilungen:
 
 def make_oneNumber(list, number):
+    res = []
     for i in list:
-           list[i] = number
-    return list
+        res.append(number)
+    return res
 
 def make_zickzack(list):
     max = int(list[-1])
@@ -45,7 +46,7 @@ def make_zickzack(list):
         else:
            res.append(max)  
     #print ("make_zickzack %r list lenght with list:" % str(len(res)+1),  res )
-    return list
+    return res
 
 def make_oneCluster_left(list, x_spread):
     res = []
@@ -90,14 +91,14 @@ def makeBigLists(listOfList):
     print("2. ... ")
     # verarbeitung der Listen mit verteilungen 
     
-    make_zickzack(a)
-    make_zickzack(b)
-    make_zickzack(c)
-    make_zickzack(d)
-    make_zickzack(e)
-    make_zickzack(f)
-    make_zickzack(g)
-    make_zickzack(h)
+    make_total_random(a)
+    make_total_random(b)
+    make_total_random(c)
+    make_total_random(d)
+    make_total_random(e)
+    make_total_random(f)
+    make_total_random(g)
+    make_total_random(h) 
     
     # Beispiel um alle Listen anzuhängen 
     ouput_list.append(x) 
@@ -124,9 +125,11 @@ def writeMYfile(filename, data):
 if __name__ == "__main__":
     sys.setrecursionlimit(3000)
     print("\n -> Recursion allowed in this program:", sys.getrecursionlimit())
+    
     #print(make_zickzack(a))
-    #print(make_oneCluster_middle(b, 2))
+    #print(make_oneCluster_middle(a, 2))
     #print(make_total_random(a))
+    print("\n Spample of list values :", make_total_random(a))
   
     
     # schreibe test1 csv mit datalisten:

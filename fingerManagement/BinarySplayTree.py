@@ -98,21 +98,17 @@ class BinarySplayTree:
         #print ("start this binary_search parameter:", (startNode.data, key))
         
         if key == startNode.data:
-            #print ("-- binary_search found key in splay:", key, startNode.data)
+            print ("-- binary_search found key in splay:", key, startNode.data)
             return startNode
         
         if (key != startNode.data):
-            # print ("SplayTree Binary search result:", startNode.data)
+            print ("B) binary_search search result:", startNode.data)
             if type(startNode.left) != None and type(startNode.right) == None:
                 return self.binary_search(startNode.left, key)
                 
             if type(startNode.right) != None and type(startNode.left) == None:
                 return self.binary_search(startNode.right, key)    
                 
-            elif type(startNode) == None: 
-                self.binary_search(startNode.left, key)
-                self.binary_search(startNode.right, key)       
-
             if type(startNode) == None:
                     print ("0) FAIL: Case missed in BinarySplayTree Startnode", startNode.data, type(startNode))
                     return    
@@ -304,8 +300,9 @@ class BinarySplayTree:
         assert (type(self.root.data) and type(self)) is not None, " \n %r is not a Root in Splaytree" % (self.root)
         
         if type(self.root)!= None and type(self) != None and type(self.root.data)!= None:
-                #print ("searchSplayTree gives as startpoint for binary_search:", self.root.data, k)
+                print ("A) searchSplayTree gives as startpoint for binary_search:", self.root.data, k)
                 x = self.binary_search(self.root, k)
+                print ("A) searchSplayTree this returns:", x)
                 if x != None:
                     self.moveToTop(x)
                 return x
@@ -364,7 +361,7 @@ class BinarySplayTree:
         global resultList 
         resultList =[]
         while (len(searchlist) > 0):
-            key = searchlist.pop()
+            key = searchlist.pop(0)
             splay_result = self.searchSplayTree(key)
             
             #print ("\nStart twoDirectSearch_Node in BST with Splaynode:", splay_result.data)
@@ -405,8 +402,7 @@ if __name__ == '__main__':
     
     list1 = list.copy()
     list2 = list.copy()
-    searchlist = [9,1,9,1,9,9,9,9,9,9,9,9,9,9,1,2,3,2,1,2,3]
-    
+    searchlist = [9,1,8]
     resultList = []
     
     bst = RedBlackTree()            
